@@ -10,19 +10,20 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// fct
-int fct();
-RcppExport SEXP _c3dr_fct() {
+// read
+int read(const std::string& filepath);
+RcppExport SEXP _c3dr_read(SEXP filepathSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(fct());
+    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
+    rcpp_result_gen = Rcpp::wrap(read(filepath));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_c3dr_fct", (DL_FUNC) &_c3dr_fct, 0},
+    {"_c3dr_read", (DL_FUNC) &_c3dr_read, 1},
     {NULL, NULL, 0}
 };
 
