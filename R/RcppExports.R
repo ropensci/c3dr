@@ -6,6 +6,6 @@ read <- function(filepath) {
 }
 
 data <- function(filepath) {
-    invisible(.Call(`_c3dr_data`, filepath))
+    .Call(`_c3dr_data`, filepath)
 }
 

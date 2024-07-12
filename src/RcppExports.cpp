@@ -22,13 +22,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // data
-void data(const std::string& filepath);
+NumericVector data(const std::string& filepath);
 RcppExport SEXP _c3dr_data(SEXP filepathSEXP) {
 BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    data(filepath);
-    return R_NilValue;
+    rcpp_result_gen = Rcpp::wrap(data(filepath));
+    return rcpp_result_gen;
 END_RCPP
 }
 
