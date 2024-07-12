@@ -5,3 +5,7 @@ read <- function(filepath) {
     .Call(`_c3dr_read`, filepath)
 }
 
+data <- function(filepath) {
+    invisible(.Call(`_c3dr_data`, filepath))
+}
+

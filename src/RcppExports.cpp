@@ -21,9 +21,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// data
+void data(const std::string& filepath);
+RcppExport SEXP _c3dr_data(SEXP filepathSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
+    data(filepath);
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_c3dr_read", (DL_FUNC) &_c3dr_read, 1},
+    {"_c3dr_data", (DL_FUNC) &_c3dr_data, 1},
     {NULL, NULL, 0}
 };
 
