@@ -1,0 +1,38 @@
+CXX_STD = CXX11
+PKG_CXXFLAGS= -I../inst/include/ -I../inst/include/ezc3d/
+
+##include files manually
+C3DROBJECTS=\
+  	./ezc3d/Analogs.o \
+  	./ezc3d/AnalogsInfo.o \
+  	./ezc3d/AnalogsSubframe.o \
+  	./ezc3d/Channel.o \
+  	./ezc3d/Data.o \
+  	./ezc3d/DataStartInfo.o \
+  	./ezc3d/ezc3d.o \
+  	./ezc3d/Frame.o \
+  	./ezc3d/Group.o \
+  	./ezc3d/Header.o \
+  	./ezc3d/Parameter.o \
+  	./ezc3d/Parameters.o \
+  	./ezc3d/Point.o \
+  	./ezc3d/Points.o \
+  	./ezc3d/PointsInfo.o \
+  	./ezc3d/Rotation.o \
+  	./ezc3d/Rotations.o \
+  	./ezc3d/RotationsInfo.o \
+  	./ezc3d/RotationsSubframe.o \
+  	./ezc3d/math/Matrix.o \
+  	./ezc3d/math/Matrix33.o \
+  	./ezc3d/math/Matrix44.o \
+  	./ezc3d/math/Matrix66.o \
+  	./ezc3d/math/Vector3d.o \
+  	./ezc3d/math/Vector6d.o \
+  	./ezc3d/modules/ForcePlatforms.o
+
+WRAPOBJECTS= test.o
+
+PKGOBJECTS= RcppExports.o
+
+OBJECTS= $(WRAPOBJECTS) $(PKGOBJECTS) $(C3DROBJECTS)
+
