@@ -12,6 +12,7 @@
 #include "ezc3d/math/Vector6d.h"
 #include <iostream>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::Matrix::Matrix():
     _nbRows(0),
@@ -68,20 +69,20 @@ ezc3d::Matrix::Matrix(
 
 void ezc3d::Matrix::print() const
 {
-    std::cout << " Matrix = [" << "\n";
+    Rcpp::Rcout << " Matrix = [" << "\n";
     for (size_t i=0; i<_nbRows; ++i){
         for (size_t j=0; j<_nbCols; ++j){
-            std::cout << operator ()(i, j);
+            Rcpp::Rcout << operator ()(i, j);
             if (j != _nbCols-1){
-                std::cout << ", ";
+                Rcpp::Rcout << ", ";
             }
         }
         if (i == _nbRows-1){
-            std::cout << "]";
+            Rcpp::Rcout << "]";
         }
-        std::cout << "\n";
+        Rcpp::Rcout << "\n";
     }
-    std::cout << "\n";
+    Rcpp::Rcout << "\n";
 }
 
 double ezc3d::Matrix::sum() const

@@ -17,6 +17,7 @@
 #include "ezc3d/DataStartInfo.h"
 #include <iostream>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::DataNS::Data::Data() {
 }
@@ -64,9 +65,9 @@ ezc3d::DataNS::Data::Data(
 
 void ezc3d::DataNS::Data::print() const {
     for (size_t i = 0; i < nbFrames(); ++i){
-        std::cout << "Frame " << i << "\n";
+        Rcpp::Rcout << "Frame " << i << "\n";
         frame(i).print();
-        std::cout << "\n";
+        Rcpp::Rcout << "\n";
     }
 }
 

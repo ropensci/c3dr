@@ -13,6 +13,7 @@
 #include <iostream>
 #include <bitset>
 #include <cmath>
+#include <Rcpp.h>
 
 ezc3d::DataNS::RotationNS::Rotation::Rotation() :
     ezc3d::Matrix44(),
@@ -76,14 +77,14 @@ ezc3d::DataNS::RotationNS::Rotation::Rotation(
 void ezc3d::DataNS::RotationNS::Rotation::print() const {
     for (size_t i=0; i<_nbRows; ++i){
         for (size_t j=0; j<_nbCols; ++j){
-            std::cout << operator ()(i, j);
+            Rcpp::Rcout << operator ()(i, j);
             if (j != _nbCols-1){
-                std::cout << ", ";
+                Rcpp::Rcout << ", ";
             }
         }
-        std::cout << "\n";
+        Rcpp::Rcout << "\n";
     };
-    std::cout << "Reliability = " << reliability() << "\n";
+    Rcpp::Rcout << "Reliability = " << reliability() << "\n";
 }
 
 void ezc3d::DataNS::RotationNS::Rotation::write(

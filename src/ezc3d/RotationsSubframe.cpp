@@ -15,6 +15,7 @@
 #include <string>
 #endif
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::DataNS::RotationNS::SubFrame::SubFrame() {
 
@@ -35,7 +36,7 @@ ezc3d::DataNS::RotationNS::SubFrame::SubFrame(
 
 void ezc3d::DataNS::RotationNS::SubFrame::print() const {
     for (size_t j = 0; j < nbRotations(); ++j){
-        std::cout << "Rotation: " << j << "\n";
+        Rcpp::Rcout << "Rotation: " << j << "\n";
         rotation(j).print();
     }
 }

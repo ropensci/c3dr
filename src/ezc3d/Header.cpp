@@ -14,6 +14,7 @@
 #include <iostream>
 #include <cmath>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::Header::Header():
     _nbOfZerosBeforeHeader(0),
@@ -73,33 +74,33 @@ ezc3d::Header::Header(
 }
 
 void ezc3d::Header::print() const {
-    std::cout << "HEADER" << "\n";
-    std::cout << "nb3dPoints = " << nb3dPoints() << "\n";
-    std::cout << "nbAnalogsMeasurement = " << nbAnalogsMeasurement() << "\n";
-    std::cout << "nbAnalogs = " << nbAnalogs() << "\n";
-    std::cout << "hasRotationalData = " << hasRotationalData() << "\n";
-    std::cout << "firstFrame = " << firstFrame() << "\n";
-    std::cout << "lastFrame = " << lastFrame() << "\n";
-    std::cout << "nbFrames = " << nbFrames() << "\n";
-    std::cout << "nbMaxInterpGap = " << nbMaxInterpGap() << "\n";
-    std::cout << "scaleFactor = " << scaleFactor() << "\n";
-    std::cout << "dataStart = " << dataStart() << "\n";
-    std::cout << "nbAnalogByFrame = " << nbAnalogByFrame() << "\n";
-    std::cout << "frameRate = " << frameRate() << "\n";
-    std::cout << "keyLabelPresent = " << keyLabelPresent() << "\n";
-    std::cout << "firstBlockKeyLabel = " << firstBlockKeyLabel() << "\n";
-    std::cout << "fourCharPresent = " << fourCharPresent() << "\n";
-    std::cout << "nbEvents = " << nbEvents() << "\n";
+    Rcpp::Rcout << "HEADER" << "\n";
+    Rcpp::Rcout << "nb3dPoints = " << nb3dPoints() << "\n";
+    Rcpp::Rcout << "nbAnalogsMeasurement = " << nbAnalogsMeasurement() << "\n";
+    Rcpp::Rcout << "nbAnalogs = " << nbAnalogs() << "\n";
+    Rcpp::Rcout << "hasRotationalData = " << hasRotationalData() << "\n";
+    Rcpp::Rcout << "firstFrame = " << firstFrame() << "\n";
+    Rcpp::Rcout << "lastFrame = " << lastFrame() << "\n";
+    Rcpp::Rcout << "nbFrames = " << nbFrames() << "\n";
+    Rcpp::Rcout << "nbMaxInterpGap = " << nbMaxInterpGap() << "\n";
+    Rcpp::Rcout << "scaleFactor = " << scaleFactor() << "\n";
+    Rcpp::Rcout << "dataStart = " << dataStart() << "\n";
+    Rcpp::Rcout << "nbAnalogByFrame = " << nbAnalogByFrame() << "\n";
+    Rcpp::Rcout << "frameRate = " << frameRate() << "\n";
+    Rcpp::Rcout << "keyLabelPresent = " << keyLabelPresent() << "\n";
+    Rcpp::Rcout << "firstBlockKeyLabel = " << firstBlockKeyLabel() << "\n";
+    Rcpp::Rcout << "fourCharPresent = " << fourCharPresent() << "\n";
+    Rcpp::Rcout << "nbEvents = " << nbEvents() << "\n";
     for (size_t i=0; i < eventsTime().size(); ++i)
-        std::cout << "eventsTime[" << i << "] = "
+        Rcpp::Rcout << "eventsTime[" << i << "] = "
                   << eventsTime(i) << "\n";
     for (size_t i=0; i < eventsDisplay().size(); ++i)
-        std::cout << "eventsDisplay[" << i << "] = "
+        Rcpp::Rcout << "eventsDisplay[" << i << "] = "
                   << eventsDisplay(i) << "\n";
     for (size_t i=0; i < eventsLabel().size(); ++i)
-        std::cout << "eventsLabel[" << i << "] = "
+        Rcpp::Rcout << "eventsLabel[" << i << "] = "
                   << eventsLabel(i) << "\n";
-    std::cout << "\n";
+    Rcpp::Rcout << "\n";
 }
 
 void ezc3d::Header::write(

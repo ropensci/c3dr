@@ -12,6 +12,7 @@
 #include "ezc3d/Parameters.h"
 #include <iostream>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::ParametersNS::GroupNS::Group::Group(
         const std::string &name,
@@ -23,12 +24,12 @@ ezc3d::ParametersNS::GroupNS::Group::Group(
 }
 
 void ezc3d::ParametersNS::GroupNS::Group::print() const {
-    std::cout << "groupName = " << name() << "\n";
-    std::cout << "isLocked = " << isLocked() << "\n";
-    std::cout << "desc = " << description() << "\n";
+    Rcpp::Rcout << "groupName = " << name() << "\n";
+    Rcpp::Rcout << "isLocked = " << isLocked() << "\n";
+    Rcpp::Rcout << "desc = " << description() << "\n";
 
     for (size_t i=0; i < nbParameters(); ++i){
-        std::cout << "Parameter " << i << "\n";
+        Rcpp::Rcout << "Parameter " << i << "\n";
         parameter(i).print();
     }
 }

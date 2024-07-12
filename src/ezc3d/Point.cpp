@@ -15,6 +15,7 @@
 #include <bitset>
 #include <cmath>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::DataNS::Points3dNS::Point::Point() :
     ezc3d::Vector3d(),
@@ -103,14 +104,14 @@ ezc3d::DataNS::Points3dNS::Point::Point(
 
 void ezc3d::DataNS::Points3dNS::Point::print() const {
     ezc3d::Vector3d::print();
-    std::cout << "Residual = " << residual() << "; Masks = [";
+    Rcpp::Rcout << "Residual = " << residual() << "; Masks = [";
     for (size_t i = 0; i<_cameraMasks.size()-1; ++i){
-        std::cout << _cameraMasks[i] << ", ";
+        Rcpp::Rcout << _cameraMasks[i] << ", ";
     }
     if (_cameraMasks.size() > 0){
-        std::cout << _cameraMasks[_cameraMasks.size()-1] << "]";
+        Rcpp::Rcout << _cameraMasks[_cameraMasks.size()-1] << "]";
     }
-    std::cout << "\n";
+    Rcpp::Rcout << "\n";
 }
 
 void ezc3d::DataNS::Points3dNS::Point::write(

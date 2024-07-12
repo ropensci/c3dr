@@ -10,6 +10,7 @@
 #include "ezc3d/math/Vector6d.h"
 #include <iostream>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::Vector6d::Vector6d() :
     ezc3d::Matrix(6, 1)
@@ -48,7 +49,7 @@ ezc3d::Vector6d::Vector6d(
 
 void ezc3d::Vector6d::print() const
 {
-    std::cout << " Vector = ["
+    Rcpp::Rcout << " Vector = ["
               << _data[0] << ", "
               << _data[1] << ", "
               << _data[2] << ", "

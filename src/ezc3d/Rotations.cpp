@@ -15,6 +15,7 @@
 #include "ezc3d/RotationsSubframe.h"
 #include <iostream>
 #include <stdexcept>
+#include <Rcpp.h>
 
 // Rotations data
 ezc3d::DataNS::RotationNS::Rotations::Rotations()
@@ -38,9 +39,9 @@ ezc3d::DataNS::RotationNS::Rotations::Rotations(
 
 void ezc3d::DataNS::RotationNS::Rotations::print() const {
     for (size_t i = 0; i < nbSubframes(); ++i){
-        std::cout << "Subframe = " << i << "\n";
+        Rcpp::Rcout << "Subframe = " << i << "\n";
         subframe(i).print();
-        std::cout << "\n";
+        Rcpp::Rcout << "\n";
     }
 }
 

@@ -11,6 +11,7 @@
 #include <iostream>
 #include <cmath>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::Vector3d::Vector3d() :
     ezc3d::Matrix(3, 1)
@@ -41,7 +42,7 @@ ezc3d::Vector3d::Vector3d(
 
 void ezc3d::Vector3d::print() const
 {
-    std::cout << " Vector = ["
+    Rcpp::Rcout << " Vector = ["
               << x() << ", "
               << y() << ", "
               << z() << "];"

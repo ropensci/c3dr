@@ -12,6 +12,7 @@
 #include "ezc3d/Header.h"
 #include <iostream>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::DataNS::AnalogsNS::Analogs::Analogs() {
 
@@ -30,9 +31,9 @@ ezc3d::DataNS::AnalogsNS::Analogs::Analogs(
 
 void ezc3d::DataNS::AnalogsNS::Analogs::print() const {
     for (size_t i = 0; i < nbSubframes(); ++i) {
-        std::cout << "Subframe = " << i << "\n";
+        Rcpp::Rcout << "Subframe = " << i << "\n";
         subframe(i).print();
-        std::cout << "\n";
+        Rcpp::Rcout << "\n";
     }
 }
 

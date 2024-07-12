@@ -13,6 +13,7 @@
 #include "ezc3d/DataStartInfo.h"
 #include <iostream>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::ParametersNS::GroupNS::Parameter::Parameter(
         const std::string &name,
@@ -26,28 +27,28 @@ ezc3d::ParametersNS::GroupNS::Parameter::Parameter(
 }
 
 void ezc3d::ParametersNS::GroupNS::Parameter::print() const {
-    std::cout << "parameterName = " << name() << "\n";
-    std::cout << "isLocked = " << isLocked() << "\n";
+    Rcpp::Rcout << "parameterName = " << name() << "\n";
+    Rcpp::Rcout << "isLocked = " << isLocked() << "\n";
 
     // Data are not separated according to _dimension, which could help to read
     if (_data_type == DATA_TYPE::CHAR)
         for (unsigned int i = 0; i < _param_data_string.size(); ++i)
-            std::cout << "param_data_string[" << i << "] = "
+            Rcpp::Rcout << "param_data_string[" << i << "] = "
                       << _param_data_string[i] << "\n";
     if (_data_type == DATA_TYPE::BYTE)
         for (unsigned int i = 0; i < _param_data_int.size(); ++i)
-            std::cout << "param_data[" << i << "] = "
+            Rcpp::Rcout << "param_data[" << i << "] = "
                       << _param_data_int[i] << "\n";
     if (_data_type == DATA_TYPE::INT)
         for (unsigned int i = 0; i < _param_data_int.size(); ++i)
-            std::cout << "param_data[" << i << "] = "
+            Rcpp::Rcout << "param_data[" << i << "] = "
                       << _param_data_int[i] << "\n";
     if (_data_type == DATA_TYPE::FLOAT)
         for (unsigned int i = 0; i < _param_data_double.size(); ++i)
-            std::cout << "param_data[" << i << "] = "
+            Rcpp::Rcout << "param_data[" << i << "] = "
                       << _param_data_double[i] << "\n";
 
-    std::cout << "description = " << _description << "\n";
+    Rcpp::Rcout << "description = " << _description << "\n";
 }
 
 void ezc3d::ParametersNS::GroupNS::Parameter::write(

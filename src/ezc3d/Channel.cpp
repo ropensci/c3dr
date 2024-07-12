@@ -12,6 +12,7 @@
 #include "ezc3d/Header.h"
 #include "ezc3d/AnalogsInfo.h"
 #include <iostream>
+#include <Rcpp.h>
 
 ezc3d::DataNS::AnalogsNS::Channel::Channel() {
 
@@ -41,7 +42,7 @@ ezc3d::DataNS::AnalogsNS::Channel::Channel(
 }
 
 void ezc3d::DataNS::AnalogsNS::Channel::print() const {
-    std::cout << "Analog = " << data() << "\n";
+    Rcpp::Rcout << "Analog = " << data() << "\n";
 }
 
 void ezc3d::DataNS::AnalogsNS::Channel::write(

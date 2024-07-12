@@ -13,6 +13,7 @@
 #include <iostream>
 #include <cmath>
 #include <stdexcept>
+#include <Rcpp.h>
 
 ezc3d::ParametersNS::Parameters::Parameters():
     _parametersStart(1),
@@ -30,11 +31,11 @@ ezc3d::ParametersNS::Parameters::Parameters(
     _checksum(0x50),
     _nbParamBlock(0),
     _processorType(PROCESSOR_TYPE::NO_PROCESSOR_TYPE) {
-    
+
     _parametersStart = c3d.readUint(
         processorType(),
         file,
-        1*ezc3d::DATA_TYPE::BYTE, 
+        1*ezc3d::DATA_TYPE::BYTE,
         static_cast<int>(
             256*ezc3d::DATA_TYPE::WORD*(c3d.header().parametersAddress()-1) + c3d.header().nbOfZerosBeforeHeader()
         ),
@@ -44,18 +45,18 @@ ezc3d::ParametersNS::Parameters::Parameters(
         // but it is still in the file. So just ignore it.
         _parametersStart = 1;
     }
-    
+
     _checksum = c3d.readUint(processorType(), file, 1*ezc3d::DATA_TYPE::BYTE);
     if (_checksum != 0x50){
         // This is there for historical reasons. The checksum is not used anymore
         // but it is still in the file. So just ignore it.
         _checksum = 0x50;
-    } 
-    
+    }
+
     _nbParamBlock = c3d.readUint(processorType(), file, 1*ezc3d::DATA_TYPE::BYTE);
     size_t processorTypeId = c3d.readUint(processorType(), file, 1*ezc3d::DATA_TYPE::BYTE);
-    
-        
+
+
 
     if (processorTypeId == 84)
         _processorType = ezc3d::PROCESSOR_TYPE::INTEL;
@@ -364,17 +365,17 @@ void ezc3d::ParametersNS::Parameters::setMandatoryParametersForSpecialGroup(
 }
 
 void ezc3d::ParametersNS::Parameters::print() const {
-    std::cout << "Parameters header" << "\n";
-    std::cout << "parametersStart = " << parametersStart() << "\n";
-    std::cout << "nbParamBlock = " << nbParamBlock() << "\n";
-    std::cout << "processorType = " << processorType() << "\n";
+    Rcpp::Rcout << "Parameters header" << "\n";
+    Rcpp::Rcout << "parametersStart = " << parametersStart() << "\n";
+    Rcpp::Rcout << "nbParamBlock = " << nbParamBlock() << "\n";
+    Rcpp::Rcout << "processorType = " << processorType() << "\n";
 
     for (size_t i = 0; i < nbGroups(); ++i){
-        std::cout << "Group " << i << "\n";
+        Rcpp::Rcout << "Group " << i << "\n";
         group(i).print();
-        std::cout << "\n";
+        Rcpp::Rcout << "\n";
     }
-    std::cout << "\n";
+    Rcpp::Rcout << "\n";
 }
 
 ezc3d::ParametersNS::Parameters ezc3d::ParametersNS::Parameters::write(
