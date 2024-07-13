@@ -1,6 +1,6 @@
 #' Read a c3d file in R
 #'
-#' \code{c3dr_read()} imports a c3d file using the C++ ezx3d library.
+#' \code{c3d_read()} imports a c3d file using the C++ ezx3d library.
 #'
 #' @param file A string with the path of a c3d file.
 #'

@@ -31,10 +31,10 @@ List read(const std::string &filepath) {
 
   // get data
   List d(nframes);
-  List frame(npoints);
   NumericMatrix res(nframes, npoints);
   // iterate through data
   for (int i = 0; i < nframes; ++i) {
+    List frame(npoints);
     for (int j = 0; j < npoints; ++j) {
       float x = f.data().frame(i).points().point(j).x();
       float y = f.data().frame(i).points().point(j).y();
@@ -49,9 +49,9 @@ List read(const std::string &filepath) {
 
   // get analogs
   List a(nframes);
-  NumericMatrix aframe(nperframe, nanalogs); // subframes x analogchanels
   // iterate through data
   for (int i = 0; i < nframes; ++i) {
+    NumericMatrix aframe(nperframe, nanalogs); // subframes x analogchanels
     for (int j = 0; j < nperframe; ++j) {
       for (int k = 0; k < nanalogs; ++k) {
         float a = f.data().frame(i).analogs().subframe(j).channel(k).data();
