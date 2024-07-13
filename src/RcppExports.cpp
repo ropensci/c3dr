@@ -21,21 +21,33 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// data
-NumericVector data(const std::string& filepath);
-RcppExport SEXP _c3dr_data(SEXP filepathSEXP) {
+// get_data
+List get_data(const std::string& filepath);
+RcppExport SEXP _c3dr_get_data(SEXP filepathSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    rcpp_result_gen = Rcpp::wrap(data(filepath));
+    rcpp_result_gen = Rcpp::wrap(get_data(filepath));
+    return rcpp_result_gen;
+END_RCPP
+}
+// get_analogs
+List get_analogs(const std::string& filepath);
+RcppExport SEXP _c3dr_get_analogs(SEXP filepathSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_analogs(filepath));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_c3dr_read", (DL_FUNC) &_c3dr_read, 1},
-    {"_c3dr_data", (DL_FUNC) &_c3dr_data, 1},
+    {"_c3dr_get_data", (DL_FUNC) &_c3dr_get_data, 1},
+    {"_c3dr_get_analogs", (DL_FUNC) &_c3dr_get_analogs, 1},
     {NULL, NULL, 0}
 };
 

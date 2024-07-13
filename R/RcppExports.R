@@ -5,7 +5,11 @@ read <- function(filepath) {
     .Call(`_c3dr_read`, filepath)
 }
 
-data <- function(filepath) {
-    .Call(`_c3dr_data`, filepath)
+get_data <- function(filepath) {
+    .Call(`_c3dr_get_data`, filepath)
+}
+
+get_analogs <- function(filepath) {
+    .Call(`_c3dr_get_analogs`, filepath)
 }
 
