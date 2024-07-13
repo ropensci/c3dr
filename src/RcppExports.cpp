@@ -10,56 +10,20 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// get_header
-List get_header(const std::string& filepath);
-RcppExport SEXP _c3dr_get_header(SEXP filepathSEXP) {
+// c3d_read
+List c3d_read(const std::string& filepath);
+RcppExport SEXP _c3dr_c3d_read(SEXP filepathSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_header(filepath));
-    return rcpp_result_gen;
-END_RCPP
-}
-// get_pointnames
-std::vector<std::string> get_pointnames(const std::string& filepath);
-RcppExport SEXP _c3dr_get_pointnames(SEXP filepathSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_pointnames(filepath));
-    return rcpp_result_gen;
-END_RCPP
-}
-// get_data
-List get_data(const std::string& filepath);
-RcppExport SEXP _c3dr_get_data(SEXP filepathSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_data(filepath));
-    return rcpp_result_gen;
-END_RCPP
-}
-// get_analogs
-List get_analogs(const std::string& filepath);
-RcppExport SEXP _c3dr_get_analogs(SEXP filepathSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_analogs(filepath));
+    rcpp_result_gen = Rcpp::wrap(c3d_read(filepath));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_c3dr_get_header", (DL_FUNC) &_c3dr_get_header, 1},
-    {"_c3dr_get_pointnames", (DL_FUNC) &_c3dr_get_pointnames, 1},
-    {"_c3dr_get_data", (DL_FUNC) &_c3dr_get_data, 1},
-    {"_c3dr_get_analogs", (DL_FUNC) &_c3dr_get_analogs, 1},
+    {"_c3dr_c3d_read", (DL_FUNC) &_c3dr_c3d_read, 1},
     {NULL, NULL, 0}
 };
 
