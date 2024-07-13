@@ -7,7 +7,7 @@ using namespace Rcpp;
 using namespace ezc3d;
 
 // [[Rcpp::export]]
-List c3d_read(const std::string &filepath) {
+List read(const std::string &filepath) {
   ezc3d::c3d f = c3d(filepath);
 
   // get header params
