@@ -10,14 +10,25 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// read
-int read(const std::string& filepath);
-RcppExport SEXP _c3dr_read(SEXP filepathSEXP) {
+// get_header
+List get_header(const std::string& filepath);
+RcppExport SEXP _c3dr_get_header(SEXP filepathSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    rcpp_result_gen = Rcpp::wrap(read(filepath));
+    rcpp_result_gen = Rcpp::wrap(get_header(filepath));
+    return rcpp_result_gen;
+END_RCPP
+}
+// get_pointnames
+std::vector<std::string> get_pointnames(const std::string& filepath);
+RcppExport SEXP _c3dr_get_pointnames(SEXP filepathSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_pointnames(filepath));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -45,7 +56,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_c3dr_read", (DL_FUNC) &_c3dr_read, 1},
+    {"_c3dr_get_header", (DL_FUNC) &_c3dr_get_header, 1},
+    {"_c3dr_get_pointnames", (DL_FUNC) &_c3dr_get_pointnames, 1},
     {"_c3dr_get_data", (DL_FUNC) &_c3dr_get_data, 1},
     {"_c3dr_get_analogs", (DL_FUNC) &_c3dr_get_analogs, 1},
     {NULL, NULL, 0}
