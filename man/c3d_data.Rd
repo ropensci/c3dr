@@ -4,13 +4,18 @@
 \alias{c3d_data}
 \title{Get point data from a c3d file}
 \usage{
-c3d_data(x)
+c3d_data(x, format = "wide")
 }
 \arguments{
 \item{x}{A c3d object, as imported by \code{c3d_read()}.}
+
+\item{format}{Either "wide" (default) or "long" to determine the format of the
+resulting data frame. Long format has three columns per point (x,y,z),
+short format has three rows per frame per point (x,y,z).}
 }
 \value{
-A data.frame with three columns (x, y, z) per point.
+A data.frame with the c3d point data. The structure of the data frame
+depends on the 'format' argument.
 }
 \description{
 Get the point data in a data.frame
