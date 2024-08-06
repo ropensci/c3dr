@@ -29,6 +29,9 @@ List read(const std::string &filepath) {
   // get point labels
   std::vector<std::string> label(f.parameters().group("POINT").parameter("LABELS").valuesAsString());
 
+  // get analog labels
+  std::vector<std::string> alabel(f.parameters().group("ANALOG").parameter("LABELS").valuesAsString());
+
   // get data
   List d(nframes);
   NumericMatrix res(nframes, npoints);
@@ -64,6 +67,7 @@ List read(const std::string &filepath) {
   List out = List::create(
     Named("header") = h,
     Named("labels") = label,
+    Named("alabels") = alabel,
     Named("data") = d,
     Named("residuals") = res,
     Named("analog") = a
