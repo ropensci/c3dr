@@ -4,7 +4,7 @@
 
 [repo]: https://github.com/smmnlt/c3dr
 [issues]: https://github.com/smmnlt/c3dr/issues
-[website]: https://github.com/smmnlt/c3dr
+[website]: https://smnnlt.github.io/c3dr/
 [email]: mailto:s.nolte@dshs-koeln.de
 
 ## Code of conduct

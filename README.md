@@ -2,7 +2,7 @@
 
 ## Overview
 
-An R wrapper to the [C++ EZC3D library](https://github.com/pyomeca/ezc3d) for working with motion capture data.
+An R package for working with motion capture data based on the C++ library [EZC3D](https://github.com/pyomeca/ezc3d).
 
 ## Background
 
