@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Simon", "Nolte", , "s.nolte@dshs-koeln.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1643-1860"))
-Description: Handle c3d files for motion capture analyses.
+Description: An R wrapper for the EZC3D library to work with c3d motion capture data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

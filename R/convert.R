@@ -46,7 +46,7 @@ c3d_longer <- function(x) {
 
   # get split factors for reshape
   splt <- split(seq_len(ncol(x)), rep(1:(ncol(x) / 3), each = 3))
-  r <- reshape(
+  r <- stats::reshape(
     data = x,
     varying = splt,
     v.names = new_names,
