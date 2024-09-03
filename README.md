@@ -11,8 +11,8 @@ An R package for working with motion capture data based on the C++ library [EZC3
 Install `c3dr` from GitHub:
 
 ``` r
-if (!require(remotes)) install.packages("remotes")
-remotes::install_github("smmnlt/c3dr")
+if (!require(pak)) install.packages("pak")
+pak::pak("smmnlt/c3dr")
 ```
 
 ## Usage

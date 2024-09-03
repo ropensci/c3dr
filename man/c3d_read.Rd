@@ -13,5 +13,5 @@ c3d_read(file)
 A list of class c3d.
 }
 \description{
-\code{c3d_read()} imports a c3d file using the C++ ezx3d library.
+\code{c3d_read()} imports a c3d file using the C++ ezc3d library.
 }
