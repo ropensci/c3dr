@@ -18,7 +18,7 @@ Install `c3dr` from GitHub:
 
 ``` r
 if (!require(pak)) install.packages("pak")
-pak::pak("smmnlt/c3dr")
+pak::pak("smnnlt/c3dr")
 ```
 
 ## Usage
