@@ -3,9 +3,10 @@
 #' Get the point data in a data.frame
 #'
 #' @param x A c3d object, as imported by \code{c3d_read()}.
-#' @param format Either "wide" (default) or "long" to determine the format of the
-#'   resulting data frame. Long format has three columns per point (x,y,z),
-#'   short format has three rows per frame per point (x,y,z).
+#' @param format Either "wide" (default), "long", or "longest" to determine the
+#'   format of the resulting data frame. The wide format has Long format has
+#'   three columns per point (x,y,z), the long format has three rows per frame
+#'   per point (x,y,z). The longest format has one row per data entry.
 #'
 #' @return A data.frame with the c3d point data. The structure of the data frame
 #'   depends on the 'format' argument.
@@ -22,8 +23,10 @@ c3d_data <- function(x, format = "wide") {
     out
   } else if (format == "long") {
     c3d_longer(out)
+  } else if (format == "longest") {
+    c3d_longest(out)
   } else {
-    stop("'format' argument in c3d_data() must be either 'wide' or 'long'")
+    stop("'format' argument in c3d_data() must be either 'wide', 'long', or 'longest'")
   }
 }
 
@@ -59,6 +62,39 @@ c3d_longer <- function(x) {
   r <- r[,c(ncol(r), seq_along(r)[-ncol(r)])]
   # reorder rows
   r[order(r$frame, r$type),]
+}
+
+#' Convert wide to longest data for c3d points
+#'
+#' Convert from wide representation of data (3 columns per point) to longest
+#' data (1 single data column) in c3d point data
+#'
+#' @param x A data.frame with c3d point data with three columns (x, y, z) per
+#'   point.
+#'
+#' @return A data.frame with one data column. It has 3\*n\*k rows, with n as the
+#'   number of recorded frames and k as the number of recorded points.
+#' @export
+c3d_longest <- function(x) {
+
+  l <- c3d_longer(x)
+
+  vary <- names(l)[-c(1,2)]
+  r <- stats::reshape(
+    data = l,
+    varying = list(vary),
+    v.names = "value",
+    direction = "long",
+    timevar = "point",
+    times = vary
+  )
+
+  # reorder rows based on frame-type-point
+  # preserve original point order (ordering by a factor)
+  # also delete id column
+  p_factor <- factor(r$point, levels = unique(r$point))
+  r <- r[order(r$frame, p_factor, r$type),-ncol(r)]
+  r
 }
 
 #' Get analog data from a c3d file
