@@ -5,6 +5,11 @@ d <- c3d_read(f)
 d_wide <- c3d_data(d)
 d_long <- c3d_data(d, format = "long")
 d_longest <- c3d_data(d, format = "longest")
+a <- c3d_analog(d)
+
+test_that("input validation works", {
+  expect_error(c3d_data(d, format = "short"))
+})
 
 test_that("wide data retrieval works", {
   # dimensions
@@ -29,4 +34,14 @@ test_that("longest data retrieval works", {
   expect_equal(nrow(d_longest), d$header$nframes * d$header$npoints * 3)
   # data
   expect_equal(d_longest$value[4], d$data[[1]][[2]][[1]])
+})
+
+test_that("analog data retrieval works", {
+  # dimensions
+  expect_equal(
+    dim(a),
+    c(d$header$nframes * d$header$analogperframe, d$header$nanalogs)
+  )
+  # data
+  expect_equal(a[2,1], d$analog[[1]][2])
 })
