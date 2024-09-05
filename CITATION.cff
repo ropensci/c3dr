@@ -1,0 +1,77 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "c3dr" in publications use:'
+type: software
+license: MIT
+title: 'c3dr: Work with motion capture data in R'
+version: 0.0.0.9000
+abstract: An R wrapper for the EZC3D library to work with c3d motion capture data.
+authors:
+- family-names: Nolte
+  given-names: Simon
+  email: s.nolte@dshs-koeln.de
+  orcid: https://orcid.org/0000-0003-1643-1860
+preferred-citation:
+  type: manual
+  title: 'c3dr: Work with motion capture data in R'
+  authors:
+  - family-names: Nolte
+    given-names: Simon
+    email: s.nolte@dshs-koeln.de
+    orcid: https://orcid.org/0000-0003-1643-1860
+  year: '2024'
+  url: https://github.com/smnnlt/c3dr
+  notes: R package version 0.0.0.9000
+repository-code: https://github.com/smnnlt/c3dr
+url: https://smnnlt.github.io/c3dr/
+contact:
+- family-names: Nolte
+  given-names: Simon
+  email: s.nolte@dshs-koeln.de
+  orcid: https://orcid.org/0000-0003-1643-1860
+references:
+- type: software
+  title: Rcpp
+  abstract: 'Rcpp: Seamless R and C++ Integration'
+  notes: LinkingTo
+  url: https://www.rcpp.org
+  repository: https://CRAN.R-project.org/package=Rcpp
+  authors:
+  - family-names: Eddelbuettel
+    given-names: Dirk
+  - family-names: Francois
+    given-names: Romain
+  - family-names: Allaire
+    given-names: JJ
+  - family-names: Ushey
+    given-names: Kevin
+  - family-names: Kou
+    given-names: Qiang
+  - family-names: Russell
+    given-names: Nathan
+  - family-names: Ucar
+    given-names: Inaki
+  - family-names: Bates
+    given-names: Douglas
+  - family-names: Chambers
+    given-names: John
+  year: '2024'
+  doi: 10.32614/CRAN.package.Rcpp
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2024'
+  doi: 10.32614/CRAN.package.testthat
+  version: '>= 3.0.0'
+

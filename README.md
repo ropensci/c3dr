@@ -90,6 +90,25 @@ head(a)
 
 ## Citation
 
+``` r
+citation("c3dr")
+```
+
+    To cite spiro in publications use:
+
+      Simon Nolte (2024). c3dr: Work with motion capture data in R. R
+      package Version 0.0.0.9000, https://github.com/smnnlt/c3dr
+
+    A BibTeX entry for LaTeX users is
+
+      @Manual{,
+        title = {c3dr: Work with motion capture data in R},
+        author = {Simon Nolte},
+        year = {2024},
+        url = {https://github.com/smnnlt/c3dr},
+        note = {R package version 0.0.0.9000},
+      }
+
 ## Contributing
 
 If you consider contributing to this package, read the

@@ -7,3 +7,5 @@
 ^docs$
 ^pkgdown$
 ^\.covrignore
+^CITATION\.cff$
+^codemeta\.json$

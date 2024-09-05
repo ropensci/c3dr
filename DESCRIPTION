@@ -1,5 +1,5 @@
 Package: c3dr
-Title: Work with motion capture data
+Title: Work with motion capture data in R
 Version: 0.0.0.9000
 Authors@R: 
     person("Simon", "Nolte", , "s.nolte@dshs-koeln.de", role = c("aut", "cre"),
