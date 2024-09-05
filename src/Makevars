@@ -29,7 +29,7 @@ C3DROBJECTS=\
   	./ezc3d/math/Vector6d.o \
   	./ezc3d/modules/ForcePlatforms.o
 
-WRAPOBJECTS= test.o
+WRAPOBJECTS= read.o
 
 PKGOBJECTS= RcppExports.o
 
