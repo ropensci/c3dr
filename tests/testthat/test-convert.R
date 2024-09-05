@@ -1,7 +1,6 @@
-# get test data file
-f <- test_path("test_b1.c3d")
 # get data
-d <- c3d_read(f)
+d <- c3d_read(c3d_example())
+
 d_wide <- c3d_data(d)
 d_long <- c3d_data(d, format = "long")
 d_longest <- c3d_data(d, format = "longest")

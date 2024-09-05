@@ -1,7 +1,5 @@
-# get test data file
-f <- test_path("test_b1.c3d")
 # get data
-d <- c3d_read(f)
+d <- c3d_read(c3d_example())
 
 test_that("import returns c3d class list", {
   expect_type(d, "list")
