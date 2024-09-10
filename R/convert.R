@@ -10,6 +10,22 @@
 #'
 #' @return A data.frame with the c3d point data. The structure of the data frame
 #'   depends on the 'format' argument.
+#'
+#' @examples
+#' # Import example data
+#' d <- c3d_read(c3d_example())
+#'
+#' # wide format (default)
+#' w <- c3d_data(d)
+#' head(w)
+#'
+#' # long format
+#' l <- c3d_data(d, format = "long")
+#' head(l)
+#'
+#' # longest format
+#' ll <- c3d_data(d, format = "longest")
+#' head(ll)
 #' @export
 
 c3d_data <- function(x, format = "wide") {
@@ -41,6 +57,16 @@ c3d_data <- function(x, format = "wide") {
 #' @return A data.frame with one column per point. It has n*3 rows
 #'   and k columns, with n as the number of recorded frames and k as the
 #'   number of recorded points.
+#'
+#' @examples
+#' # Import example data
+#' d <- c3d_read(c3d_example())
+#' # get point data in wide format
+#' w <- c3d_data(d, format = "wide")
+#' # convert to long data
+#' l <- c3d_longer(w)
+#' head(l)
+#'
 #' @export
 c3d_longer <- function(x) {
   # get new column names
@@ -74,6 +100,14 @@ c3d_longer <- function(x) {
 #'
 #' @return A data.frame with one data column. It has 3\*n\*k rows, with n as the
 #'   number of recorded frames and k as the number of recorded points.
+#' @examples
+#' # Import example data
+#' d <- c3d_read(c3d_example())
+#' # get point data in wide format
+#' w <- c3d_data(d, format = "wide")
+#' # convert to long data
+#' ll <- c3d_longest(w)
+#' head(ll)
 #' @export
 c3d_longest <- function(x) {
 
@@ -106,6 +140,15 @@ c3d_longest <- function(x) {
 #' @return A data.frame with with n rows and m columns, where n is the number of
 #'   frames recorded times the number of analog subframes per frame, and m as
 #'   the number of recorded analog channels.
+#'
+#' @examples
+#' # Import example data
+#' d <- c3d_read(c3d_example())
+#'
+#' # get analog data
+#' a <- c3d_analog(d)
+#' head(a)
+#'
 #' @export
 c3d_analog <- function(x) {
   # change data format from list of matrices to data.frame

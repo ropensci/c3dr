@@ -5,6 +5,13 @@
 #' @param file A string with the path of a c3d file.
 #'
 #' @return A list of class c3d.
+#'
+#' @examples
+#' # get example data path
+#' path <- c3d_example()
+#'
+#' d <- c3d_read(path)
+#' d
 #' @export
 
 c3d_read <- function(file) {

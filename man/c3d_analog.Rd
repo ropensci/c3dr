@@ -17,3 +17,12 @@ the number of recorded analog channels.
 \description{
 Get the analog data in a data.frame
 }
+\examples{
+# Import example data
+d <- c3d_read(c3d_example())
+
+# get analog data
+a <- c3d_analog(d)
+head(a)
+
+}

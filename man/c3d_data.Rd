@@ -21,3 +21,19 @@ depends on the 'format' argument.
 \description{
 Get the point data in a data.frame
 }
+\examples{
+# Import example data
+d <- c3d_read(c3d_example())
+
+# wide format (default)
+w <- c3d_data(d)
+head(w)
+
+# long format
+l <- c3d_data(d, format = "long")
+head(l)
+
+# longest format
+ll <- c3d_data(d, format = "longest")
+head(ll)
+}

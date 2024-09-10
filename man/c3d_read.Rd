@@ -15,3 +15,10 @@ A list of class c3d.
 \description{
 \code{c3d_read()} imports a c3d file using the C++ ezc3d library.
 }
+\examples{
+# get example data path
+path <- c3d_example()
+
+d <- c3d_read(path)
+d
+}

@@ -8,6 +8,11 @@
 #' @return The function prints basic information for the c3d object and returns
 #'   it invisibly.
 #'
+#' @examples
+#' # Import example data
+#' d <- c3d_read(c3d_example())
+#'
+#' print(d)
 #' @export
 print.c3d <- function(x, ...) {
   h <- x$header

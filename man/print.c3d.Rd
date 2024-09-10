@@ -18,3 +18,9 @@ it invisibly.
 \description{
 Printing method for c3d objects
 }
+\examples{
+# Import example data
+d <- c3d_read(c3d_example())
+
+print(d)
+}

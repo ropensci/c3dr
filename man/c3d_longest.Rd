@@ -18,3 +18,12 @@ number of recorded frames and k as the number of recorded points.
 Convert from wide representation of data (3 columns per point) to longest
 data (1 single data column) in c3d point data
 }
+\examples{
+# Import example data
+d <- c3d_read(c3d_example())
+# get point data in wide format
+w <- c3d_data(d, format = "wide")
+# convert to long data
+ll <- c3d_longest(w)
+head(ll)
+}

@@ -19,3 +19,13 @@ number of recorded points.
 Convert from wide representation of data (3 columns per point) to long data
 (1 column per point) in c3d point data
 }
+\examples{
+# Import example data
+d <- c3d_read(c3d_example())
+# get point data in wide format
+w <- c3d_data(d, format = "wide")
+# convert to long data
+l <- c3d_longer(w)
+head(l)
+
+}
