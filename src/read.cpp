@@ -26,6 +26,40 @@ List read(const std::string &filepath) {
     Named("nevents") = f.header().nbEvents()
   );
 
+  // get parameters (organized in parameter groups)
+  int ngroups = f.parameters().nbGroups(); // number of groups
+  CharacterVector g(ngroups); // group names
+  NumericVector np(ngroups); // number of parameters per group
+  List p(ngroups);
+  // create a list of all groups with a list of all group parameters inside
+  // iterate over each group
+  for (int i = 0; i < ngroups; ++i) {
+    g[i] = f.parameters().group(i).name(); // group name
+    np[i] = f.parameters().group(i).nbParameters(); // number of parameters
+    List q(np[i]);
+    CharacterVector nq(np[i]); // parameter names
+    // iterate over each parameter inside a group
+    for (int j = 0; j < np[i]; j++) {
+      nq[j] = f.parameters().group(i).parameter(j).name();
+      // convert parameter value based on data type
+      ezc3d::DATA_TYPE dt(f.parameters().group(i).parameter(j).type());
+      if (dt == DATA_TYPE::INT) {
+        q[j] = f.parameters().group(i).parameter(j).valuesAsInt();
+      } else if (dt == DATA_TYPE::FLOAT) {
+        q[j] = f.parameters().group(i).parameter(j).valuesAsDouble();
+      } else if (dt == DATA_TYPE::BYTE) {
+        q[j] = f.parameters().group(i).parameter(j).valuesAsByte();
+      } else if (dt == DATA_TYPE::WORD || dt == DATA_TYPE::CHAR){
+        q[j] = f.parameters().group(i).parameter(j).valuesAsString();
+      } else { // for example no or unknown data type
+        q[j] = NA_LOGICAL;
+      }
+    };
+    q.names() = nq; // write parameter names as list attribute
+    p[i] = q;
+  }
+  p.names() = g; // write group names as list attribute
+
   // get point labels
   std::vector<std::string> label(f.parameters().group("POINT").parameter("LABELS").valuesAsString());
 
@@ -50,7 +84,7 @@ List read(const std::string &filepath) {
     d[i] = frame;
   }
 
-  // get analogs
+  // get analog data
   List a(nframes);
   // iterate through data
   for (int i = 0; i < nframes; ++i) {
@@ -70,7 +104,8 @@ List read(const std::string &filepath) {
     Named("alabels") = alabel,
     Named("data") = d,
     Named("residuals") = res,
-    Named("analog") = a
+    Named("analog") = a,
+    Named("parameters") = p
   );
   return(out);
 }

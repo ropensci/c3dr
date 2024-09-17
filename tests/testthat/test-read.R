@@ -28,3 +28,7 @@ test_that("data import works", {
 test_that("label import works", {
   expect_identical(length(d$labels), d$header$npoints)
 })
+
+test_that("parameter import works", {
+  expect_snapshot(d$parameters)
+})
