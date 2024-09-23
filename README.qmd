@@ -1,6 +1,10 @@
 ---
 title: "c3dr"
 format: gfm
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: "#>" 
 ---
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
@@ -17,9 +21,9 @@ An R package for working with motion capture data based on the C++ library [EZC3
 
 ## Background
 
-C3D (<https://www.c3d.org/>) is a file format for biomechanical data, namely motion capture recording with additional analog data (e.g., from force plates or electromyography).
+C3D (<https://www.c3d.org/>) is a file format for biomechanical data, namely motion capture recordings with additional analog data (e.g., from force plates or electromyography).
 
-The `c3dr` package allow to read and analyze C3D files in R (<https://www.r-project.org/about.html>), a programming language popular for statistical analyses and data visualization. It is build on the open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
+The `c3dr` package allow to read and analyze C3D files in R (<https://www.r-project.org/about.html>), a programming language popular for statistical analyses and data visualization. `c3dr` is build on the open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
 
 ## Installation
 
@@ -36,8 +40,6 @@ pak::pak("smnnlt/c3dr")
 ### Read Data
 
 ```{r}
-#| collapse: true
-#| comment: "#>"
 library(c3dr)
 
 # get example data. Insert your file path instead, e.g.
@@ -67,6 +69,8 @@ head(a)
 ## Citation
 
 ```{r}
+#| comment: ""
+#| collapse: false
 citation("c3dr")
 ```
 

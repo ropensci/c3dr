@@ -1,22 +1,15 @@
 ---
 title: "Getting Started"
-output: rmarkdown::html_vignette
+format: html
 vignette: >
-  %\VignetteIndexEntry{Getting Started}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Vignette's Title}
+  %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: "#>" 
 ---
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
-```{r setup}
-library(c3dr)
-```
 
 ## What are C3D files?
 
@@ -39,6 +32,7 @@ pak::pak("smnnlt/c3dr")
 To import a c3d file simply run the `c3d_read()` function with the absolute or relative file path as argument.
 
 ```{r}
+library(c3dr)
 # this example uses an internal example file
 filepath <- c3d_example()
 
@@ -54,23 +48,26 @@ The `c3d_read()` function returns a c3d object, which is basically a list with d
 ```{r}
 str(f, max.level = 1)
 ```
+
 ### Header
 
 The header contains basic information about the number of frames (`nframes`), the number of data points (`npoints`), the number of analog channels (`nanalogs`), the number of analog frames per data frame (`analogperframe`), the frame rate in Hz (`framerate`) and the number of saved events (`nevents`).
- 
+
 ```{r}
 f$header
 ```
+
 ### Parameters
 
 The parameters are all the meta data saved in the C3D file. Parameters in C3D files are organized in groups, and these are preserved during import with `c3d_read()`. The parameter section of a c3d object is therefore a list of lists. To access a single parameter, you first need to access its group and then the parameter. For example the `SOFTWARE` parameter is part of the `MANUFACTURER` group. To retrieve the parameter value from a c3d object named `f` you need to call `f$parameters$MANUFACTURER$SOFTWARE`.
 
 ```{r}
-f$parameters
+str(f$parameters, max.level = 1)
 
 # retrieve SOFTWARE parameter from MANUFACTURER group
 f$parameters$MANUFACTURER$SOFTWARE
 ```
+
 ### Point data
 
 c3d objects in R save point data as a nested list, with the two levels frame and point. For example for a c3d object named `f`, `f$data[[1]][[2]]` returns a three-coordinate vector of the first frame for the second data point.
