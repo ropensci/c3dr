@@ -2,7 +2,7 @@
 % Please edit documentation in R/example.R
 \name{c3d_example}
 \alias{c3d_example}
-\title{Get path to spiro example}
+\title{Get path to c3dr example}
 \usage{
 c3d_example()
 }
@@ -12,7 +12,7 @@ file.
 }
 \description{
 \code{c3d_example} returns the file path for an example data files within the
-\code{c3d} package.
+\code{c3dr} package.
 }
 \examples{
 c3d_example()

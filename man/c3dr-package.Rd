@@ -4,7 +4,7 @@
 \name{c3dr-package}
 \alias{c3dr}
 \alias{c3dr-package}
-\title{c3dr: Work with motion capture data in R}
+\title{c3dr: Import C3D motion capture files in R}
 \description{
 An R wrapper for the EZC3D library to work with C3D motion capture data.
 }

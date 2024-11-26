@@ -1,6 +1,8 @@
 # c3dr
 
+
 <!-- README.md is generated from README.qmd. Please edit that file -->
+
 <!-- badges: start -->
 
 [![Project Status: WIP – Initial development is in progress, but there
@@ -22,7 +24,7 @@ C3D (<https://www.c3d.org/>) is a file format for biomechanical data,
 namely motion capture recordings with additional analog data (e.g., from
 force plates or electromyography).
 
-The `c3dr` package allow to read and analyze C3D files in R
+The `c3dr` package allows to read and analyze C3D files in R
 (<https://www.r-project.org/about.html>), a programming language popular
 for statistical analyses and data visualization. `c3dr` is build on the
 open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
@@ -57,13 +59,14 @@ d
 
 # structure of the imported object
 str(d, max.level = 1)
-#> List of 6
-#>  $ header   :List of 6
-#>  $ labels   : chr [1:54] "LASI" "RASI" "LPSI" "RPSI" ...
-#>  $ alabels  : chr "Electric Potential.Trigger"
-#>  $ data     :List of 1885
-#>  $ residuals: num [1:1885, 1:54] 172 171 172 172 172 ...
-#>  $ analog   :List of 1885
+#> List of 7
+#>  $ header    :List of 6
+#>  $ labels    : chr [1:54] "LASI" "RASI" "LPSI" "RPSI" ...
+#>  $ alabels   : chr "Electric Potential.Trigger"
+#>  $ data      :List of 1885
+#>  $ residuals : num [1:1885, 1:54] 172 171 172 172 172 ...
+#>  $ analog    :List of 1885
+#>  $ parameters:List of 10
 #>  - attr(*, "class")= chr [1:2] "c3d" "list"
 
 # read point data

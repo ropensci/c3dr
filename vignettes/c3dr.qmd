@@ -15,7 +15,7 @@ knitr:
 
 C3D is a file format to store biomechanical data. Most motion capture systems output C3D files, making it the standard data format for motion analysis. All C3D files are structured in a similar way: They contain a header that describes the file's structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, ...), and a data section with the point data and additional analog data (e.g., from electromyography or force platforms). You can find more details about the C3D format on its [Website](https://www.c3d.org/index.html) and in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).
 
-## Why use the c3dr package for R
+## Why use the c3dr package for R?
 
 Different programs for working with C3D files exist, but free open-source solutions that enable reproducible analysis are rare. Currently the best solution is the [EZC3D](https://github.com/pyomeca/ezc3d) library, which has bindings for Matlab, Python, and Octave. However, R, a popular programming language for data science, previously did not support C3D files. By using the EZC3D C++ library, the `c3dr` package for R now provides a possibility to work with C3D data in the R programming environment.
 
@@ -43,7 +43,7 @@ f
 
 ## Data structure of C3D objects in R
 
-The `c3d_read()` function returns a c3d object, which is basically a list with different components.
+The `c3d_read()` function returns a c3d object, which is a list with different components.
 
 ```{r}
 str(f, max.level = 1)
@@ -96,4 +96,34 @@ f$analog[[1]]
 
 ## Work with C3D point data {#sec-point}
 
+To return a table of the imported point data of a c3d object, run the `c3d_data()` function.
+
+```{r}
+d <- c3d_data(f)
+
+d[1:5, 1:5]
+```
+
+The table of point data has three different structures available, that can be selected by the `format` argument in the `c3d_data()` call: 
+
+- The `wide` format (default) has one column per point coordinate and one row per frame.
+- The `long` format has one column per point and three rows (x, y, z) per frame.
+- The `longest` format has one column for data, and three rows (x, y, z) per each frame and point.
+
+```{r}
+d_long <- c3d_data(f, format = "long")
+d_long[1:5, 1:5]
+
+d_longest <- c3d_data(f, format = "longest")
+d_longest[1:5,]
+```
+
 ## Work with C3D analog data {#sec-analog}
+
+To return a table of the imported analog data of a c3d file, use the `c3d_analog()` function.
+
+```{r}
+a <- c3d_analog(f)
+head(a)
+```
+

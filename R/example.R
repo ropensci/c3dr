@@ -1,7 +1,7 @@
-#' Get path to spiro example
+#' Get path to c3dr example
 #'
 #' \code{c3d_example} returns the file path for an example data files within the
-#' \code{c3d} package.
+#' \code{c3dr} package.
 #'
 #' @return A character vector with the absolute file path of the example
 #'   file.
