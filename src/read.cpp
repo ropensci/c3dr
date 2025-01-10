@@ -1,8 +1,6 @@
 #include <Rcpp.h>
-#include "ezc3d.h"
-#include "Header.h"
-#include "Data.h"
-#include "Parameters.h"
+#include "ezc3d_all.h"
+#include "matrix_conversion.h"
 using namespace Rcpp;
 using namespace ezc3d;
 
@@ -98,6 +96,31 @@ List read(const std::string &filepath) {
     a[i] = aframe;
   }
 
+  // detect if force platform data is available
+  std::vector<int> fused = f.parameters().group("FORCE_PLATFORM").parameter("USED").valuesAsInt();
+
+  // if force platform data is available, import data
+  List fp_all(fused[0]);
+  if (fused[0] != 0) {
+    for (int n = 0; n < fused[0]; ++n) {
+      ezc3d::Modules::ForcePlatforms fp(f);
+      const auto& fp_n = fp.forcePlatform(n);
+      // ppp = pf_0.nbFrames();      // Number of frames
+      ezc3d::Matrix forces(fp_n.forces());
+      ezc3d::Matrix moments(fp_n.moments());
+      ezc3d::Matrix cop(fp_n.CoP());
+      ezc3d::Matrix tz(fp_n.Tz());
+
+      List fdata = List::create(
+        Named("forces") = matrix_conversion(forces),
+        Named("moments") = matrix_conversion(moments),
+        Named("cop") = matrix_conversion(cop),
+        Named("tz") = matrix_conversion(tz)
+      );
+      fp_all[n] = fdata;
+    }
+  }
+
   List out = List::create(
     Named("header") = h,
     Named("labels") = label,
@@ -105,7 +128,10 @@ List read(const std::string &filepath) {
     Named("data") = d,
     Named("residuals") = res,
     Named("analog") = a,
-    Named("parameters") = p
+    Named("parameters") = p,
+    Named("forceplatform") = fp_all
   );
   return(out);
 }
+
+
