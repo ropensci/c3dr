@@ -20,7 +20,7 @@ test_that("data import works", {
 
   # correct first data record
   expect_equal(
-    d$data[[1]][[1]], c(514.7515, 426.1067, 1111.9399),
+    d$data[[1]][[1]], c(-220.1226, 306.4248, 846.3361),
     tolerance = 0.001
   )
 })

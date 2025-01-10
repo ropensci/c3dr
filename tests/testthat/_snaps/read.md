@@ -3,115 +3,162 @@
     Code
       d$parameters
     Output
-      $TRIAL
-      $TRIAL$ACTUAL_START_FIELD
-      [1] 1 0
-      
-      $TRIAL$ACTUAL_END_FIELD
-      [1] 1885    0
-      
-      $TRIAL$CAMERA_RATE
-      [1] 240
-      
-      $TRIAL$X_DIRECTION
-      [1] 1
-      
-      $TRIAL$Y_DIRECTION
-      [1] 3
-      
-      $TRIAL$Z_DIRECTION
-      [1] 5
-      
-      
-      $SUBJECTS
-      $SUBJECTS$USED
-      [1] 1
-      
-      $SUBJECTS$IS_STATIC
-      [1] 0
-      
-      $SUBJECTS$USES_PREFIXES
-      [1] 0
-      
-      $SUBJECTS$NAMES
-      [1] "S01_BIKE_20231123"
-      
-      $SUBJECTS$MARKER_SETS
-      [1] "OpenCap"
-      
-      
       $POINT
       $POINT$USED
-      [1] 54
-      
-      $POINT$FRAMES
-      [1] 1885
-      
-      $POINT$DATA_START
-      [1] 28
+      [1] 55
       
       $POINT$SCALE
-      [1] -0.01
+      [1] -0.07623225
       
       $POINT$RATE
-      [1] 240
+      [1] 200
       
-      $POINT$MOVIE_DELAY
-      numeric(0)
+      $POINT$DATA_START
+      [1] 29
       
-      $POINT$MOVIE_ID
-      character(0)
+      $POINT$FRAMES
+      [1] 340
       
-      $POINT$X_SCREEN
-      [1] "+X"
+      $POINT$LABELS
+       [1] "L_IAS"   "L_IPS"   "R_IPS"   "R_IAS"   "SNJ"     "SXS"     "TV8"    
+       [8] "CV7"     "R_SCAP"  "L_HDF"   "L_HDB"   "R_HDB"   "R_HDF"   "L_FTC"  
+      [15] "L_WAND1" "L_FLE"   "L_FME"   "L_FAX"   "L_TTC"   "L_WAND2" "L_FAL"  
+      [22] "L_TAM"   "L_FCC"   "L_FM1"   "L_FM5"   "R_FTC"   "R_WAND1" "R_FLE"  
+      [29] "R_FME"   "R_FAX"   "R_TTC"   "R_WAND2" "R_FAL"   "R_TAM"   "R_FCC"  
+      [36] "R_FM1"   "R_FM5"   "L_HM5"   "L_HM2"   "L_UHE"   "L_RSP"   "L_WAND4"
+      [43] "L_HLE"   "L_HME"   "L_WAND3" "R_HM5"   "R_HM2"   "R_UHE"   "R_RSP"  
+      [50] "R_WAND4" "R_HLE"   "R_HME"   "R_WAND3" "L_SAJ"   "R_SAJ"  
       
-      $POINT$Y_SCREEN
-      [1] "+Z"
+      $POINT$DESCRIPTIONS
+       [1] "L_IAS"   "L_IPS"   "R_IPS"   "R_IAS"   "SNJ"     "SXS"     "TV8"    
+       [8] "CV7"     "R_SCAP"  "L_HDF"   "L_HDB"   "R_HDB"   "R_HDF"   "L_FTC"  
+      [15] "L_WAND1" "L_FLE"   "L_FME"   "L_FAX"   "L_TTC"   "L_WAND2" "L_FAL"  
+      [22] "L_TAM"   "L_FCC"   "L_FM1"   "L_FM5"   "R_FTC"   "R_WAND1" "R_FLE"  
+      [29] "R_FME"   "R_FAX"   "R_TTC"   "R_WAND2" "R_FAL"   "R_TAM"   "R_FCC"  
+      [36] "R_FM1"   "R_FM5"   "L_HM5"   "L_HM2"   "L_UHE"   "L_RSP"   "L_WAND4"
+      [43] "L_HLE"   "L_HME"   "L_WAND3" "R_HM5"   "R_HM2"   "R_UHE"   "R_RSP"  
+      [50] "R_WAND4" "R_HLE"   "R_HME"   "R_WAND3" "L_SAJ"   "R_SAJ"  
       
       $POINT$UNITS
       [1] "mm"
       
-      $POINT$LABELS
-       [1] "LASI"  "RASI"  "LPSI"  "RPSI"  "LKNE"  "LKNEM" "LTH1"  "LTH2"  "LTH3" 
-      [10] "LANK"  "LANKM" "LSH1"  "LSH2"  "LSH3"  "LHEEL" "LTOE"  "LMT1"  "RKNE" 
-      [19] "RKNEM" "RTH1"  "RTH2"  "RTH3"  "RANK"  "RANKM" "RSH1"  "RSH2"  "RSH3" 
-      [28] "RHEEL" "RTOE"  "RMT1"  "C7"    "LSHO"  "RSHO"  "LELB"  "LELBM" "LWRA" 
-      [37] "LWRB"  "RELB"  "RELBM" "RWRA"  "RWRB"  "*41"   "*42"   "*43"   "*44"  
-      [46] "*45"   "*46"   "*47"   "*48"   "*49"   "*50"   "*51"   "*52"   "*53"  
+      $POINT$LONG_FRAMES
+      [1] 340
       
-      $POINT$DESCRIPTIONS
-       [1] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-      [26] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-      [51] "" "" "" ""
+      $POINT$Y_SCREEN
+      [1] "-Z"
+      
+      $POINT$X_SCREEN
+      [1] "-X"
+      
+      $POINT$ORIGINAL_LAST_FRAME
+      [1] 1631
       
       
       $ANALOG
+      $ANALOG$USED
+      [1] 69
+      
+      $ANALOG$LABELS
+       [1] "FP1_FX"                       "FP1_FY"                      
+       [3] "FP1_FZ"                       "FP1_MX"                      
+       [5] "FP1_MY"                       "FP1_MZ"                      
+       [7] "Nothing"                      "Channel_08"                  
+       [9] "Channel_09"                   "Channel_10"                  
+      [11] "PF2-FX"                       "PF2-FY"                      
+      [13] "PF2-FZ"                       "PF2-MX"                      
+      [15] "PF2-MY"                       "PF2-MZ"                      
+      [17] "Channel_17"                   "Channel_18"                  
+      [19] "Channel_19"                   "Channel_20"                  
+      [21] "Channel_21"                   "Channel_22"                  
+      [23] "Channel_23"                   "Channel_24"                  
+      [25] "Channel_25"                   "Channel_26"                  
+      [27] "Channel_27"                   "Channel_28"                  
+      [29] "Channel_29"                   "Channel_30"                  
+      [31] "Channel_31"                   "Channel_32"                  
+      [33] "TAPIS FZ1"                    "TAPIS FZ2"                   
+      [35] "TAPIS FZ3"                    "TAPIS FZ4"                   
+      [37] "TAPIS FY1+4"                  "TAPIS FY2+3"                 
+      [39] "TAPIS FX1+2"                  "TAPIS FX3+4"                 
+      [41] "EMG 1"                        "EMG 2"                       
+      [43] "EMG 3"                        "EMG 4"                       
+      [45] "EMG 5"                        "EMG 6"                       
+      [47] "EMG 7"                        "EMG 8"                       
+      [49] "EMG 9"                        "EMG 10"                      
+      [51] "EMG 11"                       "EMG 12"                      
+      [53] "EMG 13"                       "EMG 14"                      
+      [55] "EMG 15"                       "EMG 16"                      
+      [57] "Sync"                         "Amti Gen 5 OR6-5-1000 3581_1"
+      [59] "Amti Gen 5 OR6-5-1000 3581_2" "Amti Gen 5 OR6-5-1000 3581_3"
+      [61] "Amti Gen 5 OR6-5-1000 3581_4" "Amti Gen 5 OR6-5-1000 3581_5"
+      [63] "Amti Gen 5 OR6-5-1000 3581_6" "Amti Gen 5 OR6-5-1000 3582_1"
+      [65] "Amti Gen 5 OR6-5-1000 3582_2" "Amti Gen 5 OR6-5-1000 3582_3"
+      [67] "Amti Gen 5 OR6-5-1000 3582_4" "Amti Gen 5 OR6-5-1000 3582_5"
+      [69] "Amti Gen 5 OR6-5-1000 3582_6"
+      
+      $ANALOG$DESCRIPTIONS
+       [1] "FP1_FX"                       "FP1_FY"                      
+       [3] "FP1_FZ"                       "FP1_MX"                      
+       [5] "FP1_MY"                       "FP1_MZ"                      
+       [7] "Nothing"                      "Channel_08"                  
+       [9] "Channel_09"                   "Channel_10"                  
+      [11] "PF2-FX"                       "PF2-FY"                      
+      [13] "PF2-FZ"                       "PF2-MX"                      
+      [15] "PF2-MY"                       "PF2-MZ"                      
+      [17] "Channel_17"                   "Channel_18"                  
+      [19] "Channel_19"                   "Channel_20"                  
+      [21] "Channel_21"                   "Channel_22"                  
+      [23] "Channel_23"                   "Channel_24"                  
+      [25] "Channel_25"                   "Channel_26"                  
+      [27] "Channel_27"                   "Channel_28"                  
+      [29] "Channel_29"                   "Channel_30"                  
+      [31] "Channel_31"                   "Channel_32"                  
+      [33] "TAPIS FZ1"                    "TAPIS FZ2"                   
+      [35] "TAPIS FZ3"                    "TAPIS FZ4"                   
+      [37] "TAPIS FY1+4"                  "TAPIS FY2+3"                 
+      [39] "TAPIS FX1+2"                  "TAPIS FX3+4"                 
+      [41] "EMG 1"                        "EMG 2"                       
+      [43] "EMG 3"                        "EMG 4"                       
+      [45] "EMG 5"                        "EMG 6"                       
+      [47] "EMG 7"                        "EMG 8"                       
+      [49] "EMG 9"                        "EMG 10"                      
+      [51] "EMG 11"                       "EMG 12"                      
+      [53] "EMG 13"                       "EMG 14"                      
+      [55] "EMG 15"                       "EMG 16"                      
+      [57] "Sync"                         "Amti Gen 5 OR6-5-1000 3581_1"
+      [59] "Amti Gen 5 OR6-5-1000 3581_2" "Amti Gen 5 OR6-5-1000 3581_3"
+      [61] "Amti Gen 5 OR6-5-1000 3581_4" "Amti Gen 5 OR6-5-1000 3581_5"
+      [63] "Amti Gen 5 OR6-5-1000 3581_6" "Amti Gen 5 OR6-5-1000 3582_1"
+      [65] "Amti Gen 5 OR6-5-1000 3582_2" "Amti Gen 5 OR6-5-1000 3582_3"
+      [67] "Amti Gen 5 OR6-5-1000 3582_4" "Amti Gen 5 OR6-5-1000 3582_5"
+      [69] "Amti Gen 5 OR6-5-1000 3582_6"
+      
       $ANALOG$GEN_SCALE
       [1] 1
       
-      $ANALOG$RATE
-      [1] 960
-      
-      $ANALOG$USED
-      [1] 1
-      
-      $ANALOG$GAIN
-      [1] 1
-      
       $ANALOG$SCALE
-      [1] 1
+       [1]  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00
+      [11]  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00
+      [21]  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00
+      [31]  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00  1e+00
+      [41]  1e-06  1e-06  1e-06  1e-06  1e-06  1e-06  1e-06  1e-06  1e-06  1e-06
+      [51]  1e-06  1e-06  1e-06  1e-06  1e-06  1e-06  1e+00 -1e+00 -1e+00 -1e+00
+      [61] -1e+00 -1e+00 -1e+00 -1e+00 -1e+00 -1e+00 -1e+00 -1e+00 -1e+00
       
       $ANALOG$OFFSET
-      [1] 0
+       [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      [39] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
       
       $ANALOG$UNITS
-      [1] "V"
+       [1] "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"  
+      [13] "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"  
+      [25] "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"  
+      [37] "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"  
+      [49] "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "V"   "N"   "N"   "N"  
+      [61] "Nmm" "Nmm" "Nmm" "N"   "N"   "N"   "Nmm" "Nmm" "Nmm"
       
-      $ANALOG$LABELS
-      [1] "Electric Potential.Trigger"
-      
-      $ANALOG$DESCRIPTIONS
-      [1] "Generic Analog::Electric Potential [1,1]"
+      $ANALOG$RATE
+      [1] 2000
       
       $ANALOG$FORMAT
       character(0)
@@ -120,544 +167,86 @@
       integer(0)
       
       
-      $FORCE_PLATFORM
-      $FORCE_PLATFORM$USED
-      [1] 0
+      $SEG
+      $SEG$PRED_ERROR
+      [1] 30
       
-      $FORCE_PLATFORM$ZERO
-      [1] 1 0
+      $SEG$MAX_RESID
+      [1] 10
       
-      $FORCE_PLATFORM$TYPE
-      integer(0)
+      $SEG$ACC_FACTOR
+      [1] 50000
       
-      $FORCE_PLATFORM$CORNERS
-      numeric(0)
+      $SEG$NOISE_FACTOR
+      [1] 10
       
-      $FORCE_PLATFORM$ORIGIN
-      numeric(0)
-      
-      $FORCE_PLATFORM$CHANNEL
-      integer(0)
-      
-      $FORCE_PLATFORM$CAL_MATRIX
-      numeric(0)
-      
-      
-      $EVENT_CONTEXT
-      $EVENT_CONTEXT$USED
-      [1] 4
-      
-      $EVENT_CONTEXT$ICON_IDS
-      [1] 0 1 2 3
-      
-      $EVENT_CONTEXT$LABELS
-      [1] "General" "Left"    "Right"   "Invalid"
-      
-      $EVENT_CONTEXT$DESCRIPTIONS
-      [1] "For other events" "Left side"        "Right side"       "No context"      
-      
-      $EVENT_CONTEXT$COLOURS
-       [1] 255 164   0 255   0   0   0 255   0  50  50  50
-      
-      
-      $EVENT
-      $EVENT$USED
-      [1] 0
+      $SEG$DATA_LIMITS
+      [1] -605.91718 -124.87224    8.06986 2439.43213  526.84009 1496.37622
       
       
       $MANUFACTURER
       $MANUFACTURER$COMPANY
-      [1] "Vicon"
+      [1] "Qualisys"
       
       $MANUFACTURER$SOFTWARE
-      [1] "Vicon Nexus"
+      [1] "Qualisys Track Manager"
       
-      $MANUFACTURER$VERSION_LABEL
-      [1] "2.11.0.127963h"
+      $MANUFACTURER$VERSION
+      [1]    2   17 3720
       
       
-      $ANALYSIS
-      $ANALYSIS$USED
-      [1] 0
+      $FORCE_PLATFORM
+      $FORCE_PLATFORM$USED
+      [1] 2
+      
+      $FORCE_PLATFORM$TYPE
+      [1] 2 2
+      
+      $FORCE_PLATFORM$ZERO
+      [1] 0 0
+      
+      $FORCE_PLATFORM$CORNERS
+       [1]  508  464    0  508    0    0    0    0    0    0  464    0 1017  464    0
+      [16] 1017    0    0  509    0    0  509  464    0
+      
+      $FORCE_PLATFORM$ORIGIN
+      [1] -1.524  0.762 34.036 -1.016  0.000 36.322
+      
+      $FORCE_PLATFORM$CHANNEL
+       [1] 58 59 60 61 62 63 64 65 66 67 68 69
+      
+      $FORCE_PLATFORM$CAL_MATRIX
+       [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      [39] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      
+      $FORCE_PLATFORM$MATRIX_STORE
+      [1] "BYCOLUMN"
+      
+      
+      $EVENT
+      $EVENT$USED
+      [1] 7
+      
+      $EVENT$LABELS
+      [1] "LHS" "RTO" "RHS" "LTO" "LHS" "RTO" "RHS"
+      
+      $EVENT$TIMES
+       [1] 0.000 3.590 0.000 3.685 0.000 4.050 0.000 4.160 0.000 4.535 0.000 4.650
+      [13] 0.000 5.030
       
       
       $PROCESSING
-      $PROCESSING$pelvis_pelvis1_x
-      [1] 0
+      $PROCESSING$`Uncropped Measurement Length`
+      [1] 8.155
       
-      $PROCESSING$pelvis_pelvis1_y
-      [1] 0
+      $PROCESSING$`Uncropped Measurement Frames`
+      [1] 1631
       
-      $PROCESSING$pelvis_pelvis1_z
-      [1] 0
+      $PROCESSING$`Cropped Measurement Start Frame`
+      [1] 705
       
-      $PROCESSING$pelvis_pelvis2_x
-      [1] 0
-      
-      $PROCESSING$pelvis_pelvis2_y
-      [1] -1.77636e-15
-      
-      $PROCESSING$pelvis_pelvis2_z
-      [1] -291.302
-      
-      $PROCESSING$pelvis_pelvis3_x
-      [1] 0
-      
-      $PROCESSING$pelvis_pelvis3_y
-      [1] 179.502
-      
-      $PROCESSING$pelvis_pelvis3_z
-      [1] -79.2235
-      
-      $PROCESSING$pelvis_pelvis4_x
-      [1] 2.86228
-      
-      $PROCESSING$pelvis_pelvis4_y
-      [1] 184.373
-      
-      $PROCESSING$pelvis_pelvis4_z
-      [1] -193.273
-      
-      $PROCESSING$rthigh_rthigh1_x
-      [1] 0
-      
-      $PROCESSING$rthigh_rthigh1_y
-      [1] 0
-      
-      $PROCESSING$rthigh_rthigh1_z
-      [1] 0
-      
-      $PROCESSING$rthigh_rthigh2_x
-      [1] -1.77636e-15
-      
-      $PROCESSING$rthigh_rthigh2_y
-      [1] 2.22045e-16
-      
-      $PROCESSING$rthigh_rthigh2_z
-      [1] -106.059
-      
-      $PROCESSING$rthigh_pelvis1_x
-      [1] 0
-      
-      $PROCESSING$rthigh_pelvis1_y
-      [1] 512.028
-      
-      $PROCESSING$rthigh_pelvis1_z
-      [1] 69.1197
-      
-      $PROCESSING$rthigh_rthigh4_x
-      [1] -37.6571
-      
-      $PROCESSING$rthigh_rthigh4_y
-      [1] 317.458
-      
-      $PROCESSING$rthigh_rthigh4_z
-      [1] 62.0743
-      
-      $PROCESSING$rthigh_rthigh5_x
-      [1] 90.4535
-      
-      $PROCESSING$rthigh_rthigh5_y
-      [1] 297.195
-      
-      $PROCESSING$rthigh_rthigh5_z
-      [1] 77.4622
-      
-      $PROCESSING$rthigh_rthigh6_x
-      [1] 30.5611
-      
-      $PROCESSING$rthigh_rthigh6_y
-      [1] 200.028
-      
-      $PROCESSING$rthigh_rthigh6_z
-      [1] 66.4347
-      
-      $PROCESSING$rshank_rshank1_x
-      [1] 0
-      
-      $PROCESSING$rshank_rshank1_y
-      [1] 0
-      
-      $PROCESSING$rshank_rshank1_z
-      [1] 0
-      
-      $PROCESSING$rshank_rshank2_x
-      [1] 0
-      
-      $PROCESSING$rshank_rshank2_y
-      [1] -4.44089e-15
-      
-      $PROCESSING$rshank_rshank2_z
-      [1] -94.9523
-      
-      $PROCESSING$rshank_rthigh1_x
-      [1] 0
-      
-      $PROCESSING$rshank_rthigh1_y
-      [1] 427.237
-      
-      $PROCESSING$rshank_rthigh1_z
-      [1] -85.564
-      
-      $PROCESSING$rshank_rshank4_x
-      [1] 3.83851
-      
-      $PROCESSING$rshank_rshank4_y
-      [1] 338.532
-      
-      $PROCESSING$rshank_rshank4_z
-      [1] -43.8024
-      
-      $PROCESSING$rshank_rshank5_x
-      [1] 64.8343
-      
-      $PROCESSING$rshank_rshank5_y
-      [1] 239.07
-      
-      $PROCESSING$rshank_rshank5_z
-      [1] -12.1838
-      
-      $PROCESSING$rshank_rshank6_x
-      [1] -8.94269
-      
-      $PROCESSING$rshank_rshank6_y
-      [1] 224.984
-      
-      $PROCESSING$rshank_rshank6_z
-      [1] -27.3637
-      
-      $PROCESSING$rfoot_rfoot1_x
-      [1] 0
-      
-      $PROCESSING$rfoot_rfoot1_y
-      [1] 0
-      
-      $PROCESSING$rfoot_rfoot1_z
-      [1] 0
-      
-      $PROCESSING$rfoot_rfoot2_x
-      [1] -3.55271e-15
-      
-      $PROCESSING$rfoot_rfoot2_y
-      [1] 3.55271e-15
-      
-      $PROCESSING$rfoot_rfoot2_z
-      [1] -241.837
-      
-      $PROCESSING$rfoot_rfoot3_x
-      [1] -3.55271e-15
-      
-      $PROCESSING$rfoot_rfoot3_y
-      [1] 75.6538
-      
-      $PROCESSING$rfoot_rfoot3_z
-      [1] -184.997
-      
-      $PROCESSING$rfoot_rshank1_x
-      [1] 49.9198
-      
-      $PROCESSING$rfoot_rshank1_y
-      [1] 21.3065
-      
-      $PROCESSING$rfoot_rshank1_z
-      [1] -70.9
-      
-      $PROCESSING$lthigh_lthigh1_x
-      [1] 0
-      
-      $PROCESSING$lthigh_lthigh1_y
-      [1] 0
-      
-      $PROCESSING$lthigh_lthigh1_z
-      [1] 0
-      
-      $PROCESSING$lthigh_lthigh2_x
-      [1] 0
-      
-      $PROCESSING$lthigh_lthigh2_y
-      [1] 1.11022e-15
-      
-      $PROCESSING$lthigh_lthigh2_z
-      [1] -114.564
-      
-      $PROCESSING$lthigh_pelvis2_x
-      [1] 1.42109e-14
-      
-      $PROCESSING$lthigh_pelvis2_y
-      [1] 509.111
-      
-      $PROCESSING$lthigh_pelvis2_z
-      [1] 43.3784
-      
-      $PROCESSING$lthigh_lthigh4_x
-      [1] -91.759
-      
-      $PROCESSING$lthigh_lthigh4_y
-      [1] 281.458
-      
-      $PROCESSING$lthigh_lthigh4_z
-      [1] 65.6342
-      
-      $PROCESSING$lthigh_lthigh5_x
-      [1] 29.881
-      
-      $PROCESSING$lthigh_lthigh5_y
-      [1] 308.344
-      
-      $PROCESSING$lthigh_lthigh5_z
-      [1] 53.0998
-      
-      $PROCESSING$lthigh_lthigh6_x
-      [1] -22.5405
-      
-      $PROCESSING$lthigh_lthigh6_y
-      [1] 179.559
-      
-      $PROCESSING$lthigh_lthigh6_z
-      [1] 52.075
-      
-      $PROCESSING$lshank_lshank1_x
-      [1] 0
-      
-      $PROCESSING$lshank_lshank1_y
-      [1] 0
-      
-      $PROCESSING$lshank_lshank1_z
-      [1] 0
-      
-      $PROCESSING$lshank_lshank2_x
-      [1] 3.55271e-15
-      
-      $PROCESSING$lshank_lshank2_y
-      [1] 8.88178e-16
-      
-      $PROCESSING$lshank_lshank2_z
-      [1] -95.5365
-      
-      $PROCESSING$lshank_lthigh1_x
-      [1] 1.42109e-14
-      
-      $PROCESSING$lshank_lthigh1_y
-      [1] 430.99
-      
-      $PROCESSING$lshank_lthigh1_z
-      [1] -31.9731
-      
-      $PROCESSING$lshank_lshank4_x
-      [1] 3.44566
-      
-      $PROCESSING$lshank_lshank4_y
-      [1] 323.476
-      
-      $PROCESSING$lshank_lshank4_z
-      [1] -8.50953
-      
-      $PROCESSING$lshank_lshank5_x
-      [1] 22.3251
-      
-      $PROCESSING$lshank_lshank5_y
-      [1] 191.061
-      
-      $PROCESSING$lshank_lshank5_z
-      [1] -15.6256
-      
-      $PROCESSING$lshank_lshank6_x
-      [1] -43.0561
-      
-      $PROCESSING$lshank_lshank6_y
-      [1] 203.502
-      
-      $PROCESSING$lshank_lshank6_z
-      [1] 9.72577
-      
-      $PROCESSING$lfoot_lfoot1_x
-      [1] 0
-      
-      $PROCESSING$lfoot_lfoot1_y
-      [1] 0
-      
-      $PROCESSING$lfoot_lfoot1_z
-      [1] 0
-      
-      $PROCESSING$lfoot_lfoot2_x
-      [1] 7.10543e-15
-      
-      $PROCESSING$lfoot_lfoot2_y
-      [1] -3.55271e-15
-      
-      $PROCESSING$lfoot_lfoot2_z
-      [1] -238.175
-      
-      $PROCESSING$lfoot_lfoot3_x
-      [1] 0
-      
-      $PROCESSING$lfoot_lfoot3_y
-      [1] 82.1145
-      
-      $PROCESSING$lfoot_lfoot3_z
-      [1] -186.137
-      
-      $PROCESSING$lfoot_lshank1_x
-      [1] -54.8431
-      
-      $PROCESSING$lfoot_lshank1_y
-      [1] 22.8153
-      
-      $PROCESSING$lfoot_lshank1_z
-      [1] -71.4035
-      
-      $PROCESSING$torso_torso1_x
-      [1] 0
-      
-      $PROCESSING$torso_torso1_y
-      [1] 0
-      
-      $PROCESSING$torso_torso1_z
-      [1] 0
-      
-      $PROCESSING$torso_torso2_x
-      [1] -7.10543e-15
-      
-      $PROCESSING$torso_torso2_y
-      [1] -7.10543e-15
-      
-      $PROCESSING$torso_torso2_z
-      [1] -202.408
-      
-      $PROCESSING$torso_torso3_x
-      [1] 7.10543e-15
-      
-      $PROCESSING$torso_torso3_y
-      [1] 153.734
-      
-      $PROCESSING$torso_torso3_z
-      [1] 125.661
-      
-      $PROCESSING$torso_pelvis3_x
-      [1] 406.919
-      
-      $PROCESSING$torso_pelvis3_y
-      [1] 235.574
-      
-      $PROCESSING$torso_pelvis3_z
-      [1] -169.914
-      
-      $PROCESSING$torso_pelvis4_x
-      [1] 414.244
-      
-      $PROCESSING$torso_pelvis4_y
-      [1] 275.359
-      
-      $PROCESSING$torso_pelvis4_z
-      [1] -63.6168
-      
-      $PROCESSING$rupperarm_rupperarm1_x
-      [1] 0
-      
-      $PROCESSING$rupperarm_rupperarm1_y
-      [1] 0
-      
-      $PROCESSING$rupperarm_rupperarm1_z
-      [1] 0
-      
-      $PROCESSING$rupperarm_rupperarm2_x
-      [1] -3.55271e-15
-      
-      $PROCESSING$rupperarm_rupperarm2_y
-      [1] 8.04912e-16
-      
-      $PROCESSING$rupperarm_rupperarm2_z
-      [1] -82.0029
-      
-      $PROCESSING$rupperarm_torso2_x
-      [1] -2.22045e-15
-      
-      $PROCESSING$rupperarm_torso2_y
-      [1] 355.765
-      
-      $PROCESSING$rupperarm_torso2_z
-      [1] 2.12358
-      
-      $PROCESSING$rforearm_rforearm1_x
-      [1] 0
-      
-      $PROCESSING$rforearm_rforearm1_y
-      [1] 0
-      
-      $PROCESSING$rforearm_rforearm1_z
-      [1] 0
-      
-      $PROCESSING$rforearm_rforearm2_x
-      [1] -1.77636e-15
-      
-      $PROCESSING$rforearm_rforearm2_y
-      [1] 1.33227e-15
-      
-      $PROCESSING$rforearm_rforearm2_z
-      [1] -67.0747
-      
-      $PROCESSING$rforearm_rupperarm1_x
-      [1] 7.10543e-15
-      
-      $PROCESSING$rforearm_rupperarm1_y
-      [1] 253.339
-      
-      $PROCESSING$rforearm_rupperarm1_z
-      [1] -90.2924
-      
-      $PROCESSING$lupperarm_lupperarm1_x
-      [1] 0
-      
-      $PROCESSING$lupperarm_lupperarm1_y
-      [1] 0
-      
-      $PROCESSING$lupperarm_lupperarm1_z
-      [1] 0
-      
-      $PROCESSING$lupperarm_lupperarm2_x
-      [1] 0
-      
-      $PROCESSING$lupperarm_lupperarm2_y
-      [1] -9.71445e-16
-      
-      $PROCESSING$lupperarm_lupperarm2_z
-      [1] -78.7409
-      
-      $PROCESSING$lupperarm_torso3_x
-      [1] 7.10543e-15
-      
-      $PROCESSING$lupperarm_torso3_y
-      [1] 366.208
-      
-      $PROCESSING$lupperarm_torso3_z
-      [1] 41.8786
-      
-      $PROCESSING$lforearm_lforearm1_x
-      [1] 0
-      
-      $PROCESSING$lforearm_lforearm1_y
-      [1] 0
-      
-      $PROCESSING$lforearm_lforearm1_z
-      [1] 0
-      
-      $PROCESSING$lforearm_lforearm2_x
-      [1] 0
-      
-      $PROCESSING$lforearm_lforearm2_y
-      [1] 1.77636e-15
-      
-      $PROCESSING$lforearm_lforearm2_z
-      [1] -74.1358
-      
-      $PROCESSING$lforearm_lupperarm1_x
-      [1] 1.42109e-14
-      
-      $PROCESSING$lforearm_lupperarm1_y
-      [1] 261.443
-      
-      $PROCESSING$lforearm_lupperarm1_z
-      [1] -55.5403
+      $PROCESSING$`Cropped Measurement End Frame`
+      [1] 1044
       
       
 
