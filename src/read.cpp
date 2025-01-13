@@ -111,11 +111,22 @@ List read(const std::string &filepath) {
       ezc3d::Matrix cop(fp_n.CoP());
       ezc3d::Matrix tz(fp_n.Tz());
 
+      List fp_meta = List::create(
+        Named("frames") = fp_n.nbFrames(),
+        Named("funit") = fp_n.forceUnit(),
+        Named("munit") = fp_n.momentUnit(),
+        Named("punit") = fp_n.positionUnit(),
+        Named("calmatrix") = matrix_conversion(fp_n.calMatrix()),
+        Named("corners") = matrix_conversion(fp_n.corners()),
+        Named("origin") = matrix_conversion(fp_n.origin())
+      );
+
       List fdata = List::create(
         Named("forces") = matrix_conversion(forces),
         Named("moments") = matrix_conversion(moments),
         Named("cop") = matrix_conversion(cop),
-        Named("tz") = matrix_conversion(tz)
+        Named("tz") = matrix_conversion(tz),
+        Named("meta") = fp_meta
       );
       fp_all[n] = fdata;
     }
