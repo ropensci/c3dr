@@ -134,13 +134,13 @@ List read(const std::string &filepath) {
 
   List out = List::create(
     Named("header") = h,
-    Named("labels") = label,
-    Named("alabels") = alabel,
+    Named("parameters") = p,
     Named("data") = d,
     Named("residuals") = res,
     Named("analog") = a,
-    Named("parameters") = p,
-    Named("forceplatform") = fp_all
+    Named("forceplatform") = fp_all,
+    Named("labels") = label,
+    Named("alabels") = alabel
   );
   return(out);
 }
