@@ -7,9 +7,9 @@ cff-version: 1.2.0
 message: 'To cite package "c3dr" in publications use:'
 type: software
 license: MIT
-title: 'c3dr: Work with motion capture data in R'
+title: 'c3dr: Import C3D motion capture files in R'
 version: 0.0.0.9000
-abstract: An R wrapper for the EZC3D library to work with c3d motion capture data.
+abstract: An R wrapper for the EZC3D library to work with C3D motion capture data.
 authors:
 - family-names: Nolte
   given-names: Simon
@@ -23,7 +23,7 @@ preferred-citation:
     given-names: Simon
     email: s.nolte@dshs-koeln.de
     orcid: https://orcid.org/0000-0003-1643-1860
-  year: '2024'
+  year: '2025'
   url: https://github.com/smnnlt/c3dr
   notes: R package version 0.0.0.9000
 repository-code: https://github.com/smnnlt/c3dr
@@ -59,7 +59,7 @@ references:
     given-names: Douglas
   - family-names: Chambers
     given-names: John
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.Rcpp
 - type: software
   title: testthat
@@ -71,7 +71,24 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
+- type: software
+  title: quarto
+  abstract: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'
+  notes: Suggests
+  url: https://quarto-dev.github.io/quarto-r/
+  repository: https://CRAN.R-project.org/package=quarto
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+    orcid: https://orcid.org/0000-0003-0174-9868
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  year: '2025'
+  doi: 10.32614/CRAN.package.quarto
 
