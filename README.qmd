@@ -63,7 +63,10 @@ p_long[1:5, 1:5]
 
 # read analog data
 a <- c3d_analog(d)
-head(a)
+a[1:5, 41:43]
+
+# read data from first force platform
+d$forceplatform[[1]]$forces[1:5,]
 ```
 
 ## Citation

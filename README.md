@@ -1,8 +1,6 @@
 # c3dr
 
-
 <!-- README.md is generated from README.qmd. Please edit that file -->
-
 <!-- badges: start -->
 
 [![Project Status: WIP – Initial development is in progress, but there
@@ -53,52 +51,61 @@ path <- c3d_example()
 d <- c3d_read(path)
 d
 #> A c3d object with
-#> - 54 data points and 1885 frames
-#> - 7.85 s measurement duration (240 fps)
-#> - 1 analog channels (960 fps)
+#> - 55 data points and 340 frames
+#> - 1.70 s measurement duration (200 fps)
+#> - 69 analog channels (2000 fps)
 
 # structure of the imported object
 str(d, max.level = 1)
-#> List of 7
-#>  $ header    :List of 6
-#>  $ labels    : chr [1:54] "LASI" "RASI" "LPSI" "RPSI" ...
-#>  $ alabels   : chr "Electric Potential.Trigger"
-#>  $ data      :List of 1885
-#>  $ residuals : num [1:1885, 1:54] 172 171 172 172 172 ...
-#>  $ analog    :List of 1885
-#>  $ parameters:List of 10
+#> List of 8
+#>  $ header       :List of 6
+#>  $ labels       : chr [1:55] "L_IAS" "L_IPS" "R_IPS" "R_IAS" ...
+#>  $ alabels      : chr [1:69] "FP1_FX" "FP1_FY" "FP1_FZ" "FP1_MX" ...
+#>  $ data         :List of 340
+#>  $ residuals    : num [1:340, 1:55] 1280 1280 1280 1280 1280 ...
+#>  $ analog       :List of 340
+#>  $ parameters   :List of 7
+#>  $ forceplatform:List of 2
 #>  - attr(*, "class")= chr [1:2] "c3d" "list"
 
 # read point data
 p <- c3d_data(d)
 p[1:5, 1:5]
-#>     LASI_x   LASI_y   LASI_z   RASI_x   RASI_y
-#> 1 514.7515 426.1067 1111.939 517.2385 140.1397
-#> 2 514.1281 425.5054 1112.686 517.2141 140.0569
-#> 3 514.5764 425.8453 1112.585 517.1833 139.9610
-#> 4 514.4996 425.7862 1112.925 517.1443 139.9025
-#> 5 514.3743 425.7397 1113.257 517.0745 139.8348
+#>     L_IAS_x  L_IAS_y  L_IAS_z   L_IPS_x  L_IPS_y
+#> 1 -220.1226 306.4248 846.3361 -398.1731 237.0688
+#> 2 -212.4696 306.5356 844.6985 -390.7831 237.8691
+#> 3 -204.8696 306.6555 843.2342 -383.1857 238.6758
+#> 4 -197.1952 306.8035 841.6127 -375.7068 239.5434
+#> 5 -189.6655 307.0628 840.1692 -368.1680 240.4141
 
 # alternative long data format
 p_long <- c3d_data(d, format = "long")
 p_long[1:5, 1:5]
-#>     frame type      LASI      RASI      LPSI
-#> 1.x     1    x  514.7515  517.2385  365.6084
-#> 1.y     1    y  426.1067  140.1397  348.0317
-#> 1.z     1    z 1111.9390 1085.5681 1196.8900
-#> 2.x     2    x  514.1281  517.2141  365.5312
-#> 2.y     2    y  425.5054  140.0569  347.8595
+#>     frame type     L_IAS     L_IPS     R_IPS
+#> 1.x     1    x -220.1226 -398.1731 -392.8751
+#> 1.y     1    y  306.4248  237.0688  146.2103
+#> 1.z     1    z  846.3361  872.8574  880.3161
+#> 2.x     2    x -212.4696 -390.7831 -385.6659
+#> 2.y     2    y  306.5356  237.8691  147.1048
 
 # read analog data
 a <- c3d_analog(d)
-head(a)
-#>   Electric Potential.Trigger
-#> 1              -0.0001525879
-#> 2              -0.0001525879
-#> 3               0.0000000000
-#> 4               0.0000000000
-#> 5               0.0000000000
-#> 6               0.0003051758
+a[1:5, 41:43]
+#>           EMG 1        EMG 2        EMG 3
+#> 1 -3.601184e-05 7.324442e-06 1.647999e-05
+#> 2  4.638813e-05 8.697775e-06 1.533555e-05
+#> 3  1.280251e-04 1.007111e-05 1.449629e-05
+#> 4  1.841029e-04 1.190222e-05 1.350444e-05
+#> 5  1.898251e-04 1.464888e-05 1.190222e-05
+
+# read data from first force platform
+d$forceplatform[[1]]$forces[1:5,]
+#>            [,1]       [,2]       [,3]
+#> [1,] 0.13992119  0.0461483 -0.1835251
+#> [2,] 0.13992119 -0.0461483  0.0000000
+#> [3,] 0.09328079  0.1845932 -0.1835251
+#> [4,] 0.04664040 -0.1384449  0.0000000
+#> [5,] 0.04664040 -0.2768898  0.5505753
 ```
 
 ## Citation

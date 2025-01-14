@@ -72,7 +72,7 @@ f$parameters$MANUFACTURER$SOFTWARE
 
 c3d objects in R save point data as a nested list, with the two levels frame and point. For example for a c3d object named `f`, `f$data[[1]][[2]]` returns a three-coordinate vector of the first frame for the second data point.
 
-Usually it is much more convenient to work with the point data in a table (i.e., a data.frame). This conversion happens with `c3d_data()`, see @sec-point.
+Usually it is much more convenient to work with the point data in a table (i.e., a data frame). This conversion happens with `c3d_data()`, see @sec-point.
 
 ```{r}
 # read the coordinates of the first frame for the second data point
@@ -88,11 +88,27 @@ Often it is more convenient to work with the analog data in a table (i.e., a dat
 ```{r}
 f$analog[[2]][3,1]
 
-# read all analog values for the first point frame
-# only one analog frame is available and the sampling frequency is four times 
-# that of the point data, resulting in 4 subframes
-f$analog[[1]]
+# read the values of the first five analog channels for the first point frame
+# The sampling frequency is ten times that of the point data, resulting in 
+# ten subframes
+f$analog[[1]][,1:5]
 ```
+
+### Force platform data
+
+c3d files can store data from force platforms. When importing with `c3d_read`, the force platform data is stored as a list, with each element of the list corresponding to one force platform.
+
+```{r}
+# this example file has data from two force platforms
+str(f$forceplatform)
+```
+Each force platform has data on forces, moments, the center of pressure, and the moments at the center of pressure, as well as meta data. The force data is stored as a matrix, where each row corresponds to one recording frame of the platform and each column to one dimension (x, y, z). 
+
+```{r}
+# view for the first force platform the force data for the first five frames
+f$forceplatform[[1]]$forces[1:5,]
+```
+
 
 ## Work with C3D point data {#sec-point}
 
@@ -124,6 +140,6 @@ To return a table of the imported analog data of a c3d file, use the `c3d_analog
 
 ```{r}
 a <- c3d_analog(f)
-head(a)
+a[1:5,41:46]
 ```
 
