@@ -99,7 +99,7 @@ bool write(const std::string &filepath, List object) {
   }
 
   // write file
-  c3d.write(filepath + ".c3d");
+  c3d.write(filepath);
   return true;
 }
 
