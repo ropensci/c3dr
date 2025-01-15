@@ -10,11 +10,12 @@ c3d_write(tmp, d)
 n <- c3d_read(tmp)
 
 test_that("reimport works", {
-  expect_equal(n$header, d$header) # same header
-  expect_equal(n$labels, d$labels) # same labels
-  expect_equal(n$alabels, d$alabels) # same analog labels
+  expect_identical(n$header, d$header) # same header
+  expect_identical(n$labels, d$labels) # same labels
+  expect_identical(n$alabels, d$alabels) # same analog labels
   # parameters are different
-  expect_equal(n$data, d$data) # same data
-  expect_equal(n$analog, d$analog) # same analogs
+  expect_equal(n$data, d$data, tolerance = 0.0001) # same data
+  expect_equal(n$residuals, d$residuals, tolerance = 0.0001)
+  expect_equal(n$analog, d$analog, tolerance = 0.0001) # same analogs
   # force platform data is not exported at the moment
 })

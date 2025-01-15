@@ -64,6 +64,7 @@ bool write(const std::string &filepath, List object) {
   // write point and analog data
   Rcpp::List data = object["data"];
   Rcpp::List analog = object["analog"];
+  Rcpp::NumericMatrix rdata = object["residuals"];
 
   for (int iframe = 0; iframe < data.size(); ++iframe) {
     Rcpp::List fdata = data[iframe];
@@ -76,9 +77,11 @@ bool write(const std::string &filepath, List object) {
       ezc3d::DataNS::Points3dNS::Point pt;
       Rcpp::NumericVector pdata = Rcpp::as<Rcpp::NumericVector>(fdata[ipoint]);
       std::vector<double> pvec(pdata.begin(), pdata.end());
+      float res = rdata(iframe, ipoint);
       pt.x(pvec[0]);
       pt.y(pvec[1]);
       pt.z(pvec[2]);
+      pt.residual(res);
       pts.point(pt);
     }
 
