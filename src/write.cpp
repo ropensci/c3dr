@@ -52,7 +52,14 @@ bool write(const std::string &filepath, List object) {
 
       c3d.parameter(gname, param);
     }
+
   }
+
+  // set FORCE_PLATFORM:USED parameter to 0 as c3dr currently does not support
+  // export of force platform data
+  ezc3d::ParametersNS::GroupNS::Parameter fpused("USED");
+  fpused.set(0);
+  c3d.parameter("FORCE_PLATFORM", fpused);
 
   // write point and analog data
   Rcpp::List data = object["data"];
