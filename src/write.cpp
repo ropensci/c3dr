@@ -54,13 +54,17 @@ bool write(const std::string &filepath, List object) {
     }
   }
 
-  // write point data
+  // write point and analog data
   Rcpp::List data = object["data"];
+  Rcpp::List analog = object["analog"];
+
   for (int iframe = 0; iframe < data.size(); ++iframe) {
     Rcpp::List fdata = data[iframe];
+    Rcpp::NumericMatrix adata = analog[iframe];
     ezc3d::DataNS::Frame f;
-    ezc3d::DataNS::Points3dNS::Points pts;
 
+    // set point data
+    ezc3d::DataNS::Points3dNS::Points pts;
     for (int ipoint = 0; ipoint < fdata.size(); ++ipoint) {
       ezc3d::DataNS::Points3dNS::Point pt;
       Rcpp::NumericVector pdata = Rcpp::as<Rcpp::NumericVector>(fdata[ipoint]);
@@ -70,7 +74,20 @@ bool write(const std::string &filepath, List object) {
       pt.z(pvec[2]);
       pts.point(pt);
     }
-    f.add(pts);
+
+    // set analog data
+    ezc3d::DataNS::AnalogsNS::Analogs a;
+    for (int i=0; i < adata.nrow(); ++i) {
+      ezc3d::DataNS::AnalogsNS::SubFrame subframe;
+      for (int j=0; j < adata.ncol(); ++j){
+        ezc3d::DataNS::AnalogsNS::Channel c;
+        c.data(adata(i,j));
+        subframe.channel(c);
+      }
+      a.subframe(subframe);
+    }
+
+    f.add(pts, a);
     c3d.frame(f, iframe);
   }
 
