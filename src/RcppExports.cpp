@@ -22,20 +22,21 @@ BEGIN_RCPP
 END_RCPP
 }
 // write
-bool write(const std::string& filepath);
-RcppExport SEXP _c3dr_write(SEXP filepathSEXP) {
+bool write(const std::string& filepath, List object);
+RcppExport SEXP _c3dr_write(SEXP filepathSEXP, SEXP objectSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
-    rcpp_result_gen = Rcpp::wrap(write(filepath));
+    Rcpp::traits::input_parameter< List >::type object(objectSEXP);
+    rcpp_result_gen = Rcpp::wrap(write(filepath, object));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_c3dr_read", (DL_FUNC) &_c3dr_read, 1},
-    {"_c3dr_write", (DL_FUNC) &_c3dr_write, 1},
+    {"_c3dr_write", (DL_FUNC) &_c3dr_write, 2},
     {NULL, NULL, 0}
 };
 

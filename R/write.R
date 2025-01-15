@@ -6,7 +6,7 @@
 #'
 #' @export
 
-c3d_write <- function(file) {
-  out <- write(file)
+c3d_write <- function(file, object) {
+  out <- write(file, object)
   invisible(out)
 }
