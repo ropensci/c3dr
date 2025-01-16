@@ -36,6 +36,7 @@ c3d_data <- function(x, format = "wide") {
   # get label names
   colnames(out) <- paste0(rep(x$labels, each = 3), c("_x", "_y", "_z"))
   if (format == "wide") {
+    class(out) <- c("c3d_data_wide", "c3d_data", "data.frame")
     out
   } else if (format == "long") {
     c3d_longer(out)
@@ -87,16 +88,22 @@ c3d_longer <- function(x) {
   # reorder columns
   r <- r[,c(ncol(r), seq_along(r)[-ncol(r)])]
   # reorder rows
-  r[order(r$frame, r$type),]
+  r <- r[order(r$frame, r$type),]
+
+  # attach class
+  class(r) <- c("c3d_data_longer", "c3d_data", "data.frame")
+  r
 }
 
-#' Convert wide to longest data for c3d points
+#' Convert to longest data for c3d points
 #'
-#' Convert from wide representation of data (3 columns per point) to longest
+#' Convert from wide or long representation of data (3 columns per point) to longest
 #' data (1 single data column) in c3d point data
 #'
 #' @param x A data.frame with c3d point data with three columns (x, y, z) per
 #'   point.
+#' @param is_wide Set to TRUE if the current format is wide, FALSE if the
+#'   current format is long.
 #'
 #' @return A data.frame with one data column. It has 3\*n\*k rows, with n as the
 #'   number of recorded frames and k as the number of recorded points.
@@ -109,9 +116,10 @@ c3d_longer <- function(x) {
 #' ll <- c3d_longest(w)
 #' head(ll)
 #' @export
-c3d_longest <- function(x) {
+c3d_longest <- function(x, is_wide = TRUE) {
 
-  l <- c3d_longer(x)
+  # convert to long format if format is wide
+  l <- if (isTRUE(is_wide)) c3d_longer(x) else x
 
   vary <- names(l)[-c(1,2)]
   r <- stats::reshape(
@@ -128,6 +136,9 @@ c3d_longest <- function(x) {
   # also delete id column
   p_factor <- factor(r$point, levels = unique(r$point))
   r <- r[order(r$frame, p_factor, r$type),-ncol(r)]
+
+  # attach class
+  class(r) <- c("c3d_data_longest", "c3d_data", "data.frame")
   r
 }
 

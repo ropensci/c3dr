@@ -35,6 +35,17 @@ test_that("longest data retrieval works", {
   expect_equal(d_longest$value[4], d$data[[1]][[2]][[1]])
 })
 
+test_that("sequential conversion leads to same results", {
+  expect_identical(c3d_longest(d_wide), d_longest)
+  expect_identical(c3d_longest(c3d_longer(d_wide), is_wide = FALSE), d_longest)
+})
+
+test_that("correct attributes and classes are exported", {
+  expect_identical(class(d_wide), c("c3d_data_wide", "c3d_data", "data.frame"))
+  expect_identical(class(d_long), c("c3d_data_longer", "c3d_data", "data.frame"))
+  expect_identical(class(d_longest), c("c3d_data_longest", "c3d_data", "data.frame"))
+})
+
 test_that("analog data retrieval works", {
   # dimensions
   expect_equal(
