@@ -19,3 +19,8 @@ test_that("reimport works", {
   expect_equal(n$analog, d$analog, tolerance = 0.0001) # same analogs
   # force platform data is not exported at the moment
 })
+
+test_that("c3dr parameter export works", {
+  expect_identical(n$parameter$EZC3D$BINDING, "c3dr")
+  expect_identical(n$parameter$EZC3D$C3DR_VERSION, as.character(packageVersion("c3dr")))
+})

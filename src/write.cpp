@@ -61,6 +61,14 @@ bool write(const std::string &filepath, List object) {
   fpused.set(0);
   c3d.parameter("FORCE_PLATFORM", fpused);
 
+  // write c3dr related parameters to the EZC3D group
+  ezc3d::ParametersNS::GroupNS::Parameter pc3dr("BINDING");
+  pc3dr.set("c3dr");
+  c3d.parameter("EZC3D", pc3dr);
+  ezc3d::ParametersNS::GroupNS::Parameter pc3drversion("C3DR_VERSION");
+  pc3drversion.set("0.0.0.9000");
+  c3d.parameter("EZC3D", pc3drversion);
+
   // write point and analog data
   Rcpp::List data = object["data"];
   Rcpp::List analog = object["analog"];
