@@ -2,20 +2,23 @@
 % Please edit documentation in R/convert.R
 \name{c3d_longest}
 \alias{c3d_longest}
-\title{Convert wide to longest data for c3d points}
+\title{Convert to longest data for c3d points}
 \usage{
-c3d_longest(x)
+c3d_longest(x, is_wide = TRUE)
 }
 \arguments{
 \item{x}{A data.frame with c3d point data with three columns (x, y, z) per
 point.}
+
+\item{is_wide}{Set to TRUE if the current format is wide, FALSE if the
+current format is long.}
 }
 \value{
 A data.frame with one data column. It has 3\*n\*k rows, with n as the
 number of recorded frames and k as the number of recorded points.
 }
 \description{
-Convert from wide representation of data (3 columns per point) to longest
+Convert from wide or long representation of data (3 columns per point) to longest
 data (1 single data column) in c3d point data
 }
 \examples{

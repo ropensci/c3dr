@@ -165,5 +165,6 @@ c3d_analog <- function(x) {
   # change data format from list of matrices to data.frame
   out <- as.data.frame(do.call(rbind, x$analog))
   colnames(out) <- x$alabels
+  class(out) <- c("c3d_analog", "data.frame")
   out
 }

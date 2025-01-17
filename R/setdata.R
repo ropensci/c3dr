@@ -3,28 +3,66 @@
 #' Set new data to an existing c3d object
 #'
 #' @param object A \code{c3d} object to be modified.
-#' @param data The new data that should be written to the \code{c3d} object.
+#' @param newdata The new point data that should be written to the \code{c3d}
+#'   object.
+#' @param newanalog The new analog data that should be written to the \code{c3d}
+#'   object.
 #'
 #' @return The modified c3d object
 #'
 #' @export
 
-c3d_setdata <- function(object, data) {
+c3d_setdata <- function(object, newdata = NULL, newanalog = NULL) {
 
   # input validation
   if (!any(class(object) == "c3d")) stop("'object' needs to be a list of class 'c3d'.")
-  if (!any(class(data) != "c3d_data")) stop("'data' needs to be a data.frame of class 'c3d_data'.")
 
+  # set new point data
+  if (!is.null(newdata)) {
+    nd <- create_newdata(newdata)
+    # rewrite point data
+    object$data <- nd[["data"]]
+    # rewrite point labels
+    object$parameters$POINT$LABELS <- nd[["labels"]]
+    object$labels <- nd[["labels"]]
+    # rewrite number of points
+    object$parameters$POINT$USED <- length(nd[["labels"]])
+    object$header$npoints <- length(nd[["labels"]])
+    # rewrite frame number
+    object$parameters$POINT$FRAMES <- length(nd[["data"]])
+    object$header$nframes <- length(nd[["data"]])
+  }
+
+  # set new analog data
+  if (!is.null(newanalog)) {
+    # get number of subframes
+    n_subframes <- object$header$analogperframe
+    na <- create_newanalog(newanalog, n_subframes)
+
+    # rewrite analog data
+    object$analog <- na[["data"]]
+    # rewrite analog labels
+    object$alabels <- na[["labels"]]
+    object$parameters$ANALOG$LABELS <- na[["labels"]]
+    # rewrite number of analog channels
+    object$header$nanalogs <- length(na[["labels"]])
+    object$parameters$ANALOG$USED <- length(na[["labels"]])
+  }
+  object
+}
+
+create_newdata <- function(newdata) {
+  if (!any(class(newdata) != "c3d_data")) stop("'newdata' needs to be a data.frame of class 'c3d_data'.")
   # convert to long data format if necessary
-  frmt <- class(data)[1]
+  frmt <- class(newdata)[1]
   if (frmt == "c3d_data_longest") {
-    d = data # no conversion required
+    d = newdata # no conversion required
   } else if (frmt == "c3d_data_longer") {
-    d = c3d_longest(data, is_wide = FALSE)
+    d = c3d_longest(newdata, is_wide = FALSE)
   } else if (frmt == "c3d_data_wide") {
-    d = c3d_longest(data, is_wide = TRUE)
+    d = c3d_longest(newdata, is_wide = TRUE)
   } else if (is.null(frmt)) {
-    d = c3d_longest(data, is_wide = TRUE)
+    d = c3d_longest(newdata, is_wide = TRUE)
     message("assumed wide format")
   } else {
     stop("Unknown c3d_data format")
@@ -56,18 +94,29 @@ c3d_setdata <- function(object, data) {
       }
     })
   }
-
-  # rewrite point data
-  object$data <- out
-  # rewrite point labels
-  object$parameters$POINT$LABELS <- points
-  object$parameters$POINT$USED <- length(points)
-  object$labels <- points
-  object$header$npoints <- length(points)
-  # rewrite frame number
-  object$parameters$POINT$FRAMES <- length(frames)
-  object$header$nframes <- length(frames)
-  object
+  list(
+    data = out,
+    labels = points
+  )
 }
 
+create_newanalog <- function(newanalog, nperframe) {
+  if (!any(class(newanalog) != "c3d_analog")) stop("'newanalog' needs to be a data.frame of class 'c3d_analog'.")
+  # get frame id
+  frame <- ceiling(seq_len(nrow(newanalog)) / nperframe)
+  # Split data frame based on frames
+  df_list <- split(newanalog, frame)
+  # convert to list of matrices
+  mlist <- lapply(df_list, function(sub_df) {
+    mat <- as.matrix(sub_df)
+    dimnames(mat) <- NULL
+    mat
+  })
+  names(mlist) <- NULL
+  out <- list(
+    data = mlist,
+    labels = colnames(newanalog)
+  )
+  out
+}
 
