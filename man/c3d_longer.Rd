@@ -7,11 +7,11 @@
 c3d_longer(x)
 }
 \arguments{
-\item{x}{A data.frame with c3d point data with three columns (x, y, z) per
-point.}
+\item{x}{A data.frame of class \code{c3d} with c3d point data with three
+columns (x, y, z) per point (wide format).}
 }
 \value{
-A data.frame with one column per point. It has n*3 rows
+A data.frame with one column per point (long format). It has n*3 rows
 and k columns, with n as the number of recorded frames and k as the
 number of recorded points.
 }

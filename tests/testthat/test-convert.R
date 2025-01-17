@@ -37,7 +37,7 @@ test_that("longest data retrieval works", {
 
 test_that("sequential conversion leads to same results", {
   expect_identical(c3d_longest(d_wide), d_longest)
-  expect_identical(c3d_longest(c3d_longer(d_wide), is_wide = FALSE), d_longest)
+  expect_identical(c3d_longest(c3d_longer(d_wide)), d_longest)
 })
 
 test_that("correct attributes and classes are exported", {

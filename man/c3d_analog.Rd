@@ -7,7 +7,7 @@
 c3d_analog(x)
 }
 \arguments{
-\item{x}{A c3d object, as imported by \code{c3d_read()}.}
+\item{x}{A c3d object, as imported by \code{\link{c3d_read}}.}
 }
 \value{
 A data.frame with with n rows and m columns, where n is the number of

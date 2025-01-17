@@ -5,7 +5,7 @@ tmp <- tempfile()
 on.exit(unlink(tmp))
 
 # write c3d file
-c3d_write(tmp, d)
+c3d_write(d, tmp)
 # reread file
 n <- c3d_read(tmp)
 

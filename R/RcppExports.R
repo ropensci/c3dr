@@ -5,7 +5,7 @@ read <- function(filepath) {
     .Call(`_c3dr_read`, filepath)
 }
 
-write <- function(filepath, object) {
-    .Call(`_c3dr_write`, filepath, object)
+write <- function(object, filepath) {
+    .Call(`_c3dr_write`, object, filepath)
 }
 

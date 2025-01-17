@@ -4,13 +4,25 @@
 \alias{c3d_write}
 \title{Write a c3d file in R}
 \usage{
-c3d_write(file, object)
+c3d_write(object, file)
 }
 \arguments{
-\item{file}{A string with the file path to write to.}
-
 \item{object}{A c3d object}
+
+\item{file}{A string with the file path to write to.}
 }
 \description{
 \code{c3d_write()} writes a c3d file using the C++ ezc3d library.
+}
+\examples{
+# read an example file
+d <- c3d_read(c3d_example())
+
+# create a temporary file
+tmp <- tempfile()
+on.exit(unlink(tmp))
+
+# write c3d file
+c3d_write(d, tmp)
+
 }

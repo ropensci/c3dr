@@ -4,14 +4,11 @@
 \alias{c3d_longest}
 \title{Convert to longest data for c3d points}
 \usage{
-c3d_longest(x, is_wide = TRUE)
+c3d_longest(x)
 }
 \arguments{
-\item{x}{A data.frame with c3d point data with three columns (x, y, z) per
-point.}
-
-\item{is_wide}{Set to TRUE if the current format is wide, FALSE if the
-current format is long.}
+\item{x}{A data.frame of class \code{c3d_data} with c3d point data. Either in
+wide or longer format, see \code{\link{c3d_data}}}
 }
 \value{
 A data.frame with one data column. It has 3\*n\*k rows, with n as the

@@ -4,7 +4,7 @@ using namespace Rcpp;
 using namespace ezc3d;
 
 // [[Rcpp::export]]
-bool write(const std::string &filepath, List object) {
+bool write(List object, const std::string &filepath) {
   // create empty c3d object
   ezc3d::c3d c3d;
   Rcpp::List p = object["parameters"];

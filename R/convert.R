@@ -2,14 +2,14 @@
 #'
 #' Get the point data in a data.frame
 #'
-#' @param x A c3d object, as imported by \code{c3d_read()}.
+#' @param x A c3d object, as imported by \code{\link{c3d_read}}.
 #' @param format Either "wide" (default), "long", or "longest" to determine the
 #'   format of the resulting data frame. The wide format has Long format has
 #'   three columns per point (x,y,z), the long format has three rows per frame
 #'   per point (x,y,z). The longest format has one row per data entry.
 #'
-#' @return A data.frame with the c3d point data. The structure of the data frame
-#'   depends on the 'format' argument.
+#' @return A data.frame of class \code{c3d_data} with the c3d point data. The
+#'   structure of the data frame depends on the 'format' argument.
 #'
 #' @examples
 #' # Import example data
@@ -33,10 +33,10 @@ c3d_data <- function(x, format = "wide") {
   out <- as.data.frame(
     matrix(unlist(x$data), nrow = x$header$nframes, byrow = TRUE)
   )
+  class(out) <- c("c3d_data_wide", "c3d_data", "data.frame")
   # get label names
   colnames(out) <- paste0(rep(x$labels, each = 3), c("_x", "_y", "_z"))
   if (format == "wide") {
-    class(out) <- c("c3d_data_wide", "c3d_data", "data.frame")
     out
   } else if (format == "long") {
     c3d_longer(out)
@@ -52,10 +52,10 @@ c3d_data <- function(x, format = "wide") {
 #' Convert from wide representation of data (3 columns per point) to long data
 #' (1 column per point) in c3d point data
 #'
-#' @param x A data.frame with c3d point data with three columns (x, y, z) per
-#'   point.
+#' @param x A data.frame of class \code{c3d} with c3d point data with three
+#'   columns (x, y, z) per point (wide format).
 #'
-#' @return A data.frame with one column per point. It has n*3 rows
+#' @return A data.frame with one column per point (long format). It has n*3 rows
 #'   and k columns, with n as the number of recorded frames and k as the
 #'   number of recorded points.
 #'
@@ -70,6 +70,7 @@ c3d_data <- function(x, format = "wide") {
 #'
 #' @export
 c3d_longer <- function(x) {
+  if (!inherits(x, "c3d_data_wide")) stop("'x' needs to be a data frame of class 'c3d' in the wide format.")
   # get new column names
   old_names <- colnames(x)[0:(ncol(x) / 3 - 1) * 3 + 1]
   new_names <- sub("_([xyz])$", "", old_names)
@@ -100,10 +101,8 @@ c3d_longer <- function(x) {
 #' Convert from wide or long representation of data (3 columns per point) to longest
 #' data (1 single data column) in c3d point data
 #'
-#' @param x A data.frame with c3d point data with three columns (x, y, z) per
-#'   point.
-#' @param is_wide Set to TRUE if the current format is wide, FALSE if the
-#'   current format is long.
+#' @param x A data.frame of class \code{c3d_data} with c3d point data. Either in
+#'   wide or longer format, see \code{\link{c3d_data}}
 #'
 #' @return A data.frame with one data column. It has 3\*n\*k rows, with n as the
 #'   number of recorded frames and k as the number of recorded points.
@@ -116,10 +115,14 @@ c3d_longer <- function(x) {
 #' ll <- c3d_longest(w)
 #' head(ll)
 #' @export
-c3d_longest <- function(x, is_wide = TRUE) {
-
-  # convert to long format if format is wide
-  l <- if (isTRUE(is_wide)) c3d_longer(x) else x
+c3d_longest <- function(x) {
+  if (inherits(x, "c3d_data_wide")) {
+    l <- c3d_longer(x)
+  } else if (inherits(x, "c3d_data_longer")) {
+    l <- x
+  } else {
+    stop("'x' needs to be a data frame of class 'c3d' in wide or longer format.")
+  }
 
   vary <- names(l)[-c(1,2)]
   r <- stats::reshape(
@@ -146,7 +149,7 @@ c3d_longest <- function(x, is_wide = TRUE) {
 #'
 #' Get the analog data in a data.frame
 #'
-#' @param x A c3d object, as imported by \code{c3d_read()}.
+#' @param x A c3d object, as imported by \code{\link{c3d_read}}.
 #'
 #' @return A data.frame with with n rows and m columns, where n is the number of
 #'   frames recorded times the number of analog subframes per frame, and m as

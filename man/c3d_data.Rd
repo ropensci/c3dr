@@ -7,7 +7,7 @@
 c3d_data(x, format = "wide")
 }
 \arguments{
-\item{x}{A c3d object, as imported by \code{c3d_read()}.}
+\item{x}{A c3d object, as imported by \code{\link{c3d_read}}.}
 
 \item{format}{Either "wide" (default), "long", or "longest" to determine the
 format of the resulting data frame. The wide format has Long format has
@@ -15,8 +15,8 @@ three columns per point (x,y,z), the long format has three rows per frame
 per point (x,y,z). The longest format has one row per data entry.}
 }
 \value{
-A data.frame with the c3d point data. The structure of the data frame
-depends on the 'format' argument.
+A data.frame of class \code{c3d_data} with the c3d point data. The
+structure of the data frame depends on the 'format' argument.
 }
 \description{
 Get the point data in a data.frame
