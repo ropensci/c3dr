@@ -6,12 +6,12 @@ d_wide <- c3d_data(d, "wide")
 d_longest <- c3d_data(d, "longest")
 # modified data
 d_cutdata <- d_wide[-340,-c(163:165)] # remove last points and last frame
-d_cut <- c3d_setdata(d, newdata = d_cutdata)
+d_cut <- suppressWarnings(c3d_setdata(d, newdata = d_cutdata))
 # analog data
 a <- c3d_analog(d)
 # modified analog data
-a_cutdata <- a[-c(3300:3400), -69] # remove last 10 frames and last analog channel
-a_cut <- c3d_setdata(d, newanalog = a_cutdata)
+a_cutdata <- a[-c(3301:3400), -69] # remove last 10 frames and last analog channel
+a_cut <- suppressWarnings(c3d_setdata(d, newanalog = a_cutdata))
 
 test_that("data setting recreates data structure", {
   expect_identical(c3d_setdata(d, newdata = d_wide), d)
@@ -49,5 +49,14 @@ test_that("input validation works", {
 
 test_that("function without data arguments returns same object", {
   expect_identical(c3d_setdata(d), d)
+})
+
+test_that("Warnings indicate incompatible point and analog data", {
+  # less point frames than analog frames
+  expect_warning(c3d_setdata(d, newdata = d_wide[-340,]))
+  # more point frames than analog frames
+  expect_warning(c3d_setdata(d, newdata = rbind(d_wide, d_wide[1,])))
+  # incorrect number of analog subframes
+  expect_warning(c3d_setdata(d, newanalog = a[-3400,]))
 })
 

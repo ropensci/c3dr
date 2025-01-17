@@ -47,6 +47,18 @@ c3d_setdata <- function(object, newdata = NULL, newanalog = NULL) {
     # rewrite number of analog channels
     object$header$nanalogs <- length(na[["labels"]])
     object$parameters$ANALOG$USED <- length(na[["labels"]])
+
+    # warning if analog data is incomplete for subframes
+    if (nrow(newanalog) %% n_subframes != 0) {
+      warning("Analog data length is not a multiplier of point data length.")
+    }
+  }
+
+  # warnings if data is not exactly compatible
+  if (length(object$data) < length(object$analog)) {
+    warning("Point data has less frames than analog data.")
+  } else if (length(object$data) > length(object$analog)) {
+    warning("Analog data has less frames than point data. This may lead to corrupt c3d files.")
   }
   object
 }
