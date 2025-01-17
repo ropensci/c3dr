@@ -26,7 +26,7 @@ test_that("data import works", {
 })
 
 test_that("label import works", {
-  expect_identical(length(d$labels), d$header$npoints)
+  expect_identical(length(d$parameters$POINT$LABELS), d$header$npoints)
 })
 
 test_that("parameter import works", {

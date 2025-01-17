@@ -140,9 +140,7 @@ List read(const std::string &filepath) {
     Named("data") = d,
     Named("residuals") = res,
     Named("analog") = a,
-    Named("forceplatform") = fp_all,
-    Named("labels") = label,
-    Named("alabels") = alabel
+    Named("forceplatform") = fp_all
   );
   return(out);
 }

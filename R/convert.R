@@ -35,7 +35,7 @@ c3d_data <- function(x, format = "wide") {
   )
   class(out) <- c("c3d_data_wide", "c3d_data", "data.frame")
   # get label names
-  colnames(out) <- paste0(rep(x$labels, each = 3), c("_x", "_y", "_z"))
+  colnames(out) <- paste0(rep(x$parameters$POINT$LABELS, each = 3), c("_x", "_y", "_z"))
   if (format == "wide") {
     out
   } else if (format == "long") {
@@ -167,7 +167,7 @@ c3d_longest <- function(x) {
 c3d_analog <- function(x) {
   # change data format from list of matrices to data.frame
   out <- as.data.frame(do.call(rbind, x$analog))
-  colnames(out) <- x$alabels
+  colnames(out) <- x$parameters$ANALOG$LABELS
   class(out) <- c("c3d_analog", "data.frame")
   out
 }

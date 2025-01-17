@@ -12,7 +12,7 @@ n <- c3d_read(tmp)
 test_that("reimport works", {
   expect_identical(n$header, d$header) # same header
   expect_identical(n$labels, d$labels) # same labels
-  expect_identical(n$alabels, d$alabels) # same analog labels
+  expect_identical(n$parameters$ANALOG$LABELS, d$parameters$ANALOG$LABELS) # same analog labels
   # parameters are different
   expect_equal(n$data, d$data, tolerance = 0.0001) # same data
   expect_equal(n$residuals, d$residuals, tolerance = 0.0001)

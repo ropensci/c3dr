@@ -38,7 +38,6 @@ c3d_setdata <- function(object, newdata = NULL, newanalog = NULL) {
     object$data <- nd[["data"]]
     # rewrite point labels
     object$parameters$POINT$LABELS <- nd[["labels"]]
-    object$labels <- nd[["labels"]]
     # rewrite number of points
     object$parameters$POINT$USED <- length(nd[["labels"]])
     object$header$npoints <- length(nd[["labels"]])
@@ -56,7 +55,6 @@ c3d_setdata <- function(object, newdata = NULL, newanalog = NULL) {
     # rewrite analog data
     object$analog <- na[["data"]]
     # rewrite analog labels
-    object$alabels <- na[["labels"]]
     object$parameters$ANALOG$LABELS <- na[["labels"]]
     # rewrite number of analog channels
     object$header$nanalogs <- length(na[["labels"]])
