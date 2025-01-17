@@ -54,17 +54,16 @@ d
 #> - 55 data points and 340 frames
 #> - 1.70 s measurement duration (200 fps)
 #> - 69 analog channels (2000 fps)
+#> - 2 force platforms with 3400 frames
 
 # structure of the imported object
 str(d, max.level = 1)
-#> List of 8
+#> List of 6
 #>  $ header       :List of 6
-#>  $ labels       : chr [1:55] "L_IAS" "L_IPS" "R_IPS" "R_IAS" ...
-#>  $ alabels      : chr [1:69] "FP1_FX" "FP1_FY" "FP1_FZ" "FP1_MX" ...
+#>  $ parameters   :List of 7
 #>  $ data         :List of 340
 #>  $ residuals    : num [1:340, 1:55] 1280 1280 1280 1280 1280 ...
 #>  $ analog       :List of 340
-#>  $ parameters   :List of 7
 #>  $ forceplatform:List of 2
 #>  - attr(*, "class")= chr [1:2] "c3d" "list"
 
@@ -116,7 +115,7 @@ citation("c3dr")
 
     To cite spiro in publications use:
 
-      Simon Nolte (2024). c3dr: Work with motion capture data in R. R
+      Simon Nolte (2025). c3dr: Work with motion capture data in R. R
       package Version 0.0.0.9000, https://github.com/smnnlt/c3dr
 
     A BibTeX entry for LaTeX users is
@@ -124,7 +123,7 @@ citation("c3dr")
       @Manual{,
         title = {c3dr: Work with motion capture data in R},
         author = {Simon Nolte},
-        year = {2024},
+        year = {2025},
         url = {https://github.com/smnnlt/c3dr},
         note = {R package version 0.0.0.9000},
       }
