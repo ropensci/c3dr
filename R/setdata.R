@@ -99,47 +99,39 @@ c3d_setdata <- function(object, newdata = NULL, newanalog = NULL) {
 create_newdata <- function(newdata) {
   if (!inherits(newdata, "c3d_data")) stop("'newdata' needs to be a data.frame of class 'c3d_data'.")
   # convert to long data format if necessary
-  frmt <- class(newdata)[1]
-  if (frmt == "c3d_data_longest") {
-    d = newdata # no conversion required
-  } else if (frmt == "c3d_data_long" | frmt == "c3d_data_wide") {
-    d = c3d_convert(newdata, "longest")
-  } else if (is.null(frmt)) {
-    d = c3d_convert(newdata, "longest")
-    message("assumed wide format")
-  } else {
-    stop("Unknown c3d_data format")
+  suppressMessages(
+    d <- c3d_convert(newdata, "wide")
+  )
+
+  # Get labels
+  labels <- unique(factor(sub("_[xyz]$", "", colnames(d))))
+  n_points <- length(labels)
+  n_frames <- nrow(d)
+
+  # Convert to matrix
+  m <- as.matrix(d)
+
+  # Create the empty list structure
+  out <- replicate(n_frames, replicate(n_points, numeric(3), simplify = FALSE), simplify = FALSE)
+
+  # Convert data frame to matrix for easier handling
+  m <- as.matrix(d)
+  dimnames(m) <- NULL
+
+  # For each frame (row)
+  for(i in 1:n_frames) {
+    # For each point
+    for(j in 1:n_points) {
+      # Get the x,y,z indices for this point
+      idx <- (j-1)*3 + 1:3
+      # Assign the values
+      out[[i]][[j]] <- m[i, idx]
+    }
   }
 
-  # write data to list format
-  frames <- unique(d$frame)
-  points <- unique(d$point)
-
-  out <- vector("list", length(frames))
-
-  # Split data by frames and points for faster access
-  data_split <- split(d, list(d$frame, d$point), drop = TRUE)
-
-  for (i in seq_along(frames)) {
-    frame <- frames[i]
-    frame_data <- data_split[grep(paste0("^", frame, "\\."), names(data_split))]
-
-    out[[i]] <- lapply(points, function(point) {
-      point_data <- frame_data[[paste0(frame, ".", point)]]
-      if (!is.null(point_data)) {
-        c(
-          point_data$value[point_data$type == "x"],
-          point_data$value[point_data$type == "y"],
-          point_data$value[point_data$type == "z"]
-        )
-      } else {
-        c(NA, NA, NA)
-      }
-    })
-  }
   list(
     data = out,
-    labels = points
+    labels = as.character(labels)
   )
 }
 
