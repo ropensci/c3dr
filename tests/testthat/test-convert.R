@@ -36,14 +36,38 @@ test_that("longest data retrieval works", {
 })
 
 test_that("sequential conversion leads to same results", {
-  expect_identical(c3d_longest(d_wide), d_longest)
-  expect_identical(c3d_longest(c3d_longer(d_wide)), d_longest)
+  expect_identical(c3d_convert(d_wide, "longest"), d_longest)
+  expect_identical(c3d_convert(c3d_convert(d_wide, "long"), "longest"), d_longest)
 })
 
 test_that("correct attributes and classes are exported", {
   expect_identical(class(d_wide), c("c3d_data_wide", "c3d_data", "data.frame"))
-  expect_identical(class(d_long), c("c3d_data_longer", "c3d_data", "data.frame"))
+  expect_identical(class(d_long), c("c3d_data_long", "c3d_data", "data.frame"))
   expect_identical(class(d_longest), c("c3d_data_longest", "c3d_data", "data.frame"))
+})
+
+test_that("reverse conversion works", {
+  expect_identical(c3d_longest_to_long(c3d_long_to_longest(d_long)), d_long)
+  expect_identical(c3d_long_to_wide(c3d_wide_to_long(d_wide)), d_wide)
+})
+
+test_that("full backconversion has success", {
+  expect_identical(c3d_convert(c3d_convert(d_wide, "longest"), "wide"), d_wide)
+})
+
+test_that("conversion to same format works but gives message", {
+  suppressMessages(
+    expect_identical(c3d_convert(d_wide, "wide"), d_wide)
+  )
+  suppressMessages(
+    expect_identical(c3d_convert(d_long, "long"), d_long)
+  )
+  suppressMessages(
+    expect_identical(c3d_convert(d_longest, "longest"), d_longest)
+  )
+  expect_message(c3d_convert(d_wide, "wide"))
+  expect_message(c3d_convert(d_long, "long"))
+  expect_message(c3d_convert(d_longest, "longest"))
 })
 
 test_that("analog data retrieval works", {

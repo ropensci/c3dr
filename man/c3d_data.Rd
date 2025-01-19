@@ -30,8 +30,8 @@ from an imported c3d object as a data frame.
 Analyses of data frames may require them to have different formats. For
 \code{c3d_data} output, different data formats (\code{"wide"}, \code{"long"},
 \code{"longest"}) are available. See the \code{format} argument for more
-details. You can convert from wide to other formats with
-\code{\link{c3d_longer}} and \code{\link{c3d_longest}}.
+details. You can convert between different formats with
+\code{\link{c3d_convert}}.
 }
 \examples{
 # Import example data

@@ -102,10 +102,10 @@ create_newdata <- function(newdata) {
   frmt <- class(newdata)[1]
   if (frmt == "c3d_data_longest") {
     d = newdata # no conversion required
-  } else if (frmt == "c3d_data_longer" | frmt == "c3d_data_wide") {
-    d = c3d_longest(newdata)
+  } else if (frmt == "c3d_data_long" | frmt == "c3d_data_wide") {
+    d = c3d_convert(newdata, "longest")
   } else if (is.null(frmt)) {
-    d = c3d_longest(newdata)
+    d = c3d_convert(newdata, "longest")
     message("assumed wide format")
   } else {
     stop("Unknown c3d_data format")
