@@ -31,7 +31,7 @@ Analyses of data frames may require them to have different formats. For
 \code{c3d_data} output, different data formats (\code{"wide"}, \code{"long"},
 \code{"longest"}) are available. See the \code{format} argument for more
 details. You can convert from wide to other formats with
-\code{\link{c3d_longer} and \code{\link{c3d_longest}}}.
+\code{\link{c3d_longer}} and \code{\link{c3d_longest}}.
 }
 \examples{
 # Import example data

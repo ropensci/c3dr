@@ -23,11 +23,12 @@ Different programs for working with C3D files exist, but free open-source soluti
 
 The `c3dr` package is currently available from GitHub. To install it, you first need to install the `pak` package with `install.packages("pak")`. After that simply execute the following code:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 pak::pak("smnnlt/c3dr")
 ```
 
-## Import C3D files with c3dr
+## Read C3D files with c3dr
 
 To import a c3d file simply run the `c3d_read()` function with the absolute or relative file path as argument.
 
@@ -37,8 +38,8 @@ library(c3dr)
 filepath <- c3d_example()
 
 # import C3D file
-f = c3d_read(filepath)
-f
+d = c3d_read(filepath)
+d
 ```
 
 ## Data structure of C3D objects in R
@@ -46,7 +47,7 @@ f
 The `c3d_read()` function returns a c3d object, which is a list with different components.
 
 ```{r}
-str(f, max.level = 1)
+str(d, max.level = 1)
 ```
 
 ### Header
@@ -54,7 +55,7 @@ str(f, max.level = 1)
 The header contains basic information about the number of frames (`nframes`), the number of data points (`npoints`), the number of analog channels (`nanalogs`), the number of analog frames per data frame (`analogperframe`), the frame rate in Hz (`framerate`) and the number of saved events (`nevents`).
 
 ```{r}
-f$header
+d$header
 ```
 
 ### Parameters
@@ -62,10 +63,10 @@ f$header
 The parameters are all the meta data saved in the C3D file. Parameters in C3D files are organized in groups, and these are preserved during import with `c3d_read()`. The parameter section of a c3d object is therefore a list of lists. To access a single parameter, you first need to access its group and then the parameter. For example the `SOFTWARE` parameter is part of the `MANUFACTURER` group. To retrieve the parameter value from a c3d object named `f` you need to call `f$parameters$MANUFACTURER$SOFTWARE`.
 
 ```{r}
-str(f$parameters, max.level = 1)
+str(d$parameters, max.level = 1)
 
 # retrieve SOFTWARE parameter from MANUFACTURER group
-f$parameters$MANUFACTURER$SOFTWARE
+d$parameters$MANUFACTURER$SOFTWARE
 ```
 
 ### Point data
@@ -76,7 +77,7 @@ Usually it is much more convenient to work with the point data in a table (i.e.,
 
 ```{r}
 # read the coordinates of the first frame for the second data point
-f$data[[1]][[2]]
+d$data[[1]][[2]]
 ```
 
 ### Analog data
@@ -86,12 +87,12 @@ Analog data in c3d objects is saved as a nested list. The sampling frequency of 
 Often it is more convenient to work with the analog data in a table (i.e., a data.frame). This conversion happens with `c3d_analog()`, see @sec-analog.
 
 ```{r}
-f$analog[[2]][3,1]
+d$analog[[2]][3,1]
 
 # read the values of the first five analog channels for the first point frame
 # The sampling frequency is ten times that of the point data, resulting in 
 # ten subframes
-f$analog[[1]][,1:5]
+d$analog[[1]][,1:5]
 ```
 
 ### Force platform data
@@ -100,13 +101,13 @@ c3d files can store data from force platforms. When importing with `c3d_read`, t
 
 ```{r}
 # this example file has data from two force platforms
-str(f$forceplatform)
+str(d$forceplatform)
 ```
 Each force platform has data on forces, moments, the center of pressure, and the moments at the center of pressure, as well as meta data. The force data is stored as a matrix, where each row corresponds to one recording frame of the platform and each column to one dimension (x, y, z). 
 
 ```{r}
 # view for the first force platform the force data for the first five frames
-f$forceplatform[[1]]$forces[1:5,]
+d$forceplatform[[1]]$forces[1:5,]
 ```
 
 
@@ -115,9 +116,9 @@ f$forceplatform[[1]]$forces[1:5,]
 To return a table of the imported point data of a c3d object, run the `c3d_data()` function.
 
 ```{r}
-d <- c3d_data(f)
+p <- c3d_data(d)
 
-d[1:5, 1:5]
+p[1:5, 1:5]
 ```
 
 The table of point data has three different structures available, that can be selected by the `format` argument in the `c3d_data()` call: 
@@ -127,11 +128,11 @@ The table of point data has three different structures available, that can be se
 - The `longest` format has one column for data, and three rows (x, y, z) per each frame and point.
 
 ```{r}
-d_long <- c3d_data(f, format = "long")
-d_long[1:5, 1:5]
+p_long <- c3d_data(d, format = "long")
+p_long[1:5, 1:5]
 
-d_longest <- c3d_data(f, format = "longest")
-d_longest[1:5,]
+p_longest <- c3d_data(d, format = "longest")
+p_longest[1:5,]
 ```
 
 ## Work with C3D analog data {#sec-analog}
@@ -139,7 +140,29 @@ d_longest[1:5,]
 To return a table of the imported analog data of a c3d file, use the `c3d_analog()` function.
 
 ```{r}
-a <- c3d_analog(f)
+a <- c3d_analog(d)
 a[1:5,41:46]
+```
+
+## Write C3D files with c3dr
+
+You can write in existing c3d object in R to a c3d file with the `c3d_write` function:
+
+```{r}
+#| eval: false
+c3d_write(d, "newfile.c3d")
+```
+
+To make modifications to the point or analog data before writing the file, you can use `c3d_setdata()`. This function allows you to update a c3d object with modified data, e.g., to remove, add, rename or convert frames, points and analog channels.
+
+```{r}
+#| eval: false
+# E.g. remove the last point from the point data
+full_data <- c3d_data(d, format = "long")
+cut_data <- full_data[,-57]
+
+# update the data and write to new file
+new_object <- c3d_setdata(d, newdata = cut_data)
+c3d_write(new_object, "modified.c3d")
 ```
 

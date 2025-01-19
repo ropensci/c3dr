@@ -10,7 +10,7 @@
 #' point data, the point label parameter gets updated (based on the column
 #' headers), but the point label parameter will be unmodified. This can create
 #' minor inconsistencies in the resulting c3d object, which in the worst case
-#' can lead to corrupt data after export with \code{\link{c3d_write()}}. If you
+#' can lead to corrupt data after export with \code{\link{c3d_write}}. If you
 #' plan heavy modifications of the data before export make sure to manually
 #' check and update all relevant parameters as well as the residual data after
 #' calling \code{c3d_setdata()}.
