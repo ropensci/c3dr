@@ -1,6 +1,17 @@
 #' Get point data from a c3d file
 #'
-#' Get the point data in a data.frame
+#' Get the point data of an c3d object in a data frame.
+#'
+#' The point data of imported c3d objects in \code{c3dr} is saved as a list of
+#' lists. This is good for internal handling, but for analysis a table format (a
+#' data frame) is often more convenient.\code{c3d_data()} returns the point data
+#' from an imported c3d object as a data frame.
+#'
+#' Analyses of data frames may require them to have different formats. For
+#' \code{c3d_data} output, different data formats (\code{"wide"}, \code{"long"},
+#' \code{"longest"}) are available. See the \code{format} argument for more
+#' details. You can convert from wide to other formats with
+#' \code{\link{c3d_longer} and \code{\link{c3d_longest}}}.
 #'
 #' @param x A c3d object, as imported by \code{\link{c3d_read}}.
 #' @param format Either "wide" (default), "long", or "longest" to determine the
@@ -50,7 +61,7 @@ c3d_data <- function(x, format = "wide") {
 #' Convert wide to long data for c3d points
 #'
 #' Convert from wide representation of data (3 columns per point) to long data
-#' (1 column per point) in c3d point data
+#' (1 column per point) in c3d point data.
 #'
 #' @param x A data.frame of class \code{c3d} with c3d point data with three
 #'   columns (x, y, z) per point (wide format).
@@ -99,7 +110,7 @@ c3d_longer <- function(x) {
 #' Convert to longest data for c3d points
 #'
 #' Convert from wide or long representation of data (3 columns per point) to longest
-#' data (1 single data column) in c3d point data
+#' data (1 single data column) in c3d point data.
 #'
 #' @param x A data.frame of class \code{c3d_data} with c3d point data. Either in
 #'   wide or longer format, see \code{\link{c3d_data}}
@@ -147,7 +158,12 @@ c3d_longest <- function(x) {
 
 #' Get analog data from a c3d file
 #'
-#' Get the analog data in a data.frame
+#' Get the analog data of a c3d object in a data frame.
+#'
+#' The analog data of imported c3d objects in \code{c3dr} is saved as a list of
+#' lists. This is good for internal handling, but for analysis a table format (a
+#' data frame) is often more convenient.\code{c3d_analog()} returns the analog
+#' data from an imported c3d object as a data frame.
 #'
 #' @param x A c3d object, as imported by \code{\link{c3d_read}}.
 #'

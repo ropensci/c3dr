@@ -22,7 +22,7 @@ C3D (<https://www.c3d.org/>) is a file format for biomechanical data,
 namely motion capture recordings with additional analog data (e.g., from
 force plates or electromyography).
 
-The `c3dr` package allows to read and analyze C3D files in R
+The `c3dr` package allows to read, analyze and write C3D files in R
 (<https://www.r-project.org/about.html>), a programming language popular
 for statistical analyses and data visualization. `c3dr` is build on the
 open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
@@ -105,6 +105,9 @@ d$forceplatform[[1]]$forces[1:5,]
 #> [3,] 0.09328079  0.1845932 -0.1835251
 #> [4,] 0.04664040 -0.1384449  0.0000000
 #> [5,] 0.04664040 -0.2768898  0.5505753
+
+# write data to a new c3d file
+# c3d_write(d, "newfile.c3d")
 ```
 
 ## Citation

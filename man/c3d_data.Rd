@@ -19,7 +19,19 @@ A data.frame of class \code{c3d_data} with the c3d point data. The
 structure of the data frame depends on the 'format' argument.
 }
 \description{
-Get the point data in a data.frame
+Get the point data of an c3d object in a data frame.
+}
+\details{
+The point data of imported c3d objects in \code{c3dr} is saved as a list of
+lists. This is good for internal handling, but for analysis a table format (a
+data frame) is often more convenient.\code{c3d_data()} returns the point data
+from an imported c3d object as a data frame.
+
+Analyses of data frames may require them to have different formats. For
+\code{c3d_data} output, different data formats (\code{"wide"}, \code{"long"},
+\code{"longest"}) are available. See the \code{format} argument for more
+details. You can convert from wide to other formats with
+\code{\link{c3d_longer} and \code{\link{c3d_longest}}}.
 }
 \examples{
 # Import example data

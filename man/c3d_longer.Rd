@@ -17,7 +17,7 @@ number of recorded points.
 }
 \description{
 Convert from wide representation of data (3 columns per point) to long data
-(1 column per point) in c3d point data
+(1 column per point) in c3d point data.
 }
 \examples{
 # Import example data

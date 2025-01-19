@@ -1,6 +1,6 @@
 #' Read a c3d file in R
 #'
-#' \code{c3d_read()} imports a c3d file using the C++ ezc3d library.
+#' Import a c3d file using the C++ ezc3d library.
 #'
 #' This function reads a c3d file with biomechanical data. It returns a c3d
 #' object, which is a list of all imported data.

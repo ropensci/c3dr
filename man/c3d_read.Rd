@@ -13,7 +13,7 @@ c3d_read(file)
 A list of class c3d.
 }
 \description{
-\code{c3d_read()} imports a c3d file using the C++ ezc3d library.
+Import a c3d file using the C++ ezc3d library.
 }
 \details{
 This function reads a c3d file with biomechanical data. It returns a c3d

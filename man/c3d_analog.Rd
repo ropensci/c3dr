@@ -15,7 +15,13 @@ frames recorded times the number of analog subframes per frame, and m as
 the number of recorded analog channels.
 }
 \description{
-Get the analog data in a data.frame
+Get the analog data of a c3d object in a data frame.
+}
+\details{
+The analog data of imported c3d objects in \code{c3dr} is saved as a list of
+lists. This is good for internal handling, but for analysis a table format (a
+data frame) is often more convenient.\code{c3d_analog()} returns the analog
+data from an imported c3d object as a data frame.
 }
 \examples{
 # Import example data

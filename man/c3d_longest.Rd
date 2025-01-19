@@ -16,7 +16,7 @@ number of recorded frames and k as the number of recorded points.
 }
 \description{
 Convert from wide or long representation of data (3 columns per point) to longest
-data (1 single data column) in c3d point data
+data (1 single data column) in c3d point data.
 }
 \examples{
 # Import example data

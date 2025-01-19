@@ -1,8 +1,26 @@
 #' Write a c3d file in R
 #'
-#' \code{c3d_write()} writes a c3d file using the C++ ezc3d library.
+#' Write a c3d file using the C++ ezc3d library.
 #'
-#' @param object A c3d object
+#' This function takes an c3d object in R and writes it to a c3d file. The
+#' function creates a new c3d file from scratch and inserts all point data,
+#' analog data and parameters in the file. Note that the resulting file will
+#' show minor discrepancies compared to the original file (e.g., in terms of
+#' file structure). During import and export minor rounding errors can occur.
+#'
+#' Force platform data export is currently not supported. The header parameters
+#' will not be exported but recreated based on the parameter section. If you want
+#' to change the header you should change the appropriate parameters instead.
+#'
+#' Be cautious when writing a modified c3d object to an c3d file, as internal
+#' inconsistencies may lead to corrupt files. \code{c3d_write} and the
+#' underlying ezc3d function perform some basic checks but may fail if, for
+#' example, parameters and data are inconsistent. You can use the helper
+#' function \code{\link{set_data}} for modifying point or analog data of a c3d
+#' object. Larger modifications may requires expert knowledge of the c3d file
+#' structure and parameters.
+#'
+#' @param object A c3d object.
 #' @param file A string with the file path to write to.
 #'
 #' @examples
