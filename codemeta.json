@@ -2,8 +2,8 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "c3dr",
-  "description": "An R wrapper for the EZC3D library to work with C3D motion capture data.",
-  "name": "c3dr: Import C3D motion capture files in R",
+  "description": "An wrapper for the ‘EZC3D’ library to work with C3D motion capture data.",
+  "name": "c3dr: Read and Write C3D Motion Capture Files",
   "relatedLink": "https://smnnlt.github.io/c3dr/",
   "codeRepository": "https://github.com/smnnlt/c3dr",
   "issueTracker": "https://github.com/smnnlt/c3dr/issues",
@@ -75,7 +75,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "36152.876KB",
+  "fileSize": "60314.836KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

@@ -4,10 +4,10 @@
 \alias{c3d_write}
 \title{Write a c3d file in R}
 \usage{
-c3d_write(object, file)
+c3d_write(x, file)
 }
 \arguments{
-\item{object}{A c3d object.}
+\item{x}{A c3d object.}
 
 \item{file}{A string with the file path to write to.}
 }

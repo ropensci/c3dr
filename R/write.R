@@ -20,7 +20,7 @@
 #' object. Larger modifications may requires expert knowledge of the c3d file
 #' structure and parameters.
 #'
-#' @param object A c3d object.
+#' @param x A c3d object.
 #' @param file A string with the file path to write to.
 #'
 #' @examples
@@ -36,7 +36,7 @@
 #'
 #' @export
 
-c3d_write <- function(object, file) {
-  out <- write(object, file)
+c3d_write <- function(x, file) {
+  out <- write(x, file)
   invisible(out)
 }

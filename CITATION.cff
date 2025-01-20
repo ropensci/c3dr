@@ -7,9 +7,9 @@ cff-version: 1.2.0
 message: 'To cite package "c3dr" in publications use:'
 type: software
 license: MIT
-title: 'c3dr: Import C3D motion capture files in R'
+title: 'c3dr: Read and Write C3D Motion Capture Files'
 version: 0.0.0.9000
-abstract: An R wrapper for the EZC3D library to work with C3D motion capture data.
+abstract: An wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 authors:
 - family-names: Nolte
   given-names: Simon

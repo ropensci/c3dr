@@ -1,10 +1,10 @@
 Package: c3dr
-Title: Import C3D motion capture files in R
+Title: Read and Write C3D Motion Capture Files
 Version: 0.0.0.9000
 Authors@R: 
     person("Simon", "Nolte", , "s.nolte@dshs-koeln.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1643-1860"))
-Description: An R wrapper for the EZC3D library to work with C3D motion capture data.
+Description: An wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

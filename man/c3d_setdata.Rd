@@ -4,10 +4,10 @@
 \alias{c3d_setdata}
 \title{Write data to a c3d object}
 \usage{
-c3d_setdata(object, newdata = NULL, newanalog = NULL)
+c3d_setdata(x, newdata = NULL, newanalog = NULL)
 }
 \arguments{
-\item{object}{A \code{c3d} object to be modified.}
+\item{x}{A \code{c3d} object to be modified.}
 
 \item{newdata}{The new point data that should be written to the \code{c3d}
 object. Usually a data frame of the class \code{c3d_data} as it is

@@ -15,7 +15,7 @@ three columns per point (x,y,z), the long format has three rows per frame
 per point (x,y,z). The longest format has one row per data entry.}
 }
 \value{
-A data.frame of class \code{c3d_data} with the c3d point data. The
+A data frame of class \code{c3d_data} with the c3d point data. The
 structure of the data frame depends on the 'format' argument.
 }
 \description{
