@@ -27,6 +27,9 @@ The `c3dr` package allows to read, analyze and write C3D files in R
 for statistical analyses and data visualization. `c3dr` is build on the
 open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
 
+For more information, read the [Get
+Started](https://smnnlt.github.io/c3dr/articles/c3dr.html) vignette.
+
 ## Installation
 
 Install `c3dr` from GitHub:

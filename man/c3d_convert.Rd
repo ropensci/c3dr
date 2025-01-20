@@ -30,5 +30,4 @@ w <- c3d_data(d, format = "wide")
 # convert to long data
 l <- c3d_convert(w, "long")
 head(l)
-
 }

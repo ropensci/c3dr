@@ -2,3 +2,21 @@ url: https://smnnlt.github.io/c3dr/
 template:
   bootstrap: 5
 
+reference:
+- title: "Reading"
+- contents:
+  - c3d_read
+  - c3d_analog
+  - c3d_data
+- title: "Data Conversion"
+- contents:
+  - c3d_convert
+- title: "Writing"
+- contents:
+  - c3d_setdata
+  - c3d_write
+- title: "Helpers"
+- contents:
+  - c3d_example
+  - print.c3d
+

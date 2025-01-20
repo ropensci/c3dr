@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert.R
 \name{c3d_analog}
 \alias{c3d_analog}
-\title{Get analog data from a c3d file}
+\title{Get analog data from a c3d object}
 \usage{
 c3d_analog(x)
 }
@@ -30,5 +30,4 @@ d <- c3d_read(c3d_example())
 # get analog data
 a <- c3d_analog(d)
 head(a)
-
 }

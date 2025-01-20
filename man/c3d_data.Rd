@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert.R
 \name{c3d_data}
 \alias{c3d_data}
-\title{Get point data from a c3d file}
+\title{Get point data from a c3d object}
 \usage{
 c3d_data(x, format = "wide")
 }
