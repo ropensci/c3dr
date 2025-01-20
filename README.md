@@ -80,12 +80,12 @@ p[1:5, 1:5]
 # alternative long data format
 p_long <- c3d_data(d, format = "long")
 p_long[1:5, 1:5]
-#>     frame type     L_IAS     L_IPS     R_IPS
-#> 1.x     1    x -220.1226 -398.1731 -392.8751
-#> 1.y     1    y  306.4248  237.0688  146.2103
-#> 1.z     1    z  846.3361  872.8574  880.3161
-#> 2.x     2    x -212.4696 -390.7831 -385.6659
-#> 2.y     2    y  306.5356  237.8691  147.1048
+#>   frame type     L_IAS     L_IPS     R_IPS
+#> 1     1    x -220.1226 -398.1731 -392.8751
+#> 2     1    y  306.4248  237.0688  146.2103
+#> 3     1    z  846.3361  872.8574  880.3161
+#> 4     2    x -212.4696 -390.7831 -385.6659
+#> 5     2    y  306.5356  237.8691  147.1048
 
 # read analog data
 a <- c3d_analog(d)
@@ -116,7 +116,7 @@ d$forceplatform[[1]]$forces[1:5,]
 citation("c3dr")
 ```
 
-    To cite spiro in publications use:
+    To cite c3dr in publications use:
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
       package Version 0.0.0.9000, https://github.com/smnnlt/c3dr

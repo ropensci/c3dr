@@ -11,5 +11,5 @@ bibentry(
     "R package Version 0.0.0.9000, ",
     "https://github.com/smnnlt/c3dr"
   ),
-  header = "To cite spiro in publications use:"
+  header = "To cite c3dr in publications use:"
 )
