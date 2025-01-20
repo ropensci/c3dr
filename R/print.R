@@ -37,11 +37,8 @@ print.c3d <- function(x, ...) {
         fp_f <- paste(fp_frames, collapse = "/")
       }
     }
-    m <- paste0(m,"\n- ", fp_n, " force platforms with ", fp_f, " frames")
+    m <- paste0(m, "\n- ", fp_n, " force platforms with ", fp_f, " frames")
   }
   cat(m)
   invisible(x)
 }
-
-
-

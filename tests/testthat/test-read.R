@@ -37,5 +37,5 @@ test_that("force platform data import works", {
   expect_identical(length(d$forceplatform), d$parameters$FORCE_PLATFORM$USED)
   expect_identical(ncol(d$forceplatform[[1]]$forces), 3L)
   expect_identical(nrow(d$forceplatform[[1]]$forces), 3400L)
-  expect_equal(d$forceplatform[[1]]$forces[1,], c(0.1399, 0.0461, -0.1835), tolerance = 0.001)
+  expect_equal(d$forceplatform[[1]]$forces[1, ], c(0.1399, 0.0461, -0.1835), tolerance = 0.001)
 })

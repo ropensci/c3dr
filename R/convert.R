@@ -94,8 +94,7 @@ c3d_convert <- function(data, format) {
     } else {
       stop("'format' argument must be either 'wide', 'long', or 'longest'")
     }
-  # input: long
-  } else if (inherits(data, "c3d_data_long")) {
+  } else if (inherits(data, "c3d_data_long")) { # input: long
     if (format == "wide") {
       c3d_long_to_wide(data)
     } else if (format == "long") {
@@ -106,7 +105,7 @@ c3d_convert <- function(data, format) {
     } else {
       stop("'format' argument must be either 'wide', 'long', or 'longest'")
     }
-  } else if (inherits(data, "c3d_data_longest")) {
+  } else if (inherits(data, "c3d_data_longest")) { # input: longest
     if (format == "wide") {
       c3d_long_to_wide(c3d_longest_to_long(data))
     } else if (format == "long") {
@@ -140,13 +139,13 @@ c3d_wide_to_long <- function(x) {
     v.names = new_names,
     direction = "long",
     timevar = "type",
-    times = c("x","y","z"),
+    times = c("x", "y", "z"),
     idvar = "frame"
   )
   # reorder columns
-  r <- r[,c(ncol(r), seq_along(r)[-ncol(r)])]
+  r <- r[, c(ncol(r), seq_along(r)[-ncol(r)])]
   # reorder rows
-  r <- r[order(r$frame, r$type),]
+  r <- r[order(r$frame, r$type), ]
   rownames(r) <- NULL
 
   # attach class
@@ -181,7 +180,7 @@ c3d_long_to_wide <- function(x) {
   })
 
   # Fix the column ordering
-  result <- data.frame(matrix(nrow = nrow(r)))[-1]  # empty data frame
+  result <- data.frame(matrix(nrow = nrow(r)))[-1] # empty data frame
 
   # Fill in the data in correct order
   for (i in seq_along(value_cols)) {
@@ -205,7 +204,7 @@ c3d_long_to_wide <- function(x) {
 c3d_long_to_longest <- function(x) {
   if (!inherits(x, "c3d_data_long")) stop("'x' needs to be a data frame of class 'c3d' in 'long' format.")
 
-  vary <- names(x)[-c(1,2)]
+  vary <- names(x)[-c(1, 2)]
   r <- stats::reshape(
     data = x,
     varying = list(vary),
@@ -219,7 +218,7 @@ c3d_long_to_longest <- function(x) {
   # preserve original point order (ordering by a factor)
   # also delete id column
   p_factor <- factor(r$point, levels = unique(r$point))
-  r <- r[order(r$frame, p_factor, r$type),-ncol(r)]
+  r <- r[order(r$frame, p_factor, r$type), -ncol(r)]
   rownames(r) <- NULL
 
   # attach class

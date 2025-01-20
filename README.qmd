@@ -68,7 +68,7 @@ a <- c3d_analog(d)
 a[1:5, 41:43]
 
 # read data from first force platform
-d$forceplatform[[1]]$forces[1:5,]
+d$forceplatform[[1]]$forces[1:5, ]
 
 # write data to a new c3d file
 # c3d_write(d, "newfile.c3d")

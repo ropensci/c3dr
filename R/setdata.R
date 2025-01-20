@@ -32,8 +32,8 @@
 #' d <- c3d_read(c3d_example())
 #'
 #' # remove last frame from point data and analog data (10 subframes for analog)
-#' d_cut <- c3d_data(d)[-340,]
-#' a_cut <- c3d_analog(d)[-c(3391:3400),]
+#' d_cut <- c3d_data(d)[-340, ]
+#' a_cut <- c3d_analog(d)[-c(3391:3400), ]
 #'
 #' # write the new c3d object
 #' d_new <- c3d_setdata(d, newdata = d_cut, newanalog = a_cut)
@@ -42,7 +42,6 @@
 #' @export
 
 c3d_setdata <- function(x, newdata = NULL, newanalog = NULL) {
-
   # input validation
   if (!inherits(x, "c3d")) stop("'x' needs to be a list of class 'c3d'.")
 
@@ -121,11 +120,11 @@ create_newdata <- function(newdata) {
   dimnames(m) <- NULL
 
   # For each frame (row)
-  for(i in 1:n_frames) {
+  for (i in 1:n_frames) {
     # For each point
-    for(j in 1:n_points) {
+    for (j in 1:n_points) {
       # Get the x,y,z indices for this point
-      idx <- (j-1)*3 + 1:3
+      idx <- (j - 1) * 3 + 1:3
       # Assign the values
       out[[i]][[j]] <- m[i, idx]
     }
@@ -162,4 +161,3 @@ create_newanalog <- function(newanalog, nperframe) {
   )
   out
 }
-

@@ -38,7 +38,7 @@ library(c3dr)
 filepath <- c3d_example()
 
 # import C3D file
-d = c3d_read(filepath)
+d <- c3d_read(filepath)
 d
 ```
 
@@ -87,12 +87,12 @@ Analog data in c3d objects is saved as a nested list. The sampling frequency of 
 Often it is more convenient to work with the analog data in a table (i.e., a data.frame). This conversion happens with `c3d_analog()`, see @sec-analog.
 
 ```{r}
-d$analog[[2]][3,1]
+d$analog[[2]][3, 1]
 
 # read the values of the first five analog channels for the first point frame
-# The sampling frequency is ten times that of the point data, resulting in 
+# The sampling frequency is ten times that of the point data, resulting in
 # ten subframes
-d$analog[[1]][,1:5]
+d$analog[[1]][, 1:5]
 ```
 
 ### Force platform data
@@ -107,7 +107,7 @@ Each force platform has data on forces, moments, the center of pressure, and the
 
 ```{r}
 # view for the first force platform the force data for the first five frames
-d$forceplatform[[1]]$forces[1:5,]
+d$forceplatform[[1]]$forces[1:5, ]
 ```
 
 
@@ -132,7 +132,7 @@ p_long <- c3d_data(d, format = "long")
 p_long[1:5, 1:5]
 
 p_longest <- c3d_data(d, format = "longest")
-p_longest[1:5,]
+p_longest[1:5, ]
 ```
 
 ## Work with C3D analog data {#sec-analog}
@@ -141,7 +141,7 @@ To return a table of the imported analog data of a c3d file, use the `c3d_analog
 
 ```{r}
 a <- c3d_analog(d)
-a[1:5,41:46]
+a[1:5, 41:46]
 ```
 
 ## Write C3D files with c3dr
@@ -159,7 +159,7 @@ To make modifications to the point or analog data before writing the file, you c
 #| eval: false
 # E.g. remove the last point from the point data
 full_data <- c3d_data(d, format = "long")
-cut_data <- full_data[,-57]
+cut_data <- full_data[, -57]
 
 # update the data and write to new file
 new_object <- c3d_setdata(d, newdata = cut_data)

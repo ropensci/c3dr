@@ -24,18 +24,18 @@ test_that("wide data retrieval works", {
   # dimensions
   expect_equal(dim(d_wide), c(d$header$nframes, d$header$npoints * 3))
   # data
-  expect_equal(d_wide[2,3], d$data[[2]][[1]][[3]])
+  expect_equal(d_wide[2, 3], d$data[[2]][[1]][[3]])
   # header labels
-  expect_equal(colnames(d_wide)[[1]], paste0(d$parameters$POINT$LABELS[[1]],"_x"))
+  expect_equal(colnames(d_wide)[[1]], paste0(d$parameters$POINT$LABELS[[1]], "_x"))
 })
 
 test_that("long data retrieval works", {
   # dimensions
   expect_equal(dim(d_long), c(d$header$nframes * 3, d$header$npoints + 2))
   # data
-  expect_equal(d_long[3,3], d$data[[1]][[1]][[3]])
+  expect_equal(d_long[3, 3], d$data[[1]][[1]][[3]])
   # header
-  expect_equal(colnames(d_long)[-c(1,2)], d$parameters$POINT$LABELS)
+  expect_equal(colnames(d_long)[-c(1, 2)], d$parameters$POINT$LABELS)
 })
 
 test_that("longest data retrieval works", {
@@ -88,5 +88,5 @@ test_that("analog data retrieval works", {
     c(d$header$nframes * d$header$analogperframe, d$header$nanalogs)
   )
   # data
-  expect_equal(a[2,1], d$analog[[1]][2])
+  expect_equal(a[2, 1], d$analog[[1]][2])
 })
