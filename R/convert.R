@@ -39,6 +39,7 @@
 #' head(ll)
 #' @export
 c3d_data <- function(x, format = "wide") {
+  if (!inherits(x, "c3d")) stop("'x' needs to be a list of class 'c3d'.")
   # change data format from nested list to data.frame (wide format)
   out <- as.data.frame(
     matrix(unlist(x$data), nrow = x$header$nframes, byrow = TRUE)

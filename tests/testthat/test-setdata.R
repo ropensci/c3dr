@@ -45,6 +45,7 @@ test_that("analog data modification works", {
 test_that("input validation works", {
   expect_error(c3d_setdata(data.frame(), d_long))
   expect_error(c3d_setdata(d, data.frame()))
+  expect_error(c3d_setdata(d, newanalog = data.frame()))
 })
 
 test_that("function without data arguments returns same object", {

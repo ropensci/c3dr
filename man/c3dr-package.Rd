@@ -6,7 +6,7 @@
 \alias{c3dr-package}
 \title{c3dr: Read and Write C3D Motion Capture Files}
 \description{
-An wrapper for the 'EZC3D' library to work with C3D motion capture data.
+An wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 }
 \section{Main functions}{
 

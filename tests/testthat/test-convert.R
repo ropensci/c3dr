@@ -8,6 +8,16 @@ a <- c3d_analog(d)
 
 test_that("input validation works", {
   expect_error(c3d_data(d, format = "short"))
+  expect_error(c3d_data("d"))
+  expect_error(c3d_convert(d, format = "long"))
+  expect_error(c3d_data(d_long, format = "short"))
+  expect_error(c3d_data(d_longest, format = "short"))
+
+  # for internal functions
+  expect_error(c3d_wide_to_long(d_long))
+  expect_error(c3d_long_to_longest(d_wide))
+  expect_error(c3d_longest_to_long(d_long))
+  expect_error(c3d_long_to_wide(d_wide))
 })
 
 test_that("wide data retrieval works", {
@@ -38,6 +48,7 @@ test_that("longest data retrieval works", {
 test_that("sequential conversion leads to same results", {
   expect_identical(c3d_convert(d_wide, "longest"), d_longest)
   expect_identical(c3d_convert(c3d_convert(d_wide, "long"), "longest"), d_longest)
+  expect_identical(c3d_convert(c3d_convert(c3d_convert(d_wide, "longest"), "long"), "wide"), d_wide)
 })
 
 test_that("correct attributes and classes are exported", {
