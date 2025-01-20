@@ -12,7 +12,8 @@ n <- c3d_read(tmp)
 test_that("reimport works", {
   expect_identical(n$header, d$header) # same header
   expect_identical(n$labels, d$labels) # same labels
-  expect_identical(n$parameters$ANALOG$LABELS, d$parameters$ANALOG$LABELS) # same analog labels
+  # same analog labels
+  expect_identical(n$parameters$ANALOG$LABELS, d$parameters$ANALOG$LABELS)
   # parameters are different
   expect_equal(n$data, d$data, tolerance = 0.0001) # same data
   expect_equal(n$residuals, d$residuals, tolerance = 0.0001)
@@ -22,5 +23,8 @@ test_that("reimport works", {
 
 test_that("c3dr parameter export works", {
   expect_identical(n$parameter$EZC3D$BINDING, "c3dr")
-  expect_identical(n$parameter$EZC3D$C3DR_VERSION, as.character(packageVersion("c3dr")))
+  expect_identical(
+    n$parameter$EZC3D$C3DR_VERSION,
+    as.character(packageVersion("c3dr"))
+  )
 })

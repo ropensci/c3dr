@@ -26,7 +26,10 @@ test_that("wide data retrieval works", {
   # data
   expect_equal(d_wide[2, 3], d$data[[2]][[1]][[3]])
   # header labels
-  expect_equal(colnames(d_wide)[[1]], paste0(d$parameters$POINT$LABELS[[1]], "_x"))
+  expect_equal(
+    colnames(d_wide)[[1]],
+    paste0(d$parameters$POINT$LABELS[[1]], "_x")
+  )
 })
 
 test_that("long data retrieval works", {
@@ -47,14 +50,23 @@ test_that("longest data retrieval works", {
 
 test_that("sequential conversion leads to same results", {
   expect_identical(c3d_convert(d_wide, "longest"), d_longest)
-  expect_identical(c3d_convert(c3d_convert(d_wide, "long"), "longest"), d_longest)
-  expect_identical(c3d_convert(c3d_convert(c3d_convert(d_wide, "longest"), "long"), "wide"), d_wide)
+  expect_identical(
+    c3d_convert(c3d_convert(d_wide, "long"), "longest"),
+    d_longest
+  )
+  expect_identical(
+    c3d_convert(c3d_convert(c3d_convert(d_wide, "longest"), "long"), "wide"),
+    d_wide
+  )
 })
 
 test_that("correct attributes and classes are exported", {
   expect_identical(class(d_wide), c("c3d_data_wide", "c3d_data", "data.frame"))
   expect_identical(class(d_long), c("c3d_data_long", "c3d_data", "data.frame"))
-  expect_identical(class(d_longest), c("c3d_data_longest", "c3d_data", "data.frame"))
+  expect_identical(
+    class(d_longest),
+    c("c3d_data_longest", "c3d_data", "data.frame")
+  )
 })
 
 test_that("reverse conversion works", {

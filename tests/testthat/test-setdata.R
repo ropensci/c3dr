@@ -9,8 +9,8 @@ d_cutdata <- d_wide[-340, -c(163:165)] # remove last points and last frame
 d_cut <- suppressWarnings(c3d_setdata(d, newdata = d_cutdata))
 # analog data
 a <- c3d_analog(d)
-# modified analog data
-a_cutdata <- a[-c(3301:3400), -69] # remove last 10 frames and last analog channel
+# modified analog data: remove last 10 frames and last analog channel
+a_cutdata <- a[-c(3301:3400), -69]
 a_cut <- suppressWarnings(c3d_setdata(d, newanalog = a_cutdata))
 
 test_that("data setting recreates data structure", {

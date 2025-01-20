@@ -18,10 +18,17 @@ print.c3d <- function(x, ...) {
   h <- x$header
   dur <- h$nframes / h$framerate
   afps <- h$analogperframe * h$framerate
-  m <- sprintf(
-    "A c3d object with\n- %d data points and %d frames\n- %.2f s measurement duration (%d fps)\n- %d analog channels (%d fps)",
-    h$npoints, h$nframes, dur, h$framerate, h$nanalogs, afps
+  m <- paste0(
+    sprintf(
+      "A c3d object with\n- %d data points and %d frames\n- %.2f s ",
+      h$npoints, h$nframes, dur
+    ),
+    sprintf(
+      "measurement duration (%d fps)\n- %d analog channels (%d fps)",
+      h$framerate, h$nanalogs, afps
+    )
   )
+
   # add force platform information if platforms are available
   fp_n <- x$parameters$FORCE_PLATFORM$USED
   if (fp_n != 0) {

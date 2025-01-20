@@ -84,7 +84,12 @@ c3d_setdata <- function(x, newdata = NULL, newanalog = NULL) {
   if (length(x$data) < length(x$analog)) {
     warning("Point data has less frames than analog data.")
   } else if (length(x$data) > length(x$analog)) {
-    warning("Analog data has less frames than point data. This may lead to corrupt c3d files.")
+    warning(
+      paste0(
+        "Analog data has less frames than point data. ",
+        "This may lead to corrupt c3d files."
+      )
+    )
   }
   x
 }
@@ -96,7 +101,9 @@ c3d_setdata <- function(x, newdata = NULL, newanalog = NULL) {
 #'
 #' @noRd
 create_newdata <- function(newdata) {
-  if (!inherits(newdata, "c3d_data")) stop("'newdata' needs to be a data.frame of class 'c3d_data'.")
+  if (!inherits(newdata, "c3d_data")) {
+    stop("'newdata' needs to be a data.frame of class 'c3d_data'.")
+  }
   # convert to wide data format if necessary
   if (!inherits(newdata, "c3d_data_wide")) {
     d <- c3d_convert(newdata, "wide")
@@ -113,7 +120,11 @@ create_newdata <- function(newdata) {
   m <- as.matrix(d)
 
   # Create the empty list structure
-  out <- replicate(n_frames, replicate(n_points, numeric(3), simplify = FALSE), simplify = FALSE)
+  out <- replicate(
+    n_frames,
+    replicate(n_points, numeric(3), simplify = FALSE),
+    simplify = FALSE
+  )
 
   # Convert data frame to matrix for easier handling
   m <- as.matrix(d)
@@ -143,7 +154,9 @@ create_newdata <- function(newdata) {
 #'
 #' @noRd
 create_newanalog <- function(newanalog, nperframe) {
-  if (!inherits(newanalog, "c3d_analog")) stop("'newanalog' needs to be a data.frame of class 'c3d_analog'.")
+  if (!inherits(newanalog, "c3d_analog")) {
+    stop("'newanalog' needs to be a data.frame of class 'c3d_analog'.")
+  }
   # get frame id
   frame <- ceiling(seq_len(nrow(newanalog)) / nperframe)
   # Split data frame based on frames
