@@ -97,7 +97,7 @@ d$analog[[1]][, 1:5]
 
 ### Force platform data
 
-c3d files can store data from force platforms. When importing with `c3d_read`, the force platform data is stored as a list, with each element of the list corresponding to one force platform.
+c3d files can store data from force platforms. When importing with `c3d_read()`, the force platform data is stored as a list, with each element of the list corresponding to one force platform.
 
 ```{r}
 # this example file has data from two force platforms
@@ -146,7 +146,7 @@ a[1:5, 41:46]
 
 ## Write C3D files with c3dr
 
-You can write in existing c3d object in R to a c3d file with the `c3d_write` function:
+You can write in existing c3d object in R to a c3d file with the `c3d_write()` function:
 
 ```{r}
 #| eval: false

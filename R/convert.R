@@ -40,13 +40,14 @@
 #' @export
 c3d_data <- function(x, format = "wide") {
   if (!inherits(x, "c3d")) stop("'x' needs to be a list of class 'c3d'.")
+  if (x$parameters$POINT$USED == 0) stop("No point data available")
   # change data format from nested list to data.frame (wide format)
   out <- as.data.frame(
     matrix(unlist(x$data), nrow = x$header$nframes, byrow = TRUE)
   )
   # get label names
   colnames(out) <- paste0(
-    rep(x$parameters$POINT$LABELS, each = 3), c("_x", "_y", "_z")
+    rep(x$parameters$POINT$LABELS[seq_len(ncol(out)/3)], each = 3), c("_x", "_y", "_z")
   )
   class(out) <- c("c3d_data_wide", "c3d_data", "data.frame")
 
@@ -297,8 +298,9 @@ c3d_longest_to_long <- function(x) {
 #' @export
 c3d_analog <- function(x) {
   # change data format from list of matrices to data.frame
+  if (x$parameters$ANALOG$USED == 0) stop("No analog data available")
   out <- as.data.frame(do.call(rbind, x$analog))
-  colnames(out) <- x$parameters$ANALOG$LABELS
+  colnames(out) <- x$parameters$ANALOG$LABELS[seq_len(ncol(out))]
   class(out) <- c("c3d_analog", "data.frame")
   out
 }
