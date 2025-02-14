@@ -9,7 +9,7 @@
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://codecov.io/gh/smnnlt/c3dr)
+[![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://app.codecov.io/gh/smnnlt/c3dr)
 
 <!-- badges: end -->
 
@@ -124,7 +124,7 @@ citation("c3dr")
     To cite c3dr in publications use:
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
-      package Version 0.0.0.9000, https://github.com/smnnlt/c3dr
+      package Version 0.1.0, https://github.com/smnnlt/c3dr
 
     A BibTeX entry for LaTeX users is
 
@@ -133,10 +133,10 @@ citation("c3dr")
         author = {Simon Nolte},
         year = {2025},
         url = {https://github.com/smnnlt/c3dr},
-        note = {R package version 0.0.0.9000},
+        note = {R package version 0.1.0},
       }
 
-## Acknowledgement
+## Acknowledgements
 
 The following people have contributed to this package by providing raw
 data files, testing code and/or suggesting features: Björn Braunstein,

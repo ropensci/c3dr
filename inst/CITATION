@@ -4,11 +4,11 @@ bibentry(
   author   = person("Simon", "Nolte"),
   year     = 2025,
   url      = "https://github.com/smnnlt/c3dr",
-  note     = "R package version 0.0.0.9000",
+  note     = "R package version 0.1.0",
   textVersion = paste0(
     "Simon Nolte (2025). ",
     "c3dr: Work with motion capture data in R. ",
-    "R package Version 0.0.0.9000, ",
+    "R package Version 0.1.0, ",
     "https://github.com/smnnlt/c3dr"
   ),
   header = "To cite c3dr in publications use:"
