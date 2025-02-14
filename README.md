@@ -7,7 +7,9 @@
 
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)[![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
+[![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://app.codecov.io/gh/smnnlt/c3dr)
 
 <!-- badges: end -->
@@ -123,7 +125,8 @@ citation("c3dr")
     To cite c3dr in publications use:
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
-      package Version 0.1.0, https://github.com/smnnlt/c3dr
+      package Version 0.1.0. DOI: 10.5281/zenodo.14870399.
+      https://github.com/smnnlt/c3dr
 
     A BibTeX entry for LaTeX users is
 
@@ -132,6 +135,7 @@ citation("c3dr")
         author = {Simon Nolte},
         year = {2025},
         url = {https://github.com/smnnlt/c3dr},
+        doi = {10.5281/zenodo.14870399},
         note = {R package version 0.1.0},
       }
 
