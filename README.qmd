@@ -82,6 +82,10 @@ d$forceplatform[[1]]$forces[1:5, ]
 citation("c3dr")
 ```
 
+## Acknowledgement
+
+The following people have contributed to this package by providing raw data files, testing code and/or suggesting features: Björn Braunstein, Theresa Siepe.
+
 ## Contributing
 
 If you consider contributing to this package, read the [CONTRIBUTING.md](https://github.com/smnnlt/c3dr/blob/main/.github/CONTRIBUTING.md). Please note that the c3dr project is released with a [Contributor Code of Conduct](https://github.com/smnnlt/c3dr/blob/main/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

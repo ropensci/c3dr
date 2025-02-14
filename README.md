@@ -1,6 +1,8 @@
 # c3dr
 
+
 <!-- README.md is generated from README.qmd. Please edit that file -->
+
 <!-- badges: start -->
 
 [![Project Status: WIP – Initial development is in progress, but there
@@ -133,6 +135,12 @@ citation("c3dr")
         url = {https://github.com/smnnlt/c3dr},
         note = {R package version 0.0.0.9000},
       }
+
+## Acknowledgement
+
+The following people have contributed to this package by providing raw
+data files, testing code and/or suggesting features: Björn Braunstein,
+Theresa Siepe.
 
 ## Contributing
 
