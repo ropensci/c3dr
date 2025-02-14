@@ -7,8 +7,7 @@
 
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)[![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://app.codecov.io/gh/smnnlt/c3dr)
 
 <!-- badges: end -->
@@ -34,11 +33,11 @@ Started](https://smnnlt.github.io/c3dr/articles/c3dr.html) vignette.
 
 ## Installation
 
-Install `c3dr` from GitHub:
+Install the latest version 0.1.0 release of `c3dr` from GitHub:
 
 ``` r
-if (!require(pak)) install.packages("pak")
-pak::pak("smnnlt/c3dr")
+if (!require(remotes)) install.packages("remotes")
+remotes::install_github("smnnlt/c3dr@v0.1.0")
 ```
 
 ## Usage

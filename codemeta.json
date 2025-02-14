@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/smnnlt/c3dr",
   "issueTracker": "https://github.com/smnnlt/c3dr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.0",
+  "version": "0.1.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -75,7 +75,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "62281.108KB",
+  "fileSize": "62281.421KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -88,8 +88,11 @@
         }
       ],
       "name": "c3dr: Work with motion capture data in R",
+      "identifier": "10.5281/zenodo.14870399",
       "url": "https://github.com/smnnlt/c3dr",
-      "description": "R package version 0.1.0"
+      "description": "R package version 0.1.0",
+      "@id": "https://doi.org/10.5281/zenodo.14870399",
+      "sameAs": "https://doi.org/10.5281/zenodo.14870399"
     }
   ],
   "releaseNotes": "https://github.com/smnnlt/c3dr/blob/master/NEWS.md",

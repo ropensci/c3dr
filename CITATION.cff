@@ -8,7 +8,8 @@ message: 'To cite package "c3dr" in publications use:'
 type: software
 license: MIT
 title: 'c3dr: Read and Write C3D Motion Capture Files'
-version: 0.1.0
+version: 0.1.0.9000
+doi: 10.5281/zenodo.14870399
 abstract: An wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 authors:
 - family-names: Nolte
@@ -25,6 +26,7 @@ preferred-citation:
     orcid: https://orcid.org/0000-0003-1643-1860
   year: '2025'
   url: https://github.com/smnnlt/c3dr
+  doi: 10.5281/zenodo.14870399
   notes: R package version 0.1.0
 repository-code: https://github.com/smnnlt/c3dr
 url: https://smnnlt.github.io/c3dr/
@@ -47,20 +49,28 @@ references:
   authors:
   - family-names: Eddelbuettel
     given-names: Dirk
+    email: edd@debian.org
+    orcid: https://orcid.org/0000-0001-6419-907X
   - family-names: Francois
     given-names: Romain
+    orcid: https://orcid.org/0000-0002-2444-4226
   - family-names: Allaire
     given-names: JJ
+    orcid: https://orcid.org/0000-0003-0174-9868
   - family-names: Ushey
     given-names: Kevin
+    orcid: https://orcid.org/0000-0003-2880-7407
   - family-names: Kou
     given-names: Qiang
+    orcid: https://orcid.org/0000-0001-6786-5453
   - family-names: Russell
     given-names: Nathan
   - family-names: Ucar
-    given-names: Inaki
+    given-names: Iñaki
+    orcid: https://orcid.org/0000-0001-6403-5550
   - family-names: Bates
-    given-names: Douglas
+    given-names: Doug
+    orcid: https://orcid.org/0000-0001-8316-9503
   - family-names: Chambers
     given-names: John
   year: '2025'
