@@ -11,6 +11,9 @@ c3d_write(x, file)
 
 \item{file}{A string with the file path to write to.}
 }
+\value{
+Returns its input invisible.
+}
 \description{
 Write a c3d file using the C++ ezc3d library.
 }

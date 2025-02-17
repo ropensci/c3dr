@@ -23,7 +23,7 @@
 #'
 #' @param x A c3d object.
 #' @param file A string with the file path to write to.
-#'
+#' @returns Returns its input invisible.
 #' @examples
 #' # read an example file
 #' d <- c3d_read(c3d_example())
