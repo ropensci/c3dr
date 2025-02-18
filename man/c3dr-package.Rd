@@ -29,5 +29,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Simon Nolte \email{s.nolte@dshs-koeln.de} (\href{https://orcid.org/0000-0003-1643-1860}{ORCID})
 
+Other contributors:
+\itemize{
+  \item Benjamin Michaud (Author of included EZC3D library) [copyright holder]
+}
+
 }
 \keyword{internal}
