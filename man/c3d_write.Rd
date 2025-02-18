@@ -30,12 +30,12 @@ want to change the header you should change the appropriate parameters
 instead.
 
 Be cautious when writing a modified c3d object to an c3d file, as internal
-inconsistencies may lead to corrupt files. \code{c3d_write} and the
-underlying ezc3d function perform some basic checks but may fail if, for
-example, parameters and data are inconsistent. You can use the helper
-function \code{\link{c3d_setdata}} for modifying point or analog data of a
-c3d object. Larger modifications may requires expert knowledge of the c3d
-file structure and parameters.
+inconsistencies may lead to corrupt files. \code{c3d_write} and the underlying
+ezc3d function perform some basic checks but may fail if, for example,
+parameters and data are inconsistent. You can use the helper function
+\code{\link[=c3d_setdata]{c3d_setdata()}} for modifying point or analog data of a c3d object. Larger
+modifications may requires expert knowledge of the c3d file structure and
+parameters.
 }
 \examples{
 # read an example file

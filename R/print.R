@@ -2,7 +2,7 @@
 #'
 #' Printing method for c3d objects
 #'
-#' @param x A \code{list} of the class \code{c3d} to be printed.
+#' @param x A `list` of the class `c3d` to be printed.
 #' @param ... empty argument, currently not used.
 #'
 #' @return The function prints basic information for the c3d object and returns
