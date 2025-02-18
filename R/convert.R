@@ -46,7 +46,8 @@ c3d_data <- function(x, format = "wide") {
   )
   # get label names
   colnames(out) <- paste0(
-    rep(x$parameters$POINT$LABELS[seq_len(ncol(out) / 3)], each = 3), c("_x", "_y", "_z")
+    rep(x$parameters$POINT$LABELS[seq_len(ncol(out) / 3)], each = 3),
+    c("_x", "_y", "_z")
   )
   class(out) <- c("c3d_data_wide", "c3d_data", "data.frame")
 
