@@ -11,3 +11,5 @@
 ^codemeta\.json$
 ^README\.qmd$
 ^video$
+^doc$
+^Meta$
