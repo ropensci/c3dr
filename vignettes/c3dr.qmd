@@ -13,7 +13,7 @@ knitr:
 
 ## What are C3D files?
 
-C3D is a file format to store biomechanical data. Most motion capture systems output C3D files, making it the standard data format for motion analysis. All C3D files are structured in a similar way: They contain a header that describes the file's structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, ...), and a data section with the point data and additional analog data (e.g., from electromyography or force platforms). You can find more details about the C3D format on its [Website](https://www.c3d.org/index.html) and in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).
+C3D is a file format to store biomechanical data. Most motion capture systems output C3D files, making it the standard data format for motion analysis. All C3D files are structured in a similar way: They contain a header that describes the file's structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, ...), and a data section with the point data (coordinates of the objects) and additional analog data (e.g., recordings from electromyography or force platforms). You can find more details about the C3D format on its [Website](https://www.c3d.org/index.html) and in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).
 
 ## Why use the c3dr package for R?
 
@@ -71,7 +71,7 @@ d$parameters$MANUFACTURER$SOFTWARE
 
 ### Point data
 
-c3d objects in R save point data as a nested list, with the two levels frame and point. For example for a c3d object named `f`, `f$data[[1]][[2]]` returns a three-coordinate vector of the first frame for the second data point.
+c3d objects in R save point data (the three-dimensional position of objects over time) as a nested list, with the two levels frame and point. For example for a c3d object named `f`, `f$data[[1]][[2]]` returns a three-coordinate vector of the first frame for the second data point.
 
 Usually it is much more convenient to work with the point data in a table (i.e., a data frame). This conversion happens with `c3d_data()`, see @sec-point.
 
