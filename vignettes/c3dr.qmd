@@ -144,6 +144,22 @@ a <- c3d_analog(d)
 a[1:5, 41:46]
 ```
 
+## Further analysis of imported data
+
+The ‘c3dr’ package is used to import and process motion capture data. Further analyses and visualizations can be performed in R, but this is outside the scope of the package. For a simple demonstration of visualising the imported data in R, see the following examples.
+
+```{r}
+# plot the z-coordinate (the vertical position) of the right heel
+plot(p$R_FCC_z, xlab = "Recording Frame", ylab = "Vertical Position (mm)")
+
+# plot the vertical force vector of the second force platform
+plot(
+  d$forceplatform[[2]]$forces[,3], 
+  xlab = "Recording Frame", 
+  ylab = "Vertical Force (N)"
+)
+```
+
 ## Write C3D files with c3dr
 
 You can write in existing c3d object in R to a c3d file with the `c3d_write()` function:
