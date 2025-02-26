@@ -185,11 +185,6 @@ c3d_long_to_wide <- function(x) {
     direction = "wide"
   )
 
-  # Create new column names
-  new_cols <- lapply(value_cols, function(col) {
-    paste0(col, "_", c("x", "y", "z"))
-  })
-
   # Fix the column ordering
   result <- data.frame(matrix(nrow = nrow(r)))[-1] # empty data frame
 
