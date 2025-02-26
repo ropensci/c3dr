@@ -32,7 +32,7 @@
 #'
 #' # remove last frame from point data and analog data (10 subframes for analog)
 #' d_cut <- c3d_data(d)[-340, ]
-#' a_cut <- c3d_analog(d)[-c(3391:3400), ]
+#' a_cut <- c3d_analog(d)[-(3391:3400), ]
 #'
 #' # write the new c3d object
 #' d_new <- c3d_setdata(d, newdata = d_cut, newanalog = a_cut)

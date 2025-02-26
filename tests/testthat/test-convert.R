@@ -38,7 +38,7 @@ test_that("long data retrieval works", {
   # data
   expect_equal(d_long[3, 3], d$data[[1]][[1]][[3]])
   # header
-  expect_equal(colnames(d_long)[-c(1, 2)], d$parameters$POINT$LABELS)
+  expect_equal(colnames(d_long)[-(1:2)], d$parameters$POINT$LABELS)
 })
 
 test_that("longest data retrieval works", {

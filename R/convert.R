@@ -212,7 +212,7 @@ c3d_long_to_longest <- function(x) {
     stop("'x' needs to be a data frame of class 'c3d' in 'long' format.")
   }
 
-  vary <- names(x)[-c(1, 2)]
+  vary <- names(x)[-(1:2)]
   r <- stats::reshape(
     data = x,
     varying = list(vary),
@@ -255,7 +255,7 @@ c3d_longest_to_long <- function(x) {
   )
 
   # rename columns by removing "value." prefix that reshape adds
-  names(r)[-c(1:2)] <- sub("^value\\.", "", names(r)[-c(1:2)])
+  names(r)[-(1:2)] <- sub("^value\\.", "", names(r)[-(1:2)])
 
   rownames(r) <- NULL
   attr(r, "reshapeWide") <- NULL
