@@ -84,7 +84,7 @@ c3d_setdata <- function(x, newdata = NULL, newanalog = NULL) {
     warning("Point data has less frames than analog data.")
   } else if (length(x$data) > length(x$analog)) {
     warning(
-        "Analog data has less frames than point data. ",
+        "Point data has more frames than analog data. ",
         "This may lead to corrupt c3d files."
     )
   }

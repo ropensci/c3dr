@@ -134,7 +134,7 @@ c3d_convert <- function(data, format) {
 #' @noRd
 c3d_wide_to_long <- function(x) {
   if (!inherits(x, "c3d_data_wide")) {
-    stop("'x' needs to be a data frame of class 'c3d' in the wide format.")
+    stop("'x' needs to be a data frame of class 'c3d' in 'wide' format.")
   }
   # get new column names
   old_names <- colnames(x)[0:(ncol(x) / 3 - 1) * 3 + 1]
@@ -170,7 +170,7 @@ c3d_wide_to_long <- function(x) {
 #' @noRd
 c3d_long_to_wide <- function(x) {
   if (!inherits(x, "c3d_data_long")) {
-    stop("'x' needs to be a data frame of class 'c3d' in the long format.")
+    stop("'x' needs to be a data frame of class 'c3d' in 'long' format.")
   }
 
   # Get column names excluding 'frame' and 'type'
