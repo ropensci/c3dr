@@ -21,11 +21,11 @@ Different programs for working with C3D files exist, but free open-source soluti
 
 ## Install the c3dr package
 
-The `c3dr` package is currently available from GitHub. To install it, you first need to install the `pak` package with `install.packages("pak")`. After that simply execute the following code:
+The `c3dr` package is currently available from GitHub. To install it, you first need to install the `remotes`` package with `install.packages("remotes")`. After that simply execute the following code:
 
 ```{r}
 #| eval: false
-pak::pak("smnnlt/c3dr")
+remotes::install_github("smnnlt/c3dr")
 ```
 
 ## Read C3D files with c3dr
