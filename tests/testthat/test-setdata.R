@@ -49,9 +49,12 @@ test_that("analog data modification works", {
 test_that("input validation works", {
   d <- c3d_read(c3d_example())
 
-  expect_error(c3d_setdata(data.frame(), d))
-  expect_error(c3d_setdata(d, data.frame()))
-  expect_error(c3d_setdata(d, newanalog = data.frame()))
+  expect_error(c3d_setdata(data.frame(), d), regexp = "'x' needs to")
+  expect_error(c3d_setdata(d, data.frame()), regexp = "'newdata' needs to")
+  expect_error(
+    c3d_setdata(d, newanalog = data.frame()),
+    regexp = "'newanalog' needs to"
+  )
 })
 
 test_that("function without data arguments returns same object", {
@@ -66,9 +69,18 @@ test_that("Warnings indicate incompatible point and analog data", {
   a <- c3d_analog(d)
 
   # less point frames than analog frames
-  expect_warning(c3d_setdata(d, newdata = d_wide[-340, ]))
+  expect_warning(
+    c3d_setdata(d, newdata = d_wide[-340, ]),
+    regexp = "Point data has less frames"
+  )
   # more point frames than analog frames
-  expect_warning(c3d_setdata(d, newdata = rbind(d_wide, d_wide[1, ])))
+  expect_warning(
+    c3d_setdata(d, newdata = rbind(d_wide, d_wide[1, ])),
+    regexp = "Point data has more frames .+ corrupt"
+  )
   # incorrect number of analog subframes
-  expect_warning(c3d_setdata(d, newanalog = a[-3400, ]))
+  expect_warning(
+    c3d_setdata(d, newanalog = a[-3400, ]),
+    regexp = "not a multiplier"
+  )
 })

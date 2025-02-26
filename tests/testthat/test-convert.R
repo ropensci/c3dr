@@ -4,17 +4,20 @@ test_that("input validation works", {
   d_long <- c3d_data(d, format = "long")
   d_longest <- c3d_data(d, format = "longest")
 
-  expect_error(c3d_data(d, format = "short"))
-  expect_error(c3d_data("d"))
-  expect_error(c3d_convert(d, format = "long"))
-  expect_error(c3d_data(d_long, format = "short"))
-  expect_error(c3d_data(d_longest, format = "short"))
+  expect_error(c3d_data(d, format = "short"), regexp = "'format' argument")
+  expect_error(c3d_data("d"), regexp = "'x' needs to be")
+  expect_error(c3d_convert(d, format = "long"), regexp = "'data' needs to be")
+  expect_error(c3d_data(d_long, format = "short"), regexp = "'x' needs to be")
+  expect_error(
+    c3d_data(d_longest, format = "short"),
+    regexp = "'x' needs to be"
+  )
 
   # for internal functions
-  expect_error(c3d_wide_to_long(d_long))
-  expect_error(c3d_long_to_longest(d_wide))
-  expect_error(c3d_longest_to_long(d_long))
-  expect_error(c3d_long_to_wide(d_wide))
+  expect_error(c3d_wide_to_long(d_long), regexp = "in 'wide' format.")
+  expect_error(c3d_long_to_longest(d_wide), regexp = "in 'long' format.")
+  expect_error(c3d_longest_to_long(d_long), regexp = "in 'longest' format.")
+  expect_error(c3d_long_to_wide(d_wide), regexp = "in 'long' format.")
 })
 
 test_that("wide data retrieval works", {
@@ -115,9 +118,18 @@ test_that("conversion to same format works but gives message", {
   suppressMessages(
     expect_identical(c3d_convert(d_longest, "longest"), d_longest)
   )
-  expect_message(c3d_convert(d_wide, "wide"))
-  expect_message(c3d_convert(d_long, "long"))
-  expect_message(c3d_convert(d_longest, "longest"))
+  expect_message(
+    c3d_convert(d_wide, "wide"),
+    regexp = "already in 'wide' format"
+  )
+  expect_message(
+    c3d_convert(d_long, "long"),
+    regexp = "already in 'long' format"
+  )
+  expect_message(
+    c3d_convert(d_longest, "longest"),
+    regexp = "already in 'longest' format"
+  )
 })
 
 test_that("analog data retrieval works", {
