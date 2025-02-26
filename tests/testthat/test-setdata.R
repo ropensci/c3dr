@@ -24,11 +24,11 @@ test_that("point data modification works", {
   # removed point
   expect_equal(d_cut$parameters$POINT$USED, d$parameters$POINT$USED - 1)
   expect_equal(d_cut$header$npoints, d$header$npoints - 1)
-  expect_equal(length(d_cut$data[[1]]), length(d$data[[1]]) - 1)
+  expect_length(d_cut$data[[1]], length(d$data[[1]]) - 1)
   # removed frame
   expect_equal(d_cut$parameters$POINT$FRAMES, d$parameters$POINT$FRAMES - 1)
   expect_equal(d_cut$header$nframes, d$header$nframes - 1)
-  expect_equal(length(d_cut$data), length(d$data) - 1)
+  expect_length(d_cut$data, length(d$data) - 1)
 })
 
 test_that("analog data modification works", {
@@ -43,7 +43,7 @@ test_that("analog data modification works", {
   expect_equal(a_cut$header$nanalogs, d$header$nanalogs - 1)
   expect_equal(ncol(a_cut$analog[[1]]), ncol(d$analog[[1]]) - 1)
   # removed frames
-  expect_equal(length(a_cut$analog), length(d$analog) - 10)
+  expect_length(a_cut$analog, length(d$analog) - 10)
 })
 
 test_that("input validation works", {

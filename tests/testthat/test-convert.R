@@ -79,12 +79,9 @@ test_that("correct attributes and classes are exported", {
   d_long <- c3d_data(d, format = "long")
   d_longest <- c3d_data(d, format = "longest")
 
-  expect_identical(class(d_wide), c("c3d_data_wide", "c3d_data", "data.frame"))
-  expect_identical(class(d_long), c("c3d_data_long", "c3d_data", "data.frame"))
-  expect_identical(
-    class(d_longest),
-    c("c3d_data_longest", "c3d_data", "data.frame")
-  )
+  expect_s3_class(d_wide, c("c3d_data_wide", "c3d_data", "data.frame"))
+  expect_s3_class(d_long, c("c3d_data_long", "c3d_data", "data.frame"))
+  expect_s3_class(d_longest, c("c3d_data_longest", "c3d_data", "data.frame"))
 })
 
 test_that("reverse conversion works", {
