@@ -30,7 +30,7 @@ pak::pak("smnnlt/c3dr")
 
 ## Read C3D files with c3dr
 
-To import a c3d file simply run the `c3d_read()` function with the absolute or relative file path as argument.
+To import a c3d file simply run the `c3d_read()` function with the absolute or relative file path as argument. We here use an example file provided with the packages, that can be called using `c3d_example()`. The example file is a short recording of human walking, with force platforms measuring the ground impact of two steps. You can view a video of the recording [here](https://github.com/smnnlt/c3dr/tree/main/video/example.mp4).
 
 ```{r}
 library(c3dr)
