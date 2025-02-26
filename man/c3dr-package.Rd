@@ -32,6 +32,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Benjamin Michaud (Author of included EZC3D library) [copyright holder]
+  \item German Sport University Cologne (0189raq88) [funder]
 }
 
 }

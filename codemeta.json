@@ -24,6 +24,19 @@
       "@id": "https://orcid.org/0000-0003-1643-1860"
     }
   ],
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Benjamin",
+      "familyName": "Michaud"
+    }
+  ],
+  "funder": [
+    {
+      "@type": "Organization",
+      "name": "German Sport University Cologne"
+    }
+  ],
   "maintainer": [
     {
       "@type": "Person",
@@ -75,7 +88,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "62281.421KB",
+  "fileSize": "69334.675KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -98,6 +111,6 @@
   "releaseNotes": "https://github.com/smnnlt/c3dr/blob/master/NEWS.md",
   "readme": "https://github.com/smnnlt/c3dr/blob/main/README.md",
   "contIntegration": ["https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/smnnlt/c3dr"],
-  "developmentStatus": "https://www.repostatus.org/#wip",
+  "developmentStatus": "https://www.repostatus.org/#active",
   "keywords": ["r", "r-package", "r-stats"]
 }
