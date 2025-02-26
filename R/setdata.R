@@ -102,10 +102,10 @@ create_newdata <- function(newdata) {
     stop("'newdata' needs to be a data.frame of class 'c3d_data'.")
   }
   # convert to wide data format if necessary
-  if (!inherits(newdata, "c3d_data_wide")) {
-    d <- c3d_convert(newdata, "wide")
-  } else {
+  if (inherits(newdata, "c3d_data_wide")) {
     d <- newdata
+  } else {
+    d <- c3d_convert(newdata, "wide")
   }
 
   # Get labels
