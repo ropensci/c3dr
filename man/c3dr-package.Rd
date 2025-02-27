@@ -8,13 +8,12 @@
 \description{
 An wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 }
-\section{Main functions}{
-
+\section{Main functions:}{
 \itemize{
-\item Use \code{\link{c3d_read}} for the import of c3d data.
-\item Use \code{\link{c3d_data}} and \code{\link{c3d_analog}} for assessing
-the point and the analog data as a data frame.
-\item Use \code{\link{c3d_write}} to write a c3d object to a c3d file.
+\item Use \code{\link[=c3d_read]{c3d_read()}} for the import of c3d data.
+\item Use \code{\link[=c3d_data]{c3d_data()}} and \code{\link[=c3d_analog]{c3d_analog()}} for retrieving the point and the analog
+data as a data frame.
+\item Use \code{\link[=c3d_write]{c3d_write()}} to write a c3d object to a c3d file.
 }
 }
 
@@ -29,6 +28,12 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Simon Nolte \email{s.nolte@dshs-koeln.de} (\href{https://orcid.org/0000-0003-1643-1860}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Benjamin Michaud (Author of included EZC3D library) [copyright holder]
+  \item German Sport University Cologne (0189raq88) [funder]
+}
 
 }
 \keyword{internal}

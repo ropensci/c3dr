@@ -7,7 +7,7 @@
 c3d_analog(x)
 }
 \arguments{
-\item{x}{A c3d object, as imported by \code{\link{c3d_read}}.}
+\item{x}{A c3d object, as imported by \code{\link[=c3d_read]{c3d_read()}}.}
 }
 \value{
 A data.frame with with n rows and m columns, where n is the number of
@@ -20,8 +20,8 @@ Get the analog data of a c3d object in a data frame.
 \details{
 The analog data of imported c3d objects in \code{c3dr} is saved as a list of
 lists. This is good for internal handling, but for analysis a table format (a
-data frame) is often more convenient.\code{c3d_analog()} returns the analog
-data from an imported c3d object as a data frame.
+data frame) is often more convenient.\code{c3d_analog()} returns the analog data
+from an imported c3d object as a data frame.
 }
 \examples{
 # Import example data

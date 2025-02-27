@@ -1,15 +1,10 @@
-d <- c3d_read(c3d_example())
-
-# create temporary file
-tmp <- tempfile()
-on.exit(unlink(tmp))
-
-# write c3d file
-c3d_write(d, tmp)
-# reread file
-n <- c3d_read(tmp)
-
 test_that("reimport works", {
+  d <- c3d_read(c3d_example())
+  tmp <- tempfile() # create temporary file
+  on.exit(unlink(tmp))
+  c3d_write(d, tmp) # write c3d file
+  n <- c3d_read(tmp) # reread file
+
   expect_identical(n$header, d$header) # same header
   expect_identical(n$labels, d$labels) # same labels
   # same analog labels
@@ -22,6 +17,12 @@ test_that("reimport works", {
 })
 
 test_that("c3dr parameter export works", {
+  d <- c3d_read(c3d_example())
+  tmp <- tempfile() # create temporary file
+  on.exit(unlink(tmp))
+  c3d_write(d, tmp) # write c3d file
+  n <- c3d_read(tmp) # reread file
+
   expect_identical(n$parameter$EZC3D$BINDING, "c3dr")
   expect_identical(
     n$parameter$EZC3D$C3DR_VERSION,

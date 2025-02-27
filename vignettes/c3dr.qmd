@@ -13,24 +13,35 @@ knitr:
 
 ## What are C3D files?
 
-C3D is a file format to store biomechanical data. Most motion capture systems output C3D files, making it the standard data format for motion analysis. All C3D files are structured in a similar way: They contain a header that describes the file's structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, ...), and a data section with the point data and additional analog data (e.g., from electromyography or force platforms). You can find more details about the C3D format on its [Website](https://www.c3d.org/index.html) and in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).
+C3D is a file format to store biomechanical data.
+Most motion capture systems output C3D files, making it the standard data format for motion analysis.
+All C3D files are structured in a similar way: They contain a header that describes the file's structure, a parameter section with useful meta data (e.g., labels, measurement units, frame rate, ...), and a data section with the point data (coordinates of the objects) and additional analog data (e.g., recordings from electromyography or force platforms).
+You can find more details about the C3D format on its [Website](https://www.c3d.org/index.html) and in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).
 
 ## Why use the c3dr package for R?
 
-Different programs for working with C3D files exist, but free open-source solutions that enable reproducible analysis are rare. Currently the best solution is the [EZC3D](https://github.com/pyomeca/ezc3d) library, which has bindings for Matlab, Python, and Octave. However, R, a popular programming language for data science, previously did not support C3D files. By using the EZC3D C++ library, the `c3dr` package for R now provides a possibility to work with C3D data in the R programming environment.
+Different programs for working with C3D files exist, but free open-source solutions that enable reproducible analysis are rare.
+Currently the best solution is the [EZC3D](https://github.com/pyomeca/ezc3d) library, which has bindings for Matlab, Python, and Octave.
+However, R, a popular programming language for data science, previously did not support C3D files.
+By using the EZC3D C++ library, the `c3dr` package for R now provides a possibility to work with C3D data in the R programming environment.
 
 ## Install the c3dr package
 
-The `c3dr` package is currently available from GitHub. To install it, you first need to install the `pak` package with `install.packages("pak")`. After that simply execute the following code:
+The `c3dr` package is currently available from GitHub.
+To install it, you first need to install the `remotes` package with `install.packages("remotes")`.
+After that simply execute the following code:
 
 ```{r}
 #| eval: false
-pak::pak("smnnlt/c3dr")
+remotes::install_github("smnnlt/c3dr")
 ```
 
 ## Read C3D files with c3dr
 
 To import a c3d file simply run the `c3d_read()` function with the absolute or relative file path as argument.
+We here use an example file provided with the packages, that can be called using `c3d_example()`.
+The example file is a short recording of human walking, with force platforms measuring the ground impact of two steps.
+You can view a video of the recording [here](https://github.com/smnnlt/c3dr/tree/main/video).
 
 ```{r}
 library(c3dr)
@@ -60,7 +71,12 @@ d$header
 
 ### Parameters
 
-The parameters are all the meta data saved in the C3D file. Parameters in C3D files are organized in groups, and these are preserved during import with `c3d_read()`. The parameter section of a c3d object is therefore a list of lists. To access a single parameter, you first need to access its group and then the parameter. For example the `SOFTWARE` parameter is part of the `MANUFACTURER` group. To retrieve the parameter value from a c3d object named `f` you need to call `f$parameters$MANUFACTURER$SOFTWARE`.
+The parameters are all the meta data saved in the C3D file.
+Parameters in C3D files are organized in groups, and these are preserved during import with `c3d_read()`.
+The parameter section of a c3d object is therefore a list of lists.
+To access a single parameter, you first need to access its group and then the parameter.
+For example the `SOFTWARE` parameter is part of the `MANUFACTURER` group.
+To retrieve the parameter value from a c3d object named `f` you need to call `f$parameters$MANUFACTURER$SOFTWARE`.
 
 ```{r}
 str(d$parameters, max.level = 1)
@@ -71,9 +87,11 @@ d$parameters$MANUFACTURER$SOFTWARE
 
 ### Point data
 
-c3d objects in R save point data as a nested list, with the two levels frame and point. For example for a c3d object named `f`, `f$data[[1]][[2]]` returns a three-coordinate vector of the first frame for the second data point.
+c3d objects in R save point data (the three-dimensional position of objects over time) as a nested list, with the two levels frame and point.
+For example for a c3d object named `f`, `f$data[[1]][[2]]` returns a three-coordinate vector of the first frame for the second data point.
 
-Usually it is much more convenient to work with the point data in a table (i.e., a data frame). This conversion happens with `c3d_data()`, see @sec-point.
+Usually it is much more convenient to work with the point data in a table (i.e., a data frame).
+This conversion happens with `c3d_data()`, see @sec-point.
 
 ```{r}
 # read the coordinates of the first frame for the second data point
@@ -82,9 +100,16 @@ d$data[[1]][[2]]
 
 ### Analog data
 
-Analog data in c3d objects is saved as a nested list. The sampling frequency of analog data is a multiplier of the point frame rate. For example, point data can be collected in 240 Hz, whereas analog data in sampled at 960 Hz. Therefore each frame of point data can correspond to multiple subframes of analog data. In `c3dr` analog data is saved as a list of matrices, with each list entry corresponding to a single point frame. The row of each frame matrix corresponds to a subframe, with the column corresponding to a analog channel. For example for a c3d object named `f`, `f$analog[[2]][3,1]` returns the value of the first analog channel for the third subframe of the second point frame.
+Analog data in c3d objects is saved as a nested list.
+The sampling frequency of analog data is a multiplier of the point frame rate.
+For example, point data can be collected in 240 Hz, whereas analog data in sampled at 960 Hz.
+Therefore each frame of point data can correspond to multiple subframes of analog data.
+In `c3dr` analog data is saved as a list of matrices, with each list entry corresponding to a single point frame.
+The row of each frame matrix corresponds to a subframe, with the column corresponding to a analog channel.
+For example for a c3d object named `f`, `f$analog[[2]][3,1]` returns the value of the first analog channel for the third subframe of the second point frame.
 
-Often it is more convenient to work with the analog data in a table (i.e., a data.frame). This conversion happens with `c3d_analog()`, see @sec-analog.
+Often it is more convenient to work with the analog data in a table (i.e., a data.frame).
+This conversion happens with `c3d_analog()`, see @sec-analog.
 
 ```{r}
 d$analog[[2]][3, 1]
@@ -97,19 +122,21 @@ d$analog[[1]][, 1:5]
 
 ### Force platform data
 
-c3d files can store data from force platforms. When importing with `c3d_read()`, the force platform data is stored as a list, with each element of the list corresponding to one force platform.
+c3d files can store data from force platforms.
+When importing with `c3d_read()`, the force platform data is stored as a list, with each element of the list corresponding to one force platform.
 
 ```{r}
 # this example file has data from two force platforms
 str(d$forceplatform)
 ```
-Each force platform has data on forces, moments, the center of pressure, and the moments at the center of pressure, as well as meta data. The force data is stored as a matrix, where each row corresponds to one recording frame of the platform and each column to one dimension (x, y, z). 
+
+Each force platform has data on forces, moments, the center of pressure, and the moments at the center of pressure, as well as meta data.
+The force data is stored as a matrix, where each row corresponds to one recording frame of the platform and each column to one dimension (x, y, z).
 
 ```{r}
 # view for the first force platform the force data for the first five frames
 d$forceplatform[[1]]$forces[1:5, ]
 ```
-
 
 ## Work with C3D point data {#sec-point}
 
@@ -121,11 +148,11 @@ p <- c3d_data(d)
 p[1:5, 1:5]
 ```
 
-The table of point data has three different structures available, that can be selected by the `format` argument in the `c3d_data()` call: 
+The table of point data has three different structures available, that can be selected by the `format` argument in the `c3d_data()` call:
 
-- The `wide` format (default) has one column per point coordinate and one row per frame.
-- The `long` format has one column per point and three rows (x, y, z) per frame.
-- The `longest` format has one column for data, and three rows (x, y, z) per each frame and point.
+-   The `wide` format (default) has one column per point coordinate and one row per frame.
+-   The `long` format has one column per point and three rows (x, y, z) per frame.
+-   The `longest` format has one column for data, and three rows (x, y, z) per each frame and point.
 
 ```{r}
 p_long <- c3d_data(d, format = "long")
@@ -144,6 +171,24 @@ a <- c3d_analog(d)
 a[1:5, 41:46]
 ```
 
+## Further analysis of imported data
+
+The ‘c3dr’ package is used to import and process motion capture data.
+Further analyses and visualizations can be performed in R, but this is outside the scope of the package.
+For a simple demonstration of visualising the imported data in R, see the following examples.
+
+```{r}
+# plot the z-coordinate (the vertical position) of the right heel
+plot(p$R_FCC_z, xlab = "Recording Frame", ylab = "Vertical Position (mm)")
+
+# plot the vertical force vector of the second force platform
+plot(
+  d$forceplatform[[2]]$forces[,3], 
+  xlab = "Recording Frame", 
+  ylab = "Vertical Force (N)"
+)
+```
+
 ## Write C3D files with c3dr
 
 You can write in existing c3d object in R to a c3d file with the `c3d_write()` function:
@@ -153,7 +198,8 @@ You can write in existing c3d object in R to a c3d file with the `c3d_write()` f
 c3d_write(d, "newfile.c3d")
 ```
 
-To make modifications to the point or analog data before writing the file, you can use `c3d_setdata()`. This function allows you to update a c3d object with modified data, e.g., to remove, add, rename or convert frames, points and analog channels.
+To make modifications to the point or analog data before writing the file, you can use `c3d_setdata()`.
+This function allows you to update a c3d object with modified data, e.g., to remove, add, rename or convert frames, points and analog channels.
 
 ```{r}
 #| eval: false
@@ -165,4 +211,3 @@ cut_data <- full_data[, -57]
 new_object <- c3d_setdata(d, newdata = cut_data)
 c3d_write(new_object, "modified.c3d")
 ```
-

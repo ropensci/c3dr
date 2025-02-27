@@ -17,7 +17,7 @@ There are several ways you can contribute to this project. If you want to know m
 
 ### Share the work
 
-Think c3dr is useful? Let others discover it, by telling them in person, via Twitter or a blog post.
+Think c3dr is useful? Let others discover it, by telling them in person, via social media or a blog post.
 
 Using c3dr for a paper you are writing? Retrieve all citation information by running `citation("c3dr")` in the R console.
 

@@ -1,23 +1,25 @@
-# get data
-d <- c3d_read(c3d_example())
-
 test_that("import returns c3d class list", {
+  d <- c3d_read(c3d_example())
+
   expect_type(d, "list")
   expect_s3_class(d, c("c3d", "list"))
 })
 
 test_that("header import works", {
+  d <- c3d_read(c3d_example())
+
   expect_type(d$header, "list")
 })
 
 test_that("data import works", {
-  # correct number of data frames
-  expect_identical(length(d$data), d$header$nframes)
-  # correct number of data points
-  expect_identical(length(d$data[[1]]), d$header$npoints)
-  # correct number of dimensions
-  expect_identical(length(d$data[[1]][[1]]), 3L)
+  d <- c3d_read(c3d_example())
 
+  # correct number of data frames
+  expect_length(d$data, d$header$nframes)
+  # correct number of data points
+  expect_length(d$data[[1]], d$header$npoints)
+  # correct number of dimensions
+  expect_length(d$data[[1]][[1]], 3L)
   # correct first data record
   expect_equal(
     d$data[[1]][[1]], c(-220.1226, 306.4248, 846.3361),
@@ -26,15 +28,21 @@ test_that("data import works", {
 })
 
 test_that("label import works", {
-  expect_identical(length(d$parameters$POINT$LABELS), d$header$npoints)
+  d <- c3d_read(c3d_example())
+
+  expect_length(d$parameters$POINT$LABELS, d$header$npoints)
 })
 
 test_that("parameter import works", {
+  d <- c3d_read(c3d_example())
+
   expect_snapshot(d$parameters)
 })
 
 test_that("force platform data import works", {
-  expect_identical(length(d$forceplatform), d$parameters$FORCE_PLATFORM$USED)
+  d <- c3d_read(c3d_example())
+
+  expect_length(d$forceplatform, d$parameters$FORCE_PLATFORM$USED)
   expect_identical(ncol(d$forceplatform[[1]]$forces), 3L)
   expect_identical(nrow(d$forceplatform[[1]]$forces), 3400L)
   expect_equal(

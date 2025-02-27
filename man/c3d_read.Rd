@@ -10,7 +10,7 @@ c3d_read(file)
 \item{file}{A string with the path of a c3d file.}
 }
 \value{
-A list of class c3d.
+A list of class \code{c3d}.
 }
 \description{
 Import a c3d file using the C++ ezc3d library.
@@ -21,34 +21,30 @@ object, which is a list of all imported data.
 
 The resulting c3d object has the following entries:
 \itemize{
-\item \strong{header} (A list with header parameters containing general
+\item \strong{header}: A list with header parameters containing general
 meta data for the recording. \code{nframes} is the total number of frames
-recorded. \code{npoints} is the total number of points recorded.
-\code{nanalogs} is the number of analog channels. \code{analogperframe} is
-the rate of analog frames per point recording frame. \code{framerate} is
-the number of point frames per second. \code{nevents} is the number of
-recorded events.)
-\item \strong{parameters} (A list with meta data of the recording. The
-parameters are organized in groups, similarly to the original structure in
-the c3d file.)
-\item \strong{data} (A list with the point data of the recording. Each
-element in the list corresponds to one frame. Use \code{\link{c3d_data}} to
-convert the data to a data frame.)
-\item \strong{analog} (A list with the
-analog data of the recording. Each element of the list corresponds to one
-frame of the point recording and contains a matrix with all analog channels
-(as columns) for all subframes (as rows). Use \code{\link{c3d_analog}} to
-convert the data to a data frame.)
-\item \strong{forceplatform} (A list with force platform data, if
-available. Each element in the list corresponds to one force platform. Each
-force platform is another list with the following elements: \code{forces}
-is a matrix of the forces. \code{moments} is a matrix of the moments.
-\code{tz} is a matrix of the moments on the center of pressure. \code{meta}
-is a list with further meta data of the force platform recording
-(\code{frames}, \code{funit} unit of force, \code{munit} unit of moments,
-\code{punit} unit of center of pressure position, \code{calmatrix}
-calibration matrix, \code{corners} position of the corners, \code{origin}
-position of the origin)
+recorded. \code{npoints} is the total number of points recorded. \code{nanalogs} is
+the number of analog channels. \code{analogperframe} is the rate of analog
+frames per point recording frame. \code{framerate} is the number of point frames
+per second. \code{nevents} is the number of recorded events.
+\item \strong{parameters}: A list with meta data of the recording. The parameters are
+organized in groups, similarly to the original structure in the c3d file.
+\item \strong{data}: A list with the point data of the recording. Each element in the
+list corresponds to one frame. Use \code{\link[=c3d_data]{c3d_data()}} to convert the data to a
+data frame.
+\item \strong{analog}: A list with the analog data of the recording. Each element of
+the list corresponds to one frame of the point recording and contains a
+matrix with all analog channels (as columns) for all subframes (as rows).
+Use \code{\link[=c3d_analog]{c3d_analog()}} to convert the data to a data frame.
+\item \strong{forceplatform}: A list with force platform data, if available. Each
+element in the list corresponds to one force platform. Each force platform
+is another list with the following elements: \code{forces} is a matrix of the
+forces. \code{moments} is a matrix of the moments. \code{tz} is a matrix of the
+moments on the center of pressure. \code{meta} is a list with further meta data
+of the force platform recording (\code{frames}, \code{funit} unit of force, \code{munit}
+unit of moments, \code{punit} unit of center of pressure position, \code{calmatrix}
+calibration matrix, \code{corners} position of the corners, \code{origin} position of
+the origin).
 }
 }
 \examples{
