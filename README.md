@@ -8,6 +8,8 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Status at rOpenSci Software Peer
+Review](https://badges.ropensci.org/686_status.svg)](https://github.com/ropensci/software-review/issues/686)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
 [![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://app.codecov.io/gh/smnnlt/c3dr)
