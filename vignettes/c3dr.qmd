@@ -184,8 +184,8 @@ plot(p$R_FCC_z, xlab = "Recording Frame", ylab = "Vertical Position (mm)")
 
 # plot the vertical force vector of the second force platform
 plot(
-  d$forceplatform[[2]]$forces[,3], 
-  xlab = "Recording Frame", 
+  d$forceplatform[[2]]$forces[, 3],
+  xlab = "Recording Frame",
   ylab = "Vertical Force (N)"
 )
 ```

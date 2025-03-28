@@ -2,10 +2,9 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 read <- function(filepath) {
-    .Call(`_c3dr_read`, filepath)
+  .Call(`_c3dr_read`, filepath)
 }
 
 write <- function(object, filepath) {
-    .Call(`_c3dr_write`, object, filepath)
+  .Call(`_c3dr_write`, object, filepath)
 }
-
