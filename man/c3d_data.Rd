@@ -9,10 +9,9 @@ c3d_data(x, format = "wide")
 \arguments{
 \item{x}{A c3d object, as imported by \code{\link[=c3d_read]{c3d_read()}}.}
 
-\item{format}{Either "wide" (default), "long", or "longest" to determine the
-format of the resulting data frame. The wide format has has three columns
-per point (x,y,z), the long format has three rows per frame per point
-(x,y,z). The longest format has one row per data entry.}
+\item{format}{Either \code{"wide"} (default), \code{"long"}, or \code{"longest"} to
+determine the format of the resulting data frame. See the Data Formats
+section for more details.}
 }
 \value{
 A data frame of class \code{c3d_data} with the c3d point data. The
@@ -29,9 +28,37 @@ imported c3d object as a data frame.
 
 Analyses of data frames may require them to have different formats. For
 \code{c3d_data} output, different data formats (\code{"wide"}, \code{"long"}, \code{"longest"})
-are available. See the \code{format} argument for more details. You can convert
+are available. See the section below for more details. You can convert
 between different formats with \code{\link[=c3d_convert]{c3d_convert()}}.
 }
+\section{Data Formats}{
+\subsection{Wide}{
+
+The wide format has three numeric columns per point (x, y, z). The column
+names have the structure \code{pointname_type}, so for example the x-coordinate of
+a point named \code{C7} has the name \code{C7_x}. Each row corresponds to one recording
+frame.
+}
+
+\subsection{Long}{
+
+The long format has one column per point. The column names correspond to the
+names of the points. Each recording frame corresponds to three rows of data
+(x, y, z). In additional to the point columns containing numeric data there
+are two additional columns: One that indicates the frame number (\code{frame},
+numeric) and one that indicates the coordinate type (\code{type}, either x, y, or
+z, as a character).
+}
+
+\subsection{Longest}{
+
+The longest format has one data column (\code{value}, numeric). The other columns
+indicate the frame number (\code{frame}, numeric), the coordinate type (\code{type},
+either x, y, or z, as a character), and the point name (\code{point}, character).
+Thus, each row corresponds to one data entry.
+}
+}
+
 \examples{
 # Import example data
 d <- c3d_read(c3d_example())
