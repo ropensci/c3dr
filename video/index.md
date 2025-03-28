@@ -1,2 +1,1 @@
-
-[![](https://github.com/smnnlt/c3dr/raw/refs/heads/main/video/example.mp4)](https://github.com/smnnlt/c3dr/raw/refs/heads/main/video/example.mp4)
+https://github.com/user-attachments/assets/de5b9ac0-ca01-4c8d-80cf-f3bd8bc67eb3
