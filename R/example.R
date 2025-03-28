@@ -4,7 +4,8 @@
 #'
 #' The test data file a short recording of human walking using a full-body
 #' model. The test data includes analog channels (e.g., EMG) and data from two
-#' force platforms.
+#' force platforms. The recording was made with a Qualisys motion capture
+#' system.
 #'
 #' The file is taken from <https://github.com/pyomeca/ezc3d-testFiles> under a
 #' GPL-3.0 license.
