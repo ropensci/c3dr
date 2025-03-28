@@ -45,6 +45,8 @@
 c3d_setdata <- function(x, newdata = NULL, newanalog = NULL) {
   # input validation
   if (!inherits(x, "c3d")) stop("'x' needs to be a list of class 'c3d'.")
+  # validation for newdata is inside create_newdata()
+  # validation for newanalog is inside create_newanalog()
 
   # set new point data
   if (!is.null(newdata)) {
