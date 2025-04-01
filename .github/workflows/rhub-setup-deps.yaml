@@ -1,0 +1,101 @@
+name: c3dr/.github/workflows/setup-deps
+description: |
+  Set up dependencies for R-hub checks.
+author: 'Gábor Csárdi'
+
+inputs:
+  token:
+    description: |
+      Custom GitHub personal access token. Useful to allow access to
+      private repositories or other resources.
+  job-config:
+    description: |
+      The matrix config, as set up by the `setup` action.
+  extra-packages:
+    description: |
+      Any extra packages to install outside of the packages listed in the
+      dependencies.
+    default: any::rcmdcheck
+  needs:
+    description: |
+      Any extra Config/Needs fields which need to be included when
+      installing dependencies.
+    default: check
+  pak-version:
+    description: |
+      Which pak version to use. Possible values are "stable", "rc" and
+      "devel".
+    default: devel
+  dependencies:
+    description: |
+      Types of dependencies to install. Must be an R expression. Note that
+      it often needs to be quoted in YAML, see the README for details.
+      It uses the `RHUB_ACTIONS_DEPS_DEPENDENCIES` environment variable by
+      default, and if that's not set, it uses '"all"'.
+
+runs:
+  using: "composite"
+  steps:
+  - name: Set user library location
+    run: |
+      # Set user library location
+      cat("::group::Set user library location\n")
+      dir.create(lib <- Sys.getenv("R_LIBS_USER"), showWarnings = FALSE, recursive = TRUE)
+      writeLines(paste0("R_LIBS_USER=", Sys.getenv("R_LIBS_USER")), Sys.getenv("GITHUB_ENV"))
+      cat("::endgroup::\n")
+    shell: Rscript {0}
+
+  - name: Calculate cache key
+    id: cache-version
+    run: |
+      # If there is an RHUB repo, then we use that as the cache version.
+      # Packages using the same repo are compatible by default.
+      repo <- getOption("repos")["RHUB"]
+      if (!is.na(repo)) {
+        cv <- sub(
+          "https://raw.githubusercontent.com/r-hub/repos/main/",
+          "",
+          repo,
+          fixed = TRUE
+        )
+      } else {
+        cv <- "1"
+      }
+      ev <- paste0("cache-version=", cv)
+      cat(ev, sep = "\n", append = TRUE, file = Sys.getenv("GITHUB_OUTPUT"))
+    shell: Rscript {0}
+
+  - name: Calculate dependency types
+    id: dep-types
+    run: |
+      # If input is set, we use that. Otherwise if env var is set, we use that.
+      # Otherwise '"all"'.
+      inp <- "${{ inputs.dependencies }}"
+      ev <- Sys.getenv("RHUB_ACTIONS_DEPS_DEPENDENCIES")
+      if (inp != "") {
+        dt <- inp
+        ns <- "${{ inputs.needs }}"
+      } else if (ev != "") {
+        dt <- ev
+        ns <- ""
+      } else {
+        dt <- '"all"'
+        ns <- "${{ inputs.needs }}"
+      }
+      ev1 <- paste0("dep-types=", dt)
+      cat(ev1, sep = "\n", append = TRUE, file = Sys.getenv("GITHUB_OUTPUT"))
+      ev2 <- paste0("needs=", ns)
+      cat(ev2, sep = "\n", append = TRUE, file = Sys.getenv("GITHUB_OUTPUT"))
+    shell: Rscript {0}
+
+  - uses: r-lib/actions/setup-r-dependencies@v2
+    with:
+      cache-version: ${{ steps.cache-version.outputs.cache-version }}
+      extra-packages: ${{ inputs.extra-packages }}
+      needs: ${{ steps.dep-types.outputs.needs }}
+      pak-version: ${{ inputs.pak-version }}
+      dependencies: ${{ steps.dep-types.outputs.dep-types }}
+      install-pandoc: true
+      install-quarto: true
+    env:
+      R_KEEP_PKG_SOURCE: yes
