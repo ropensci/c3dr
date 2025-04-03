@@ -1,5 +1,5 @@
 #include <Rcpp.h>
-#include "ezc3d_all.h"
+#include "ezc3d/ezc3d_all.h"
 
 // [[Rcpp::export]]
 bool write(Rcpp::List object, const std::string &filepath) {
