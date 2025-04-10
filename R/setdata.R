@@ -104,6 +104,8 @@ c3d_setdata <- function(x, newdata = NULL, newanalog = NULL) {
 create_newdata <- function(newdata) {
   if (!inherits(newdata, "c3d_data")) {
     stop("'newdata' needs to be a data.frame of class 'c3d_data'.")
+  } else if (nrow(newdata) == 0) {
+    stop("'newdata' is an empty data.frame.")
   }
   # convert to wide data format if necessary
   if (inherits(newdata, "c3d_data_wide")) {
@@ -157,6 +159,11 @@ create_newdata <- function(newdata) {
 create_newanalog <- function(newanalog, nperframe) {
   if (!inherits(newanalog, "c3d_analog")) {
     stop("'newanalog' needs to be a data.frame of class 'c3d_analog'.")
+  } else if (nrow(newanalog) == 0) {
+    stop("'newanalog' is an empty data.frame.")
+  }
+  if (!is.numeric(nperframe) || !(nperframe > 0)) {
+    stop("'nperframe' needs to be a positive number")
   }
   # get frame id
   frame <- ceiling(seq_len(nrow(newanalog)) / nperframe)
