@@ -47,6 +47,14 @@ c3d_write <- function(x, file) {
   if (!inherits(file, "character")) {
     stop("'file' needs to be a character string with the path wo write to.")
   }
+  # check that the target directory exists
+  dirpath <- dirname(file)
+  if (!dir.exists(dirpath)) {
+    stop(
+      "'file' needs to be a correct path to write to. Please check that your ",
+      "target directory exists."
+    )
+  }
   out <- write(x, file)
   invisible(out)
 }
