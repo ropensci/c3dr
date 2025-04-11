@@ -1,6 +1,6 @@
 test_that("input validation works", {
   expect_error(c3d_read(TRUE), regexp = "'file' needs to be a character")
-  expect_error(c3d_read("path", regexp = "'file' needs to be a correct"))
+  expect_error(c3d_read("path"), regexp = "'file' needs to be a correct")
 })
 
 test_that("import returns c3d class list", {
