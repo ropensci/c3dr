@@ -1,4 +1,4 @@
-PKG_CPPFLAGS = -I.
+PKG_CXXFLAGS = -I.
 
 ##include files manually
 C3DRSOURCES = \
