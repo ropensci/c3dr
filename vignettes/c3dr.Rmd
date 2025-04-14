@@ -1,15 +1,18 @@
 ---
 title: "Getting Started"
-format: html
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Getting Started}
-  %\VignetteEngine{quarto::html}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-knitr:
-  opts_chunk: 
-    collapse: true
-    comment: "#>" 
 ---
+
+```{r options, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 ## What are C3D files?
 
@@ -31,8 +34,7 @@ The `c3dr` package is currently available from GitHub.
 To install it, you first need to install the `remotes` package with `install.packages("remotes")`.
 After that simply execute the following code:
 
-```{r}
-#| eval: false
+```{r eval=FALSE}
 remotes::install_github("smnnlt/c3dr")
 ```
 
@@ -202,8 +204,7 @@ c3d_write(d, "newfile.c3d")
 To make modifications to the point or analog data before writing the file, you can use `c3d_setdata()`.
 This function allows you to update a c3d object with modified data, e.g., to remove, add, rename or convert frames, points and analog channels.
 
-```{r}
-#| eval: false
+```{r eval=FALSE}
 # E.g. remove the last point from the point data
 full_data <- c3d_data(d, format = "long")
 cut_data <- full_data[, -57]
