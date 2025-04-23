@@ -134,11 +134,11 @@ void ezc3d::c3d::readFile(std::fstream &file, unsigned int nByteToRead,
 
 unsigned int ezc3d::c3d::hex2uint(const std::vector<char> &val,
                                   unsigned int len) {
-  int ret(0);
-  for (unsigned int i = 0; i < len; i++)
-    ret |= static_cast<int>(static_cast<unsigned char>(val[i])) *
-           static_cast<int>(pow(0x100, i));
-  return static_cast<unsigned int>(ret);
+  unsigned int ret(0);
+  for (unsigned int i = 0; i < len; ++i)
+    ret |= static_cast<unsigned int>(
+      static_cast<unsigned char>(val[i])) << (8 * i);
+  return ret;
 }
 
 int ezc3d::c3d::hex2int(const std::vector<char> &val, unsigned int len) {
