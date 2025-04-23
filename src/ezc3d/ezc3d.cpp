@@ -148,8 +148,9 @@ int ezc3d::c3d::hex2int(const std::vector<char> &val, unsigned int len) {
   // convert to signed int
   // Find max int value
   unsigned int max(0);
-  for (unsigned int i = 0; i < len; ++i)
-    max |= 0xFF * static_cast<unsigned int>(pow(0x100, i));
+  unsigned int max_bytes = std::min(len, 4u);
+  for (unsigned int i = 0; i < max_bytes; ++i)
+    max |= 0xFFu << (8 * i);
 
   // If the value is over uint_max / 2 then it is a negative number
   int out;
