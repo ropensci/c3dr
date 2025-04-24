@@ -134,11 +134,12 @@ void ezc3d::c3d::readFile(std::fstream &file, unsigned int nByteToRead,
 
 unsigned int ezc3d::c3d::hex2uint(const std::vector<char> &val,
                                   unsigned int len) {
-  int ret(0);
-  for (unsigned int i = 0; i < len; i++)
-    ret |= static_cast<int>(static_cast<unsigned char>(val[i])) *
-           static_cast<int>(pow(0x100, i));
-  return static_cast<unsigned int>(ret);
+  unsigned int ret(0);
+  unsigned int max_bytes = std::min(len, 4u);
+  for (unsigned int i = 0; i < max_bytes; ++i)
+    ret |= static_cast<unsigned int>(
+      static_cast<unsigned char>(val[i])) << (8 * i);
+  return ret;
 }
 
 int ezc3d::c3d::hex2int(const std::vector<char> &val, unsigned int len) {
@@ -147,8 +148,9 @@ int ezc3d::c3d::hex2int(const std::vector<char> &val, unsigned int len) {
   // convert to signed int
   // Find max int value
   unsigned int max(0);
-  for (unsigned int i = 0; i < len; ++i)
-    max |= 0xFF * static_cast<unsigned int>(pow(0x100, i));
+  unsigned int max_bytes = std::min(len, 4u);
+  for (unsigned int i = 0; i < max_bytes; ++i)
+    max |= 0xFFu << (8 * i);
 
   // If the value is over uint_max / 2 then it is a negative number
   int out;
@@ -480,7 +482,7 @@ void ezc3d::c3d::setGroupMetadata(const std::string &groupName,
   size_t idx;
   try {
     idx = parameters().groupIdx(groupName);
-  } catch (std::invalid_argument) {
+  } catch (const std::invalid_argument&) {
     _parameters->group(ezc3d::ParametersNS::GroupNS::Group(groupName));
     idx = parameters().groupIdx(groupName);
   }
@@ -502,7 +504,7 @@ void ezc3d::c3d::parameter(const std::string &groupName,
   size_t idx;
   try {
     idx = parameters().groupIdx(groupName);
-  } catch (std::invalid_argument) {
+  } catch (const std::invalid_argument&) {
     _parameters->group(ezc3d::ParametersNS::GroupNS::Group(groupName));
     idx = parameters().groupIdx(groupName);
   }
@@ -569,7 +571,7 @@ void ezc3d::c3d::frame(const ezc3d::DataNS::Frame &f, size_t idx,
         }
       }
     }
-  } catch (std::invalid_argument) {
+  } catch (const std::invalid_argument&) {
     throw std::invalid_argument("All the points in the frame must appear "
                                 "in the POINT:LABELS parameter");
   }
@@ -606,7 +608,7 @@ void ezc3d::c3d::frame(const ezc3d::DataNS::Frame &f, size_t idx,
 void ezc3d::c3d::frames(const std::vector<ezc3d::DataNS::Frame> frames,
                         size_t firstFrameidx) {
 
-  for (int i = 0; i < frames.size(); i++) {
+  for (size_t i = 0; i < frames.size(); i++) {
     // Only performs internal updates on the first and last frames
     bool skipInternalUpdates = i > 0 && i < frames.size() - 1;
     frame(frames[i], firstFrameidx == SIZE_MAX ? SIZE_MAX : firstFrameidx + i,
