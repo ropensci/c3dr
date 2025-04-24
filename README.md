@@ -150,10 +150,9 @@ Theresa Siepe.
 
 If you consider contributing to this package, read the
 [CONTRIBUTING.md](https://github.com/ropensci/c3dr/blob/main/.github/CONTRIBUTING.md).
-Please note that the c3dr project is released with a [Contributor Code
-of
-Conduct](https://github.com/ropensci/c3dr/blob/main/CODE_OF_CONDUCT.md).
-By contributing to this project, you agree to abide by its terms.
+Please note that this package is released with a [Contributor Code of
+Conduct](https://ropensci.org/code-of-conduct/). By contributing to this
+project, you agree to abide by its terms.
 
 ## Funding
 
