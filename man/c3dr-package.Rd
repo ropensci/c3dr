@@ -25,9 +25,9 @@ data as a data frame.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/smnnlt/c3dr}
-  \item \url{https://smnnlt.github.io/c3dr/}
-  \item Report bugs at \url{https://github.com/smnnlt/c3dr/issues}
+  \item \url{https://github.com/ropensci/c3dr}
+  \item \url{https://docs.ropensci.org/c3dr/}
+  \item Report bugs at \url{https://github.com/ropensci/c3dr/issues}
 }
 
 }
@@ -38,6 +38,8 @@ Other contributors:
 \itemize{
   \item Benjamin Michaud (Author of included EZC3D library) [copyright holder]
   \item German Sport University Cologne (0189raq88) [funder]
+  \item Aymeric Stamm (reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>) [reviewer]
+  \item July Pilowsky (reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>) [reviewer]
 }
 
 }

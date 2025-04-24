@@ -1,21 +1,25 @@
 Package: c3dr
 Title: Read and Write C3D Motion Capture Files
-Version: 0.1.0.9000
+Version: 0.1.1
 Authors@R: c(
     person("Simon", "Nolte", , "s.nolte@dshs-koeln.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1643-1860")),
     person("Benjamin", "Michaud", role = "cph",
            comment = "Author of included EZC3D library"),
     person("German Sport University Cologne", role = "fnd",
-           comment = c(ROR = "0189raq88"))
+           comment = c(ROR = "0189raq88")),
+    person("Aymeric", "Stamm", role = "rev",
+    comment = "reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>"),
+        person("July", "Pilowsky", role = "rev",
+    comment = "reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>")
   )
 Description: A wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://github.com/smnnlt/c3dr, https://smnnlt.github.io/c3dr/
-BugReports: https://github.com/smnnlt/c3dr/issues
+URL: https://github.com/ropensci/c3dr, https://docs.ropensci.org/c3dr/
+BugReports: https://github.com/ropensci/c3dr/issues
 LinkingTo: 
     Rcpp
 Imports: 

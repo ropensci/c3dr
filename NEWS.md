@@ -1,17 +1,30 @@
-c3dr (development version)
+c3dr 0.1.1 (2025-04-24)
 ========================
 
-  Changes in response to the rOpenSci peer review (https://github.com/ropensci/software-review/issues/686)
-  
-  * Updated vignette
-  * Improved documentation
-  * Improved input validation
-  * Add new format method for c3d objects
-  * Fix bug in c3d_write(): Silently failed when directory was nonexistent
-  * Fix warnings in C++ source code
-  * Internal changes: Improved build process, automated cleaning of build artifacts, restructured code
+Changes in response to the rOpenSci [peer review process](https://github.com/ropensci/software-review/issues/686).
+The repository has been transferred to the rOpenSci organization.
 
-c3dr 0.1.0 (2021-02-14)
+### MINOR IMPROVEMENTS
+
+  * Improved input validation for all functions
+  * Improved error messages
+  * New method format.c3d() and internal restructuring of printing for c3d objects
+  * Internal changes: Improved build process, automated cleaning of build artifacts, restructured source code
+
+### DOCUMENTATION FIXES
+
+  * Updated vignette: Added visualization examples,link to a video of the recording of the example data, minor fixes
+  * Added more context for the example data in vignette and function documentation
+  * Converted function documentation to markdown
+  * Improved function documentation in regard to the different point data formats
+  * Fix typos
+
+### BUG FIXES
+  
+  * Fix bug in c3d_write(): Silently failed when writing directory was nonexistent
+  * Fix compiler and ubsan warnings in C++ source code
+
+c3dr 0.1.0 (2025-02-14)
 ========================
 
 ### NEW FEATURES

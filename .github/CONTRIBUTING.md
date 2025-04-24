@@ -2,14 +2,15 @@
 
 <!-- This CONTRIBUTING.md is inspired by Peter Desmet (https://gist.github.com/peterdesmet/e90a1b0dc17af6c12daf6e8b2f044e7c)  -->
 
-[repo]: https://github.com/smmnlt/c3dr
-[issues]: https://github.com/smmnlt/c3dr/issues
-[website]: https://smnnlt.github.io/c3dr/
+[repo]: https://github.com/ropensci/c3dr
+[issues]: https://github.com/ropensci/c3dr/issues
+[website]: https://docs.ropensci.org/c3dr/
 [email]: mailto:s.nolte@dshs-koeln.de
 
 ## Code of conduct
 
-Please note that this package is released with a [Contributor Code of Conduct](https://github.com/smnnlt/c3dr/blob/main/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). 
+By contributing to this project, you agree to abide by its terms.
 
 ## How you can contribute
 

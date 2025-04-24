@@ -64,7 +64,7 @@ bool write(Rcpp::List object, const std::string &filepath) {
   pc3dr.set("c3dr");
   c3d.parameter("EZC3D", pc3dr);
   ezc3d::ParametersNS::GroupNS::Parameter pc3drversion("C3DR_VERSION");
-  pc3drversion.set("0.1.0.9000");
+  pc3drversion.set("0.1.1");
   c3d.parameter("EZC3D", pc3drversion);
 
   // write point and analog data
