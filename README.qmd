@@ -32,12 +32,11 @@ For more information, read the [Get Started](https://docs.ropensci.org/c3dr/arti
 
 ## Installation
 
-Install the latest version 0.1.0 release of `c3dr` from GitHub:
+Install the latest development version of `c3dr` from R-Universe:
 
 ```{r}
 #| eval: false
-if (!require(remotes)) install.packages("remotes")
-remotes::install_github("ropensci/c3dr@v0.1.0")
+install.packages("c3dr", repos = "https://ropensci.r-universe.dev")
 ```
 
 ## Usage

@@ -27,13 +27,16 @@ By using the EZC3D C++ library, the `c3dr` package for R now provides a possibil
 
 ## Install the c3dr package
 
-The `c3dr` package is currently available from GitHub.
-To install it, you first need to install the `remotes` package with `install.packages("remotes")`.
-After that simply execute the following code:
+The `c3dr` package is currently available from R-Universe and GitHub.
+For installation, simply use the following code:
 
 ```{r}
 #| eval: false
-remotes::install_github("ropensci/c3dr")
+install.packages("c3dr", repos = "https://ropensci.r-universe.dev")
+
+# Alternative:
+# if (!require(remotes)) install.packages("remotes") 
+# remotes::install_github("ropensci/c3dr")
 ```
 
 ## Read C3D files with c3dr
