@@ -25,9 +25,9 @@ data as a data frame.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/smnnlt/c3dr}
-  \item \url{https://smnnlt.github.io/c3dr/}
-  \item Report bugs at \url{https://github.com/smnnlt/c3dr/issues}
+  \item \url{https://github.com/ropensci/c3dr}
+  \item \url{https://docs.ropensci.org/c3dr/}
+  \item Report bugs at \url{https://github.com/ropensci/c3dr/issues}
 }
 
 }

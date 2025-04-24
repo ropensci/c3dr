@@ -14,7 +14,7 @@ knitr:
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Status at rOpenSci Software Peer Review](https://badges.ropensci.org/686_status.svg)](https://github.com/ropensci/software-review/issues/686)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
-[![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://app.codecov.io/gh/smnnlt/c3dr)
 
 <!-- badges: end -->
@@ -29,7 +29,7 @@ C3D (<https://www.c3d.org/>) is a file format for biomechanical data, namely mot
 
 The `c3dr` package allows to read, analyze and write C3D files in R (<https://www.r-project.org/about.html>), a programming language popular for statistical analyses and data visualization. `c3dr` is build on the open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
 
-For more information, read the [Get Started](https://smnnlt.github.io/c3dr/articles/c3dr.html) vignette.
+For more information, read the [Get Started](https://docs.ropensci.org/c3dr/articles/c3dr.html) vignette.
 
 ## Installation
 
@@ -38,7 +38,7 @@ Install the latest version 0.1.0 release of `c3dr` from GitHub:
 ```{r}
 #| eval: false
 if (!require(remotes)) install.packages("remotes")
-remotes::install_github("smnnlt/c3dr@v0.1.0")
+remotes::install_github("ropensci/c3dr@v0.1.0")
 ```
 
 ## Usage
@@ -92,7 +92,7 @@ The following people have contributed to this package by providing raw data file
 
 ## Contributing
 
-If you consider contributing to this package, read the [CONTRIBUTING.md](https://github.com/smnnlt/c3dr/blob/main/.github/CONTRIBUTING.md). Please note that the c3dr project is released with a [Contributor Code of Conduct](https://github.com/smnnlt/c3dr/blob/main/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+If you consider contributing to this package, read the [CONTRIBUTING.md](https://github.com/ropensci/c3dr/blob/main/.github/CONTRIBUTING.md). Please note that the c3dr project is released with a [Contributor Code of Conduct](https://github.com/ropensci/c3dr/blob/main/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 ## Funding
 

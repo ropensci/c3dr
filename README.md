@@ -2,7 +2,6 @@
 
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
-
 <!-- badges: start -->
 
 [![Project Status: Active – The project has reached a stable, usable
@@ -11,7 +10,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/686_status.svg)](https://github.com/ropensci/software-review/issues/686)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
-[![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://app.codecov.io/gh/smnnlt/c3dr)
 
 <!-- badges: end -->
@@ -33,7 +32,7 @@ for statistical analyses and data visualization. `c3dr` is build on the
 open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
 
 For more information, read the [Get
-Started](https://smnnlt.github.io/c3dr/articles/c3dr.html) vignette.
+Started](https://docs.ropensci.org/c3dr/articles/c3dr.html) vignette.
 
 ## Installation
 
@@ -41,7 +40,7 @@ Install the latest version 0.1.0 release of `c3dr` from GitHub:
 
 ``` r
 if (!require(remotes)) install.packages("remotes")
-remotes::install_github("smnnlt/c3dr@v0.1.0")
+remotes::install_github("ropensci/c3dr@v0.1.0")
 ```
 
 ## Usage
@@ -128,7 +127,7 @@ citation("c3dr")
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
       package Version 0.1.0. DOI: 10.5281/zenodo.14870399.
-      https://github.com/smnnlt/c3dr
+      https://docs.ropensci.org/c3dr/
 
     A BibTeX entry for LaTeX users is
 
@@ -136,7 +135,7 @@ citation("c3dr")
         title = {c3dr: Work with motion capture data in R},
         author = {Simon Nolte},
         year = {2025},
-        url = {https://github.com/smnnlt/c3dr},
+        url = {https://docs.ropensci.org/c3dr/},
         doi = {10.5281/zenodo.14870399},
         note = {R package version 0.1.0},
       }
@@ -150,10 +149,10 @@ Theresa Siepe.
 ## Contributing
 
 If you consider contributing to this package, read the
-[CONTRIBUTING.md](https://github.com/smnnlt/c3dr/blob/main/.github/CONTRIBUTING.md).
+[CONTRIBUTING.md](https://github.com/ropensci/c3dr/blob/main/.github/CONTRIBUTING.md).
 Please note that the c3dr project is released with a [Contributor Code
 of
-Conduct](https://github.com/smnnlt/c3dr/blob/main/CODE_OF_CONDUCT.md).
+Conduct](https://github.com/ropensci/c3dr/blob/main/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
 
 ## Funding

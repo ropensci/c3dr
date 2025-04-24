@@ -33,7 +33,7 @@ After that simply execute the following code:
 
 ```{r}
 #| eval: false
-remotes::install_github("smnnlt/c3dr")
+remotes::install_github("ropensci/c3dr")
 ```
 
 ## Read C3D files with c3dr
@@ -42,7 +42,7 @@ To import a c3d file simply run the `c3d_read()` function with the absolute or r
 We here use an example file provided with the packages, that can be called using `c3d_example()`.
 The example file is a short recording of human walking, with force platforms measuring the ground impact of two steps. 
 The measurements were performed using a Qualisys motion capture system.
-You can view a video of the [recording](https://github.com/smnnlt/c3dr/blob/main/video/index.md).
+You can view a video of the [recording](https://github.com/ropensci/c3dr/blob/main/video/index.md).
 
 ```{r}
 library(c3dr)

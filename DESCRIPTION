@@ -14,8 +14,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://github.com/smnnlt/c3dr, https://smnnlt.github.io/c3dr/
-BugReports: https://github.com/smnnlt/c3dr/issues
+URL: https://github.com/ropensci/c3dr, https://docs.ropensci.org/c3dr/
+BugReports: https://github.com/ropensci/c3dr/issues
 LinkingTo: 
     Rcpp
 Imports: 
