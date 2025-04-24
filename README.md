@@ -35,11 +35,10 @@ Started](https://docs.ropensci.org/c3dr/articles/c3dr.html) vignette.
 
 ## Installation
 
-Install the latest version 0.1.0 release of `c3dr` from GitHub:
+Install the latest development version of `c3dr` from R-Universe:
 
 ``` r
-if (!require(remotes)) install.packages("remotes")
-remotes::install_github("ropensci/c3dr@v0.1.0")
+install.packages("c3dr", repos = "https://ropensci.r-universe.dev")
 ```
 
 ## Usage
@@ -125,7 +124,7 @@ citation("c3dr")
     To cite c3dr in publications use:
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
-      package Version 0.1.0. DOI: 10.5281/zenodo.14870399.
+      package Version 0.1.1. DOI: 10.5281/zenodo.14870399.
       https://docs.ropensci.org/c3dr/
 
     A BibTeX entry for LaTeX users is
@@ -136,14 +135,14 @@ citation("c3dr")
         year = {2025},
         url = {https://docs.ropensci.org/c3dr/},
         doi = {10.5281/zenodo.14870399},
-        note = {R package version 0.1.0},
+        note = {R package version 0.1.1},
       }
 
 ## Acknowledgements
 
 The following people have contributed to this package by providing raw
-data files, testing code and/or suggesting features: Björn Braunstein,
-Theresa Siepe.
+data files, testing code, suggesting features and/or reviewing the
+package: Björn Braunstein, July Pilowsky, Theresa Siepe, Aymeric Stamm.
 
 ## Contributing
 
