@@ -87,7 +87,7 @@ citation("c3dr")
 
 ## Acknowledgements
 
-The following people have contributed to this package by providing raw data files, testing code and/or suggesting features: Björn Braunstein, Theresa Siepe.
+The following people have contributed to this package by providing raw data files, testing code, suggesting features and/or reviewing the package: Björn Braunstein, July Pilowsky, Theresa Siepe, Aymeric Stamm.
 
 ## Contributing
 

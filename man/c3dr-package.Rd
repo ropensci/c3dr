@@ -38,6 +38,8 @@ Other contributors:
 \itemize{
   \item Benjamin Michaud (Author of included EZC3D library) [copyright holder]
   \item German Sport University Cologne (0189raq88) [funder]
+  \item Aymeric Stamm (reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>) [reviewer]
+  \item July Pilowsky (reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>) [reviewer]
 }
 
 }

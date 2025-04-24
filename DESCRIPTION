@@ -7,7 +7,11 @@ Authors@R: c(
     person("Benjamin", "Michaud", role = "cph",
            comment = "Author of included EZC3D library"),
     person("German Sport University Cologne", role = "fnd",
-           comment = c(ROR = "0189raq88"))
+           comment = c(ROR = "0189raq88")),
+    person("Aymeric", "Stamm", role = "rev",
+    comment = "reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>"),
+        person("July", "Pilowsky", role = "rev",
+    comment = "reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>")
   )
 Description: A wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
 License: MIT + file LICENSE
