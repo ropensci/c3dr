@@ -1,7 +1,7 @@
-c3dr (development version)
+c3dr 0.1.2 (2025-05-15)
 ===========================
 
-
+* Minor fixes for the CRAN submission
 
 c3dr 0.1.1 (2025-04-24)
 ========================

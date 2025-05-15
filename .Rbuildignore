@@ -14,3 +14,4 @@
 ^doc$
 ^Meta$
 ^src/.*\.o$
+^cran-comments\.md$

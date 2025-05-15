@@ -11,7 +11,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 Review](https://badges.ropensci.org/686_status.svg)](https://github.com/ropensci/software-review/issues/686)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
 [![R-CMD-check](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/ropensci/c3dr/graph/badge.svg?token=7lAu5XzivG)](https://codecov.io/gh/ropensci/c3dr)
+[![codecov](https://codecov.io/gh/ropensci/c3dr/graph/badge.svg?token=7lAu5XzivG)](https://app.codecov.io/gh/ropensci/c3dr)
 <!-- badges: end -->
 
 ## Overview

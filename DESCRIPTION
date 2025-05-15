@@ -1,6 +1,6 @@
 Package: c3dr
 Title: Read and Write C3D Motion Capture Files
-Version: 0.1.1.9000
+Version: 0.1.2
 Authors@R: c(
     person("Simon", "Nolte", , "s.nolte@dshs-koeln.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1643-1860")),
