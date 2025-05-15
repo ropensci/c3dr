@@ -1,4 +1,4 @@
-c3dr 0.1.3 (2025-05-15)
+c3dr 0.1.4 (2025-05-15)
 ===========================
 
 * Minor fixes for the CRAN submission
