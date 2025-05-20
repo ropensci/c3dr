@@ -8,9 +8,12 @@ message: 'To cite package "c3dr" in publications use:'
 type: software
 license: MIT
 title: 'c3dr: Read and Write C3D Motion Capture Files'
-version: 0.1.1.9000
+version: 0.1.4
 doi: 10.5281/zenodo.14870399
-abstract: A wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.c3dr
+abstract: A wrapper for the 'EZC3D' library to work with C3D motion capture data.
 authors:
 - family-names: Nolte
   given-names: Simon
@@ -28,6 +31,7 @@ preferred-citation:
   url: https://docs.ropensci.org/c3dr/
   doi: 10.5281/zenodo.14870399
   notes: R package version 0.1.1
+repository: https://CRAN.R-project.org/package=c3dr
 repository-code: https://github.com/ropensci/c3dr
 url: https://docs.ropensci.org/c3dr/
 contact:
