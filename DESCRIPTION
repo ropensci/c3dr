@@ -1,6 +1,6 @@
 Package: c3dr
 Title: Read and Write C3D Motion Capture Files
-Version: 0.1.1
+Version: 0.1.4
 Authors@R: c(
     person("Simon", "Nolte", , "s.nolte@dshs-koeln.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1643-1860")),
@@ -13,7 +13,7 @@ Authors@R: c(
         person("July", "Pilowsky", role = "rev",
     comment = "reviewed the package (v. 0.1.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/686>")
   )
-Description: A wrapper for the ‘EZC3D’ library to work with C3D motion capture data.
+Description: A wrapper for the 'EZC3D' library to work with C3D motion capture data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
