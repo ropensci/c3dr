@@ -30,9 +30,8 @@ By using the EZC3D C++ library, the `c3dr` package for R now provides a possibil
 
 ## Install the c3dr package
 
-The `c3dr` package is currently available from GitHub.
-To install it, you first need to install the `remotes` package with `install.packages("remotes")`.
-After that simply execute the following code:
+The `c3dr` package is currently available from R-Universe and GitHub.
+For installation, simply use the following code:
 
 ```{r eval=FALSE}
 remotes::install_github("smnnlt/c3dr")
@@ -44,7 +43,7 @@ To import a c3d file simply run the `c3d_read()` function with the absolute or r
 We here use an example file provided with the packages, that can be called using `c3d_example()`.
 The example file is a short recording of human walking, with force platforms measuring the ground impact of two steps. 
 The measurements were performed using a Qualisys motion capture system.
-You can view a video of the [recording](https://github.com/smnnlt/c3dr/blob/main/video/index.md).
+You can view a video of the [recording](https://github.com/ropensci/c3dr/blob/main/video/index.md).
 
 ```{r}
 library(c3dr)

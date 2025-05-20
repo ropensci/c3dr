@@ -10,10 +10,11 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/686_status.svg)](https://github.com/ropensci/software-review/issues/686)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/c3dr.png)](https://CRAN.R-project.org/package=c3dr)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
-[![R-CMD-check](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/smnnlt/c3dr/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/smnnlt/c3dr/graph/badge.svg?token=BTRQJ0A831)](https://app.codecov.io/gh/smnnlt/c3dr)
-
+[![R-CMD-check](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml)
+[![codecov](https://codecov.io/gh/ropensci/c3dr/graph/badge.svg?token=7lAu5XzivG)](https://app.codecov.io/gh/ropensci/c3dr)
 <!-- badges: end -->
 
 ## Overview
@@ -33,15 +34,14 @@ for statistical analyses and data visualization. `c3dr` is build on the
 open-source C++ library EZC3D (<https://github.com/pyomeca/ezc3d>).
 
 For more information, read the [Get
-Started](https://smnnlt.github.io/c3dr/articles/c3dr.html) vignette.
+Started](https://docs.ropensci.org/c3dr/articles/c3dr.html) vignette.
 
 ## Installation
 
-Install the latest version 0.1.0 release of `c3dr` from GitHub:
+Install the latest development version of `c3dr` from R-Universe:
 
 ``` r
-if (!require(remotes)) install.packages("remotes")
-remotes::install_github("smnnlt/c3dr@v0.1.0")
+install.packages("c3dr", repos = "https://ropensci.r-universe.dev")
 ```
 
 ## Usage
@@ -127,34 +127,33 @@ citation("c3dr")
     To cite c3dr in publications use:
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
-      package Version 0.1.0. DOI: 10.5281/zenodo.14870399.
-      https://github.com/smnnlt/c3dr
+      package Version 0.1.4. DOI: 10.5281/zenodo.14870399.
+      https://docs.ropensci.org/c3dr/
 
-    A BibTeX entry for LaTeX users is
+    Ein BibTeX-Eintrag für LaTeX-Benutzer ist
 
       @Manual{,
         title = {c3dr: Work with motion capture data in R},
         author = {Simon Nolte},
         year = {2025},
-        url = {https://github.com/smnnlt/c3dr},
+        url = {https://docs.ropensci.org/c3dr/},
         doi = {10.5281/zenodo.14870399},
-        note = {R package version 0.1.0},
+        note = {R package version 0.1.4},
       }
 
 ## Acknowledgements
 
 The following people have contributed to this package by providing raw
-data files, testing code and/or suggesting features: Björn Braunstein,
-Theresa Siepe.
+data files, testing code, suggesting features and/or reviewing the
+package: Björn Braunstein, July Pilowsky, Theresa Siepe, Aymeric Stamm.
 
 ## Contributing
 
 If you consider contributing to this package, read the
-[CONTRIBUTING.md](https://github.com/smnnlt/c3dr/blob/main/.github/CONTRIBUTING.md).
-Please note that the c3dr project is released with a [Contributor Code
-of
-Conduct](https://github.com/smnnlt/c3dr/blob/main/CODE_OF_CONDUCT.md).
-By contributing to this project, you agree to abide by its terms.
+[CONTRIBUTING.md](https://github.com/ropensci/c3dr/blob/main/.github/CONTRIBUTING.md).
+Please note that this package is released with a [Contributor Code of
+Conduct](https://ropensci.org/code-of-conduct/). By contributing to this
+project, you agree to abide by its terms.
 
 ## Funding
 
