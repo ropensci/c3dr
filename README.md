@@ -127,10 +127,10 @@ citation("c3dr")
     To cite c3dr in publications use:
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
-      package Version 0.1.4. DOI: 10.5281/zenodo.14870399.
+      package Version 0.1.5. DOI: 10.5281/zenodo.14870399.
       https://docs.ropensci.org/c3dr/
 
-    Ein BibTeX-Eintrag für LaTeX-Benutzer ist
+    A BibTeX entry for LaTeX users is
 
       @Manual{,
         title = {c3dr: Work with motion capture data in R},
@@ -138,7 +138,7 @@ citation("c3dr")
         year = {2025},
         url = {https://docs.ropensci.org/c3dr/},
         doi = {10.5281/zenodo.14870399},
-        note = {R package version 0.1.4},
+        note = {R package version 0.1.5},
       }
 
 ## Acknowledgements
