@@ -38,7 +38,13 @@ Started](https://docs.ropensci.org/c3dr/articles/c3dr.html) vignette.
 
 ## Installation
 
-Install the latest development version of `c3dr` from R-Universe:
+Install the `c3dr` package from CRAN:
+
+``` r
+install.packages("c3dr")
+```
+
+Alternatively, you can the latest development version from R-Universe:
 
 ``` r
 install.packages("c3dr", repos = "https://ropensci.r-universe.dev")
