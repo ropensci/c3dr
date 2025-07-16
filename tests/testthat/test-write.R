@@ -24,7 +24,8 @@ test_that("reimport works", {
   expect_equal(n$data, d$data, tolerance = 0.0001) # same data
   expect_equal(n$residuals, d$residuals, tolerance = 0.0001)
   expect_equal(n$analog, d$analog, tolerance = 0.0001) # same analogs
-  # force platform data is not exported at the moment
+  # force platform data
+  expect_equal(n$forceplatform, d$forceplatform, tolerance = 0.0001)
 })
 
 test_that("c3dr parameter export works", {
