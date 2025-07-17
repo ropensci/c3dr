@@ -29,6 +29,10 @@ frames per point recording frame. \code{framerate} is the number of point frames
 per second. \code{nevents} is the number of recorded events.
 \item \strong{parameters}: A list with meta data of the recording. The parameters are
 organized in groups, similarly to the original structure in the c3d file.
+c3dr tries to preserve the data type and data structure of each imported
+parameter value. One-dimensional parameters are imported as a scalar or
+vector, two-dimensional parameters are imported as a matrix,
+three-dimensional parameters are imported as a list of matrices.
 \item \strong{data}: A list with the point data of the recording. Each element in the
 list corresponds to one frame. Use \code{\link[=c3d_data]{c3d_data()}} to convert the data to a
 data frame.
