@@ -27,17 +27,22 @@ bool write(Rcpp::List object, const std::string &filepath) {
         // any other yet.
         Rcpp::List ml = l[j];
         std::vector<double> flatVec;
-        // flatten vector
-        for (int k = 0; k < ml.size(); ++k) {
-          Rcpp::NumericMatrix m = ml[k];
-          flatVec.insert(flatVec.end(), m.begin(), m.end());
+        // write empty entry when list is empty
+        if (ml.size() == 0) {
+          param.set(flatVec, {0,0,0});
+        } else {
+          // flatten vector
+          for (int k = 0; k < ml.size(); ++k) {
+            Rcpp::NumericMatrix m = ml[k];
+            flatVec.insert(flatVec.end(), m.begin(), m.end());
+          }
+          // set dimensions based on the first matrix
+          // assuming all matrices have the same dimension
+          Rcpp::NumericMatrix m = ml[0];
+          Rcpp::IntegerVector dimv = m.attr("dim");
+          dim = {static_cast<size_t>(dimv[0]), static_cast<size_t>(dimv[1]), static_cast<size_t>(ml.size())};
+          param.set(flatVec, dim);
         }
-        // set dimensions based on the first matrix
-        // assuming all matrices have the same dimension
-        Rcpp::NumericMatrix m = ml[0];
-        Rcpp::IntegerVector dimv = m.attr("dim");
-        dim = {static_cast<size_t>(dimv[0]), static_cast<size_t>(dimv[1]), static_cast<size_t>(ml.size())};
-        param.set(flatVec, dim);
       } else if (Rf_isMatrix(value)) {
         // if parameter value is a matrix
         // this means that the parameter is two dimensions (row, col)
