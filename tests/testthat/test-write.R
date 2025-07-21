@@ -41,3 +41,27 @@ test_that("c3dr parameter export works", {
     as.character(packageVersion("c3dr"))
   )
 })
+
+test_that("empty parameter writing works", {
+  d <- c3d_read(c3d_example())
+  d$parameters$FORCE_PLATFORM$USED <- 0L
+  d$parameters$FORCE_PLATFORM$ORIGIN <- numeric()
+  d$parameters$FORCE_PLATFORM$CORNERS <- list()
+  tmp <- tempfile() # create temporary file
+  on.exit(unlink(tmp))
+  c3d_write(d, tmp) # write c3d file
+  n <- c3d_read(tmp) # reread file
+
+  expect_identical(
+    n$parameters$FORCE_PLATFORM$USED,
+    d$parameters$FORCE_PLATFORM$USED
+  )
+  expect_identical(
+    n$parameters$FORCE_PLATFORM$ORIGIN,
+    d$parameters$FORCE_PLATFORM$ORIGIN
+  )
+  expect_identical(
+    n$parameters$FORCE_PLATFORM$CORNERS,
+    d$parameters$FORCE_PLATFORM$CORNERS
+  )
+})
