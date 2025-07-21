@@ -151,7 +151,8 @@ citation("c3dr")
 
 The following people have contributed to this package by providing raw
 data files, testing code, suggesting features and/or reviewing the
-package: Björn Braunstein, July Pilowsky, Theresa Siepe, Aymeric Stamm.
+package: Björn Braunstein, July Pilowsky, Theresa Siepe, Michael Schwartz,
+Aymeric Stamm.
 
 ## Contributing
 
