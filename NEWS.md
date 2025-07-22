@@ -1,7 +1,13 @@
 c3dr (development version)
 ===========================
 
+### NEW FEATURES
 
+  * Support export of force platform data in c3d_write(). Thanks to Michael Schwartz for suggesting and testing this feature.
+  
+### MINOR IMPROVEMENTS
+
+  * Preserve matrix data structure of imported parameters
 
 c3dr 0.1.5 (2025-05-21)
 ===========================

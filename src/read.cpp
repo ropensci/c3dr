@@ -40,9 +40,53 @@ Rcpp::List read(const std::string &filepath) {
       // convert parameter value based on data type
       ezc3d::DATA_TYPE dt(f.parameters().group(i).parameter(j).type());
       if (dt == ezc3d::DATA_TYPE::INT) {
-        q[j] = f.parameters().group(i).parameter(j).valuesAsInt();
+        const std::vector<int> d = f.parameters().group(i).parameter(j).valuesAsInt();
+        const std::vector<size_t> dim = f.parameters().group(i).parameter(j).dimension();
+        if (dim.size() == 3) { // list of matrices
+          Rcpp::List ml(dim[2]);
+          size_t mat_size = dim[0] * dim[1];
+          for (size_t k = 0; k < dim[2]; ++k) {
+            Rcpp::IntegerMatrix m(dim[0], dim[1]);
+            // copy data for matrix k
+            std::copy(
+              d.begin() + k * mat_size,
+              d.begin() + (k + 1) * mat_size,
+              m.begin()
+            );
+            ml[k] = m;
+          }
+          q[j] = ml;
+        } else if (dim.size() == 2) { // matrix
+          Rcpp::IntegerMatrix m(dim[0], dim[1]);
+          std::copy(d.begin(), d.end(), m.begin());
+          q[j] = m;
+        } else { // scalar
+          q[j] = d;
+        }
       } else if (dt == ezc3d::DATA_TYPE::FLOAT) {
-        q[j] = f.parameters().group(i).parameter(j).valuesAsDouble();
+        const std::vector<double> d = f.parameters().group(i).parameter(j).valuesAsDouble();
+        const std::vector<size_t> dim = f.parameters().group(i).parameter(j).dimension();
+        if (dim.size() == 3) { // list of matrices
+          Rcpp::List ml(dim[2]);
+          size_t mat_size = dim[0] * dim[1];
+          for (size_t k = 0; k < dim[2]; ++k) {
+            Rcpp::NumericMatrix m(dim[0], dim[1]);
+            // copy data for matrix k
+            std::copy(
+              d.begin() + k * mat_size,
+              d.begin() + (k + 1) * mat_size,
+              m.begin()
+            );
+            ml[k] = m;
+          }
+          q[j] = ml;
+        } else if (dim.size() == 2) { // matrix
+          Rcpp::NumericMatrix m(dim[0], dim[1]);
+          std::copy(d.begin(), d.end(), m.begin());
+          q[j] = m;
+        } else { // scalar
+          q[j] = d;
+        }
       } else if (dt == ezc3d::DATA_TYPE::BYTE) {
         q[j] = f.parameters().group(i).parameter(j).valuesAsByte();
       } else if (dt == ezc3d::DATA_TYPE::WORD || dt == ezc3d::DATA_TYPE::CHAR){
