@@ -19,7 +19,46 @@ bool write(Rcpp::List object, const std::string &filepath) {
       std::string pname = Rcpp::as<std::string>(pnames[j]);
       ezc3d::ParametersNS::GroupNS::Parameter param(pname);
       Rcpp::RObject value = l[j];
-      if (Rf_isInteger(value)) {
+      std::vector<size_t> dim = {};
+      if (Rcpp::is<Rcpp::List>(value)) {
+        // if parameter value is a list
+        // this means that the parameter has three dimensions (row, col, sheet)
+        // currently only double type values are supported, but I haven't seen
+        // any other yet.
+        Rcpp::List ml = l[j];
+        std::vector<double> flatVec;
+        // write empty entry when list is empty
+        if (ml.size() == 0) {
+          param.set(flatVec, {0,0,0});
+        } else {
+          // flatten vector
+          for (int k = 0; k < ml.size(); ++k) {
+            Rcpp::NumericMatrix m = ml[k];
+            flatVec.insert(flatVec.end(), m.begin(), m.end());
+          }
+          // set dimensions based on the first matrix
+          // assuming all matrices have the same dimension
+          Rcpp::NumericMatrix m = ml[0];
+          Rcpp::IntegerVector dimv = m.attr("dim");
+          dim = {static_cast<size_t>(dimv[0]), static_cast<size_t>(dimv[1]), static_cast<size_t>(ml.size())};
+          param.set(flatVec, dim);
+        }
+      } else if (Rf_isMatrix(value)) {
+        // if parameter value is a matrix
+        // this means that the parameter is two dimensions (row, col)
+        Rcpp::IntegerVector dimv(Rf_getAttrib(value, R_DimSymbol));
+        dim = {static_cast<size_t>(dimv[0]), static_cast<size_t>(dimv[1])};
+        // check if the matrix is integer or numeric
+        if (Rf_isInteger(value)) {
+          Rcpp::IntegerVector iv = Rcpp::as<Rcpp::IntegerVector>(value);
+          std::vector<int> intvec(iv.begin(), iv.end());
+          param.set(intvec, dim);
+        } else if (Rf_isReal(value)) { // double (numeric)
+          Rcpp::NumericVector nv = Rcpp::as<Rcpp::NumericVector>(value);
+          std::vector<double> numvec(nv.begin(), nv.end());
+          param.set(numvec, dim);
+        }
+      } else if (Rf_isInteger(value)) {
         Rcpp::IntegerVector intValue = Rcpp::as<Rcpp::IntegerVector>(value);
         std::vector<int> intvec(intValue.begin(), intValue.end());
         param.set(intvec);
@@ -53,18 +92,12 @@ bool write(Rcpp::List object, const std::string &filepath) {
 
   }
 
-  // set FORCE_PLATFORM:USED parameter to 0 as c3dr currently does not support
-  // export of force platform data
-  ezc3d::ParametersNS::GroupNS::Parameter fpused("USED");
-  fpused.set(0);
-  c3d.parameter("FORCE_PLATFORM", fpused);
-
   // write c3dr related parameters to the EZC3D group
   ezc3d::ParametersNS::GroupNS::Parameter pc3dr("BINDING");
   pc3dr.set("c3dr");
   c3d.parameter("EZC3D", pc3dr);
   ezc3d::ParametersNS::GroupNS::Parameter pc3drversion("C3DR_VERSION");
-  pc3drversion.set("0.1.4.9000");
+  pc3drversion.set("0.1.5.9000");
   c3d.parameter("EZC3D", pc3drversion);
 
   // write point and analog data
@@ -111,4 +144,3 @@ bool write(Rcpp::List object, const std::string &filepath) {
   c3d.write(filepath);
   return true;
 }
-

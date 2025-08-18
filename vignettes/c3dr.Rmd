@@ -30,7 +30,7 @@ By using the EZC3D C++ library, the `c3dr` package for R now provides a possibil
 
 ## Install the c3dr package
 
-The `c3dr` package is currently available from R-Universe and GitHub.
+The `c3dr` package is currently available from CRAN and R-Universe.
 For installation, simply use the following code:
 
 ```{r eval=FALSE}
@@ -193,7 +193,7 @@ plot(
 
 ## Write C3D files with c3dr
 
-You can write in existing c3d object in R to a c3d file with the `c3d_write()` function:
+You can write an existing c3d object in R to a c3d file with the `c3d_write()` function:
 
 ```{r}
 #| eval: false

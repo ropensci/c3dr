@@ -11,7 +11,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/686_status.svg)](https://github.com/ropensci/software-review/issues/686)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/c3dr.png)](https://CRAN.R-project.org/package=c3dr)
+status](https://www.r-pkg.org/badges/version/c3dr)](https://CRAN.R-project.org/package=c3dr)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
 [![R-CMD-check](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/ropensci/c3dr/graph/badge.svg?token=7lAu5XzivG)](https://app.codecov.io/gh/ropensci/c3dr)
@@ -38,7 +38,13 @@ Started](https://docs.ropensci.org/c3dr/articles/c3dr.html) vignette.
 
 ## Installation
 
-Install the latest development version of `c3dr` from R-Universe:
+Install the `c3dr` package from CRAN:
+
+``` r
+install.packages("c3dr")
+```
+
+Alternatively, you can the latest development version from R-Universe:
 
 ``` r
 install.packages("c3dr", repos = "https://ropensci.r-universe.dev")
@@ -127,10 +133,10 @@ citation("c3dr")
     To cite c3dr in publications use:
 
       Simon Nolte (2025). c3dr: Work with motion capture data in R. R
-      package Version 0.1.4. DOI: 10.5281/zenodo.14870399.
+      package Version 0.1.5. DOI: 10.5281/zenodo.14870399.
       https://docs.ropensci.org/c3dr/
 
-    Ein BibTeX-Eintrag für LaTeX-Benutzer ist
+    A BibTeX entry for LaTeX users is
 
       @Manual{,
         title = {c3dr: Work with motion capture data in R},
@@ -138,14 +144,15 @@ citation("c3dr")
         year = {2025},
         url = {https://docs.ropensci.org/c3dr/},
         doi = {10.5281/zenodo.14870399},
-        note = {R package version 0.1.4},
+        note = {R package version 0.1.5},
       }
 
 ## Acknowledgements
 
 The following people have contributed to this package by providing raw
 data files, testing code, suggesting features and/or reviewing the
-package: Björn Braunstein, July Pilowsky, Theresa Siepe, Aymeric Stamm.
+package: Björn Braunstein, July Pilowsky, Theresa Siepe, Michael Schwartz,
+Aymeric Stamm.
 
 ## Contributing
 

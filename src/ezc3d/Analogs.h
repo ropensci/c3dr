@@ -9,6 +9,7 @@
 ///
 
 #include "ezc3d/AnalogsSubframe.h"
+#include <cstdint>
 
 ///
 /// \brief Analog holder for C3D analogous data
