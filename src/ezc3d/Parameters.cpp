@@ -196,6 +196,12 @@ void ezc3d::ParametersNS::Parameters::setMandatoryParameters() {
       p.set(0);
       p.lock();
       grp.parameter(p);
+    } else {
+      // Make sure the value is actually a positive integer
+      auto frames = grp.parameter("FRAMES").valuesAsInt();
+      if (frames.size() > 1 || frames[0] < 0) {
+        grp.parameter("FRAMES").set(static_cast<uint16_t>(frames[0]));
+      }
     }
   }
   {

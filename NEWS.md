@@ -8,6 +8,7 @@ c3dr (development version)
 ### MINOR IMPROVEMENTS
 
   * Preserve matrix data structure of imported parameters
+  * Implement latest changes to EZC3D
 
 c3dr 0.1.5 (2025-05-21)
 ===========================
