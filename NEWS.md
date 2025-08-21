@@ -1,4 +1,4 @@
-c3dr (development version)
+c3dr 0.2.0 (2025-08-21)
 ===========================
 
 ### NEW FEATURES
