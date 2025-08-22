@@ -24,13 +24,20 @@ analog data and parameters in the file. Note that the resulting file will
 show minor discrepancies compared to the original file (e.g., in terms of
 file structure). During import and export minor rounding errors can occur.
 
-Force platform data export is currently not supported. The header parameters
-will not be exported but recreated based on the parameter section. If you
-want to change the header you should change the appropriate parameters
-instead.
+Force platform data is exported by writing the analog channels with raw force
+data and the corresponding parameters of the \code{FORCE_PLATFORM} group for
+processing. This means that in the current version, modifications to the
+processed force platform data (\code{obj$forceplatform}) will not be exported.
+Make modifications to the analog channels holding the raw data instead. If
+you delete analog channels in your data, make sure that
+\code{obj$parameters$FORCE_PLATFORM$CHANNEL} still points to the correct indices.
+
+The header parameters of the c3d object will not be exported but recreated
+based on the parameter section. If you want to change the header you should
+change the appropriate parameters instead.
 
 Be cautious when writing a modified c3d object to an c3d file, as internal
-inconsistencies may lead to corrupt files. \code{c3d_write} and the underlying
+inconsistencies may lead to corrupt files. \code{c3d_write()} and the underlying
 ezc3d function perform some basic checks but may fail if, for example,
 parameters and data are inconsistent. You can use the helper function
 \code{\link[=c3d_setdata]{c3d_setdata()}} for modifying point or analog data of a c3d object. Larger

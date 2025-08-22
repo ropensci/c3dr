@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/ropensci/c3dr",
   "issueTracker": "https://github.com/ropensci/c3dr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.0 (2025-04-11 ucrt)",
+  "runtimePlatform": "R version 4.5.1 (2025-06-13 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -94,7 +94,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "0KB",
+  "fileSize": "18550.916KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -109,12 +109,12 @@
       "name": "c3dr: Work with motion capture data in R",
       "identifier": "10.5281/zenodo.14870399",
       "url": "https://docs.ropensci.org/c3dr/",
-      "description": "R package version 0.1.5",
+      "description": "R package version 0.2.0",
       "@id": "https://doi.org/10.5281/zenodo.14870399",
       "sameAs": "https://doi.org/10.5281/zenodo.14870399"
     }
   ],
-  "releaseNotes": "https://github.com/ropensci/c3dr/blob/master/NEWS.md",
+  "releaseNotes": "https://github.com/ropensci/c3dr/blob/main/NEWS.md",
   "readme": "https://github.com/ropensci/c3dr/blob/main/README.md",
   "contIntegration": ["https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/ropensci/c3dr"],
   "developmentStatus": "https://www.repostatus.org/#active",
