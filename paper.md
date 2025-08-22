@@ -1,5 +1,5 @@
 ---
-title: 'c3dr: An R package to Read and Write C3D Motion Capture Files'
+title: 'c3dr: An R Package to Read and Write C3D Motion Capture Files'
 tags:
   - R
   - C3D
@@ -23,7 +23,7 @@ bibliography: paper.bib
 Human motion can be recorded in several ways, including three-dimensional motion capture systems, force platforms, electromyographic measurement devices, and inertial measurement units.
 These biomechanical measurements are stored and combined in data containers.
 The standard format for these data containers is the *C3D* file format.
-Software for working with *C3D* files has primarily been limited to programming languages such as C++, Python, or Matlab.
+Software for working with *C3D* files has primarily been limited to programming languages such as C++, Python, or MATLAB.
 We here present `c3dr`, an R package for reading and writing *C3D* files.
 R is a programming language widely used for statistical modeling and data visualization, and `c3dr` extends its capabilities to biomechanical data analysis.
 The package is built on the open C++ library `ezc3d` [@michaud2021].
@@ -32,12 +32,12 @@ With `c3dr`, researchers can use R to modify, visualize, and model biomechanical
 # Statement of need
 
 *C3D* is a binary format commonly used in biomechanics to store data from multiple sources, such as motion capture systems and force plates [@motionlabsystems2021].
-The format is widely regarded the standard data container in the field of human motion analysis.
+The format is widely regarded as the standard data container in the field of human motion analysis.
 However, despite its widespread adoption, the available technical tools for working with *C3D* files are limited.
 
-The primary software for handling c3d files is the Biomechanical-ToolKit (`BTK`) [@barre2014].
-Released as open-source software and popular for its graphical user interface Mokka, `BTK` has long been the standard tool for biomechanical data analysis; However, the software has not been updated since 2015.
-More recent approaches, such as the `ezc3d` library [@michaud2021], are available, but like `BTK`, they are limited to the C++, Matlab, or Python programming language [@johnsson2022].
+The primary software for handling *C3D* files is the Biomechanical-ToolKit (`BTK`) [@barre2014].
+Released as open-source software and popular for its graphical user interface Mokka, `BTK` has long served as the standard tool for biomechanical data analysis; however, the software has not been updated since 2015.
+More recent approaches, such as the `ezc3d` library [@michaud2021], are available, but like `BTK`, they are limited to C++, MATLAB, or Python [@johnsson2022].
 
 The *R* language is widely used for scientific visualization, data wrangling, and statistical analysis [@rcoreteam2025].
 Yet, no software for reading and analyzing *C3D* files has existed in the R environment.
