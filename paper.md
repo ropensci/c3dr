@@ -60,14 +60,15 @@ The package is released as open-source software under an MIT license.
 
 # Software Design
 
-The core of `c3dr` is the reading and writing functions for *C3D* data that wrap the existing C++ functionality.
+The core of `c3dr` is the reading and writing functions for *C3D* data that wrap the existing C++ functionality of `ezc3d`.
 A key challenge was to translate the structure of *C3D* data into an appropriate structure for R objects.
 Internally, `c3dr` treats *C3D* data as nested lists with different categories.
 This guarantees that all data and metadata are imported and available for re-export.
 Because nested lists are difficult to handle in R, several accessor functions are provided to convert the list data into more accessible data (and back), such as data.frame, which can be directly used for statistical analysis or visualization.
 When writing an *C3D* file, `c3dr` recreates the file from scratch, even if no modifications were made.
 This means that importing and re-exporting a file with the package may lead to minor modifications in the structure of the file.
-But rebuilding the file based on the available data is the only way to create valid files in response to changes to the data undertaken in R and it also ensures uniform output formats regardless of the input *C3D* format.
+But rebuilding the file based on the available data is the only way to create valid files in response to changes to the data undertaken in R.
+It also ensures uniform output formats regardless of the input *C3D* format.
 
 # Research Impact Statement
 
@@ -91,3 +92,4 @@ The following people have contributed to this package by providing raw data file
 This project was funded by the Internal Research Funds of the German Sport University Cologne, grant agreement number L-11-10011-289-154000.
 
 # References
+
