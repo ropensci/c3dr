@@ -1,7 +1,7 @@
 c3dr (development version)
 ===========================
 
-
+* Updated citation information to point to the published JOSS paper
 
 c3dr 0.2.0 (2025-08-21)
 ===========================

@@ -12,7 +12,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 Review](https://badges.ropensci.org/686_status.svg)](https://github.com/ropensci/software-review/issues/686)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/c3dr)](https://CRAN.R-project.org/package=c3dr)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14870399.svg)](https://doi.org/10.5281/zenodo.14870399)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.09951/status.svg)](https://doi.org/10.21105/joss.09951)
 [![R-CMD-check](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/c3dr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/ropensci/c3dr/graph/badge.svg?token=7lAu5XzivG)](https://app.codecov.io/gh/ropensci/c3dr)
 <!-- badges: end -->
@@ -129,23 +129,26 @@ d$forceplatform[[1]]$forces[1:5, ]
 ``` r
 citation("c3dr")
 ```
+ To cite c3dr in publications use:
 
-    To cite c3dr in publications use:
+  Nolte, S., (2026). c3dr: An R Package to Read and Write C3D Motion
+  Capture Files. Journal of Open Source Software, 11(118), 9951,
+  https://doi.org/10.21105/joss.09951
 
-      Simon Nolte (2025). c3dr: Work with motion capture data in R. R
-      package Version 0.2.0. DOI: 10.5281/zenodo.14870399.
-      https://docs.ropensci.org/c3dr/
+ A BibTeX entry for LaTeX users is
 
-    A BibTeX entry for LaTeX users is
-
-      @Manual{,
-        title = {c3dr: Work with motion capture data in R},
-        author = {Simon Nolte},
-        year = {2025},
-        url = {https://docs.ropensci.org/c3dr/},
-        doi = {10.5281/zenodo.14870399},
-        note = {R package version 0.2.0},
-      }
+  @Article{,
+    title = {c3dr: An R Package to Read and Write C3D Motion Capture Files},
+    author = {Simon Nolte},
+    year = {2026},
+    url = {https://doi.org/10.21105/joss.09951},
+    doi = {10.21105/joss.09951},
+    journal = {Journal of Open Source Software},
+    publisher = {The Open Journal},
+    volume = {111},
+    number = {118},
+    pages = {9951},
+  }
 
 ## Acknowledgements
 

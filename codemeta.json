@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/ropensci/c3dr",
   "issueTracker": "https://github.com/ropensci/c3dr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.0",
+  "version": "0.2.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.1 (2025-06-13 ucrt)",
+  "runtimePlatform": "R version 4.5.0 (2025-04-11 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -94,11 +94,11 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "18550.916KB",
+  "fileSize": "0KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
-      "datePublished": "2025",
+      "@type": "ScholarlyArticle",
+      "datePublished": "2026",
       "author": [
         {
           "@type": "Person",
@@ -106,12 +106,22 @@
           "familyName": "Nolte"
         }
       ],
-      "name": "c3dr: Work with motion capture data in R",
-      "identifier": "10.5281/zenodo.14870399",
-      "url": "https://docs.ropensci.org/c3dr/",
-      "description": "R package version 0.2.0",
-      "@id": "https://doi.org/10.5281/zenodo.14870399",
-      "sameAs": "https://doi.org/10.5281/zenodo.14870399"
+      "name": "c3dr: An R Package to Read and Write C3D Motion Capture Files",
+      "identifier": "10.21105/joss.09951",
+      "url": "https://doi.org/10.21105/joss.09951",
+      "pagination": "9951",
+      "@id": "https://doi.org/10.21105/joss.09951",
+      "sameAs": "https://doi.org/10.21105/joss.09951",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "118",
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "111",
+          "name": "Journal of Open Source Software"
+        }
+      }
     }
   ],
   "releaseNotes": "https://github.com/ropensci/c3dr/blob/main/NEWS.md",

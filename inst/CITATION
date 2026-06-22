@@ -1,17 +1,22 @@
 bibentry(
-  bibtype  = "Manual",
-  title    = "c3dr: Work with motion capture data in R",
+  bibtype  = "article",
+  title    = "c3dr: An R Package to Read and Write C3D Motion Capture Files",
   author   = person("Simon", "Nolte"),
-  year     = 2025,
-  url      = "https://docs.ropensci.org/c3dr/",
-  doi      = "10.5281/zenodo.14870399",
-  note     = "R package version 0.2.0",
+  year     = 2026,
+  url      = "https://doi.org/10.21105/joss.09951",
+  doi      = "10.21105/joss.09951",
+  journal  = "Journal of Open Source Software",
+  publisher= "The Open Journal",
+  volume   = 111,
+  number   = 118,
+  pages    = 9951,
   textVersion = paste0(
-    "Simon Nolte (2025). ",
-    "c3dr: Work with motion capture data in R. ",
-    "R package Version 0.2.0. ",
-    "DOI: 10.5281/zenodo.14870399. ",
-    "https://docs.ropensci.org/c3dr/"
+    "Nolte, S., (2026). ",
+    "c3dr: An R Package to Read and Write ",
+    "C3D Motion Capture Files. ",
+    "Journal of Open Source Software, ",
+    "11(118), 9951, ",
+    "https://doi.org/10.21105/joss.09951"
   ),
   header = "To cite c3dr in publications use:"
 )
