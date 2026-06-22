@@ -129,26 +129,26 @@ d$forceplatform[[1]]$forces[1:5, ]
 ``` r
 citation("c3dr")
 ```
- To cite c3dr in publications use:
+    To cite c3dr in publications use:
+  
+      Nolte, S., (2026). c3dr: An R Package to Read and Write C3D Motion
+      Capture Files. Journal of Open Source Software, 11(118), 9951,
+      https://doi.org/10.21105/joss.09951
 
-  Nolte, S., (2026). c3dr: An R Package to Read and Write C3D Motion
-  Capture Files. Journal of Open Source Software, 11(118), 9951,
-  https://doi.org/10.21105/joss.09951
+    A BibTeX entry for LaTeX users is
 
- A BibTeX entry for LaTeX users is
-
-  @Article{,
-    title = {c3dr: An R Package to Read and Write C3D Motion Capture Files},
-    author = {Simon Nolte},
-    year = {2026},
-    url = {https://doi.org/10.21105/joss.09951},
-    doi = {10.21105/joss.09951},
-    journal = {Journal of Open Source Software},
-    publisher = {The Open Journal},
-    volume = {111},
-    number = {118},
-    pages = {9951},
-  }
+      @Article{,
+        title = {c3dr: An R Package to Read and Write C3D Motion Capture Files},
+        author = {Simon Nolte},
+        year = {2026},
+        url = {https://doi.org/10.21105/joss.09951},
+        doi = {10.21105/joss.09951},
+        journal = {Journal of Open Source Software},
+        publisher = {The Open Journal},
+        volume = {111},
+        number = {118},
+        pages = {9951},
+      }
 
 ## Acknowledgements
 
