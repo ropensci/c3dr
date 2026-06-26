@@ -44,7 +44,7 @@ Install the `c3dr` package from CRAN:
 install.packages("c3dr")
 ```
 
-Alternatively, you can the latest development version from R-Universe:
+Alternatively, you can install the latest development version from R-Universe:
 
 ``` r
 install.packages("c3dr", repos = "https://ropensci.r-universe.dev")

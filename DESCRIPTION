@@ -17,7 +17,6 @@ Description: A wrapper for the 'EZC3D' library to work with C3D motion capture d
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 URL: https://github.com/ropensci/c3dr, https://docs.ropensci.org/c3dr/
 BugReports: https://github.com/ropensci/c3dr/issues
 LinkingTo: 
@@ -30,3 +29,4 @@ Suggests:
 Config/testthat/edition: 3
 VignetteBuilder:
     quarto
+Config/roxygen2/version: 8.0.0
